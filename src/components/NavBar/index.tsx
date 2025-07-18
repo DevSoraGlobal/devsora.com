@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -22,28 +23,30 @@ export default function NavBar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:py-4 backdrop-blur-2xl sm:backdrop-blur-none">
-      <div className="container mx-auto flex h-16 items-center justify-between gap-8">
+      <div className="container mx-auto flex h-16 items-center justify-between relative">
         {/* Left: Logo and Brand Name */}
-        <div className="hidden md:flex flex-shrink-0">
+        <div className="hidden md:flex flex-shrink-0 z-10">
           <Link href="/" className="flex items-center gap-2">
             <Code2 className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold font-headline tracking-heading">Devsora</span>
           </Link>
         </div>
 
-        {/* Center: Navigation */}
-        <div className="group flex-1 flex justify-center transition-transform duration-300 ease-in-out hover:scale-105">
-          <nav className="hidden md:flex items-center gap-6 px-6 sm:px-8 lg:px-10 bg-background/80 backdrop-blur-sm border border-border/40 rounded-full shadow-lg group-hover:shadow-primary/20 h-16">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary tracking-body">
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+        {/* Center: Navigation (Absolutely Centered) */}
+        <div className="hidden md:flex justify-center absolute inset-0 h-16 pointer-events-none">
+          <div className="group transition-transform duration-300 ease-in-out hover:scale-105 pointer-events-auto">
+            <nav className="flex items-center gap-6 px-6 sm:px-8 lg:px-10 bg-background/80 backdrop-blur-sm border border-border/40 rounded-full shadow-lg group-hover:shadow-primary/20 h-16">
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary tracking-body">
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
-
+        
         {/* Right: Auth Buttons */}
-        <div className="hidden md:flex items-center gap-4 flex-shrink-0">
+        <div className="hidden md:flex items-center gap-4 flex-shrink-0 z-10">
           {isLoggedIn ? (
             <Link href="/dashboard">
               <div className="h-8 w-8 rounded-full bg-primary" />
