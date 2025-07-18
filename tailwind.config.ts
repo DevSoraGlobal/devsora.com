@@ -14,9 +14,9 @@ export default {
         body: '0.01em',
       },
       fontFamily: {
-        body: ['"Roboto Flex"', 'sans-serif'],
+        body: ['"Faustina"', 'serif'],
         headline: ['"Bebas Neue"', 'sans-serif'],
-        code: ['"Roboto Flex"', 'sans-serif'],
+        code: ['"Faustina"', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
