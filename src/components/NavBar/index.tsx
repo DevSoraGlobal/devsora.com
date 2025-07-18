@@ -47,7 +47,7 @@ export default function NavBar() {
         {/* Center: Navigation (Desktop) */}
         <nav className={cn(
           "hidden md:flex items-center gap-2 px-3 py-2 transition-all duration-300",
-           isScrolled ? "bg-black/50 backdrop-blur-lg border border-white/10 rounded-full shadow-2xl shadow-black/20" : ""
+           isScrolled ? "bg-black/60 border border-white/10 rounded-full" : ""
         )}>
           {navLinks.map((link) => (
             <Link
