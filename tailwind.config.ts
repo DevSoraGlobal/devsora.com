@@ -14,9 +14,9 @@ export default {
         body: '0.01em',
       },
       fontFamily: {
-        body: ['"Faustina"', 'serif'],
-        headline: ['"Bebas Neue"', 'sans-serif'],
-        code: ['"Faustina"', 'serif'],
+        body: ['"Faustina"'],
+        headline: ['"Bebas Neue"'],
+        code: ['"Faustina"'],
       },
       colors: {
         background: 'hsl(var(--background))',

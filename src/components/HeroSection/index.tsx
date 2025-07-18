@@ -20,9 +20,8 @@ export default function HeroSection() {
         className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0"
         style={{ 
           transform: `translateY(${offsetY * 0.5}px)`,
-          backgroundImage: "url('https://placehold.co/1920x1080.png')",
+          backgroundImage: "url('/hero-bg-img.png')",
         }}
-        data-ai-hint="futuristic abstract"
       >
         <div className="absolute inset-0 bg-background/70" />
       </div>
@@ -31,7 +30,7 @@ export default function HeroSection() {
         <h1 className="font-extrabold font-headline mb-4 morpheus-text tracking-heading">
           DEVSORA
         </h1>
-        <p className="max-w-2xl text-lg md:text-xl text-muted-foreground mb-8 font-normal tracking-body">
+          <p className="max-w-2xl text-lg/0 md:text-xl/0 text-muted-foreground mb-8 font-normal tracking-body ">
           From strategy to execution, Devsora is your partner in mastering technology and shaping your future.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
