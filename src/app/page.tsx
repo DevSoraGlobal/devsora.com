@@ -1,3 +1,4 @@
+
 import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
 import IntroSection from '@/components/IntroSection';
@@ -7,12 +8,14 @@ import FeaturesSection from '@/components/FeaturesSection';
 import AboutUsSection from '@/components/AboutUsSection';
 import InsightsSection from '@/components/InsightsSection';
 import Footer from '@/components/Footer';
+import LoadingScreen from '@/components/LoadingScreen';
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
+      <LoadingScreen />
       <NavBar />
-      <main className="flex-grow">
+      <main className="flex-grow pt-0">
         <HeroSection />
         <IntroSection />
         <CoursesSection />
