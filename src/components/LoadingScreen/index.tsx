@@ -19,7 +19,7 @@ export default function LoadingScreen({ onExited }: LoadingScreenProps) {
         setTimeout(() => {
           setVisible(false);
           onExited();
-        }, 1000); 
+        }, 1000); // Animation duration
       }
     };
 
@@ -31,7 +31,8 @@ export default function LoadingScreen({ onExited }: LoadingScreenProps) {
 
     window.addEventListener('scroll', handleScroll);
 
-    const timer = setTimeout(exit, 2000);
+    // Auto-exit timer
+    const timer = setTimeout(exit, 1000);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);

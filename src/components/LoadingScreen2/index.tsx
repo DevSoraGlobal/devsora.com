@@ -10,16 +10,20 @@ interface LoadingScreen2Props {
 
 export default function LoadingScreen2({ onExited }: LoadingScreen2Props) {
   const [visible, setVisible] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
+    // Start entry animation
+    setIsAnimating(true);
+
     const exit = () => {
       if (!isExiting) {
         setIsExiting(true);
         setTimeout(() => {
           setVisible(false);
           onExited();
-        }, 1000); 
+        }, 1000); // Animation duration
       }
     };
     
@@ -29,10 +33,11 @@ export default function LoadingScreen2({ onExited }: LoadingScreen2Props) {
         }
     };
 
-    document.body.style.overflow = 'hidden'; // Prevent scroll on main content while this is visible
+    document.body.style.overflow = 'hidden';
 
     window.addEventListener('scroll', handleScroll);
 
+    // Auto-exit timer
     const timer = setTimeout(exit, 2000);
 
     return () => {
@@ -53,7 +58,7 @@ export default function LoadingScreen2({ onExited }: LoadingScreen2Props) {
     )}>
       <h2 className={cn(
           "font-headline font-bold text-white text-center text-[5vw] md:text-[4vw] max-w-4xl px-4 transition-all duration-700 ease-out",
-          isExiting ? "scale-110 opacity-0" : "scale-100 opacity-100"
+          isAnimating ? "scale-100 opacity-100" : "scale-90 opacity-0"
       )}>
         Code. Create. Collaborate. Shaping Skills Together
       </h2>
