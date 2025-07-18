@@ -4,11 +4,11 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
-interface LoadingScreenProps {
+interface LoadingScreen2Props {
   onExited: () => void;
 }
 
-export default function LoadingScreen({ onExited }: LoadingScreenProps) {
+export default function LoadingScreen2({ onExited }: LoadingScreen2Props) {
   const [visible, setVisible] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
 
@@ -22,12 +22,14 @@ export default function LoadingScreen({ onExited }: LoadingScreenProps) {
         }, 1000); 
       }
     };
-
+    
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        exit();
-      }
+        if (window.scrollY > 10) {
+          exit();
+        }
     };
+
+    document.body.style.overflow = 'hidden'; // Prevent scroll on main content while this is visible
 
     window.addEventListener('scroll', handleScroll);
 
@@ -36,6 +38,7 @@ export default function LoadingScreen({ onExited }: LoadingScreenProps) {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timer);
+      document.body.style.overflow = 'auto';
     };
   }, [isExiting, onExited]);
 
@@ -45,15 +48,15 @@ export default function LoadingScreen({ onExited }: LoadingScreenProps) {
 
   return (
     <div className={cn(
-        "fixed inset-0 bg-black z-[100] flex items-center justify-center transition-all duration-1000 ease-in-out",
-        isExiting ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
+        "fixed inset-0 bg-black z-[99] flex items-center justify-center transition-opacity duration-1000 ease-in-out",
+        isExiting ? "opacity-0" : "opacity-100"
     )}>
-      <h1 className={cn(
-          "font-headline font-bold text-white text-[10vw] md:text-[8vw] transition-all duration-700 ease-out",
-          isExiting ? "scale-150 opacity-0" : "scale-100 opacity-100"
+      <h2 className={cn(
+          "font-headline font-bold text-white text-center text-[5vw] md:text-[4vw] max-w-4xl px-4 transition-all duration-700 ease-out",
+          isExiting ? "scale-110 opacity-0" : "scale-100 opacity-100"
       )}>
-        DEVSORA
-      </h1>
+        Code. Create. Collaborate. Shaping Skills Together
+      </h2>
     </div>
   );
 }
