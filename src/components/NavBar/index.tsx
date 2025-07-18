@@ -24,10 +24,10 @@ export default function NavBar() {
     <header className="fixed top-0 left-0 right-0 z-50 p-4">
       <div className="container mx-auto flex h-16 items-center justify-between gap-8">
         {/* Left: Logo and Brand Name */}
-        <div className="hidden md:flex">
+        <div className="hidden md:flex flex-shrink-0">
           <Link href="/" className="flex items-center gap-2">
             <Code2 className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold font-headline">Devsora</span>
+            <span className="text-xl font-bold font-headline tracking-heading">Devsora</span>
           </Link>
         </div>
 
@@ -35,7 +35,7 @@ export default function NavBar() {
         <div className="group flex-1 flex justify-center transition-transform duration-300 ease-in-out hover:scale-105">
           <nav className="hidden md:flex items-center gap-6 px-6 sm:px-8 lg:px-10 bg-background/80 backdrop-blur-sm border border-border/40 rounded-full shadow-lg group-hover:shadow-primary/20 h-16">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              <Link key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary tracking-body">
                 {link.label}
               </Link>
             ))}
@@ -43,15 +43,15 @@ export default function NavBar() {
         </div>
 
         {/* Right: Auth Buttons */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4 flex-shrink-0">
           {isLoggedIn ? (
             <Link href="/dashboard">
               <div className="h-8 w-8 rounded-full bg-primary" />
             </Link>
           ) : (
             <>
-              <Button variant="ghost">Sign In</Button>
-              <Button>Sign Up</Button>
+              <Button variant="ghost" className="tracking-body">Sign In</Button>
+              <Button className="tracking-body">Sign Up</Button>
             </>
           )}
         </div>
@@ -60,7 +60,7 @@ export default function NavBar() {
         <div className="md:hidden flex items-center justify-between w-full">
             <Link href="/" className="flex items-center gap-2">
                 <Code2 className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold font-headline">Devsora</span>
+                <span className="text-xl font-bold font-headline tracking-heading">Devsora</span>
             </Link>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -73,7 +73,7 @@ export default function NavBar() {
                 <div className="flex flex-col h-full">
                   <nav className="flex flex-col gap-6 text-lg font-medium mt-16">
                     {navLinks.map((link) => (
-                      <Link key={link.href} href={link.href} className="text-foreground transition-colors hover:text-primary" onClick={() => setIsOpen(false)}>
+                      <Link key={link.href} href={link.href} className="text-foreground transition-colors hover:text-primary tracking-body" onClick={() => setIsOpen(false)}>
                         {link.label}
                       </Link>
                     ))}
@@ -81,12 +81,12 @@ export default function NavBar() {
                   <div className="mt-auto flex flex-col gap-4">
                     {isLoggedIn ? (
                        <Link href="/dashboard" passHref>
-                          <Button className="w-full">Dashboard</Button>
+                          <Button className="w-full tracking-body">Dashboard</Button>
                       </Link>
                     ) : (
                       <>
-                        <Button variant="ghost" className="w-full">Sign In</Button>
-                        <Button className="w-full">Sign Up</Button>
+                        <Button variant="ghost" className="w-full tracking-body">Sign In</Button>
+                        <Button className="w-full tracking-body">Sign Up</Button>
                       </>
                     )}
                   </div>

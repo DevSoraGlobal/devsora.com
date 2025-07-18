@@ -35,9 +35,9 @@ export default function CoursesSection() {
     <section className="py-24 sm:py-32">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-base font-semibold leading-7 text-primary font-headline">Start Your Journey</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Featured Courses</p>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground font-normal">
+          <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-heading">Start Your Journey</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline tracking-heading">Featured Courses</p>
+          <p className="mt-6 text-lg leading-8 text-muted-foreground font-normal tracking-body">
             Handpicked courses to kickstart your career in technology.
           </p>
         </div>
@@ -48,21 +48,21 @@ export default function CoursesSection() {
                 <Image src={course.image} alt={course.title} width={600} height={400} className="w-full object-cover" data-ai-hint={course.aiHint} />
               </CardHeader>
               <CardContent className="flex-grow p-6">
-                <CardTitle className="font-headline text-xl">{course.title}</CardTitle>
-                <CardDescription className="mt-2 text-muted-foreground font-normal">{course.description}</CardDescription>
+                <CardTitle className="font-headline text-xl tracking-heading">{course.title}</CardTitle>
+                <CardDescription className="mt-2 text-muted-foreground font-normal tracking-body">{course.description}</CardDescription>
               </CardContent>
               <CardFooter className="flex justify-between items-center p-6 pt-0">
                 <div className="flex gap-2">
-                  {course.tags.map(tag => <Badge key={tag.name} variant="outline" className={tag.color}>{tag.name}</Badge>)}
+                  {course.tags.map(tag => <Badge key={tag.name} variant="outline" className={`${tag.color} tracking-body`}>{tag.name}</Badge>)}
                 </div>
-                 <Button variant="ghost" size="sm">Learn More</Button>
+                 <Button variant="ghost" size="sm" className="tracking-body">Learn More</Button>
               </CardFooter>
             </Card>
           ))}
         </div>
         <div className="mt-16 text-center">
           <Link href="/learn" passHref>
-            <Button size="lg">
+            <Button size="lg" className="tracking-body">
               More Courses <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

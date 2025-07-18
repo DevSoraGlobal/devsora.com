@@ -41,9 +41,9 @@ export default function InsightsSection() {
     <section className="py-24 sm:py-32 bg-secondary">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-base font-semibold leading-7 text-primary font-headline">Stay Ahead</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Latest Insights</p>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground font-normal">
+          <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-heading">Stay Ahead</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline tracking-heading">Latest Insights</p>
+          <p className="mt-6 text-lg leading-8 text-muted-foreground font-normal tracking-body">
             Read our latest articles and stay up-to-date with industry trends.
           </p>
         </div>
@@ -53,11 +53,11 @@ export default function InsightsSection() {
               <Image src={insight.image} alt={insight.title} width={600} height={400} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-ai-hint={insight.aiHint}/>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
               <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <p className="text-sm font-semibold text-primary">{insight.category}</p>
-                <h3 className="mt-2 text-lg font-bold font-headline text-white">{insight.title}</h3>
+                <p className="text-sm font-semibold text-primary tracking-heading">{insight.category}</p>
+                <h3 className="mt-2 text-lg font-bold font-headline text-white tracking-heading">{insight.title}</h3>
                 <div className="mt-4 h-0 opacity-0 transition-all duration-300 group-hover:h-auto group-hover:opacity-100">
-                  <p className="text-sm text-gray-300 font-normal">{insight.summary}</p>
-                  <Button variant="link" className="text-white p-0 mt-2 h-auto">Read More &rarr;</Button>
+                  <p className="text-sm text-gray-300 font-normal tracking-body">{insight.summary}</p>
+                  <Button variant="link" className="text-white p-0 mt-2 h-auto tracking-body">Read More &rarr;</Button>
                 </div>
               </div>
             </Card>
@@ -65,7 +65,7 @@ export default function InsightsSection() {
         </div>
         <div className="mt-16 text-center">
           <Link href="/insights" passHref>
-            <Button size="lg">
+            <Button size="lg" className="tracking-body">
               More Insights <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

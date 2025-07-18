@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
     extend: {
+      letterSpacing: {
+        heading: '0.05em',
+        body: '0.01em',
+      },
       fontFamily: {
         body: ['"Roboto Flex"', 'sans-serif'],
         headline: ['"Bebas Neue"', 'sans-serif'],

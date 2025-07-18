@@ -25,9 +25,9 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Code2 className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold font-headline">Devsora</span>
+              <span className="text-xl font-bold font-headline tracking-heading">Devsora</span>
             </Link>
-            <p className="text-muted-foreground max-w-xs font-normal">
+            <p className="text-muted-foreground max-w-xs font-normal tracking-body">
               The ultimate platform for developers to learn, build, and innovate.
             </p>
             <div className="mt-6 flex gap-4">
@@ -44,38 +44,38 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">Quick Links</h3>
+            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase tracking-heading">Quick Links</h3>
             <ul className="mt-4 space-y-2">
               {quickLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-normal">{link.label}</Link>
+                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-normal tracking-body">{link.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
           
           <div>
-            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">Resources</h3>
+            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase tracking-heading">Resources</h3>
             <ul className="mt-4 space-y-2">
               {resources.map(link => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-normal">{link.label}</Link>
+                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-normal tracking-body">{link.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
           
           <div>
-            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">Legal</h3>
+            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase tracking-heading">Legal</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-normal">Privacy Policy</Link></li>
-              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-normal">Terms of Service</Link></li>
+              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-normal tracking-body">Privacy Policy</Link></li>
+              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-normal tracking-body">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-16 border-t pt-8 text-center text-muted-foreground">
-          <p className="font-normal">&copy; {new Date().getFullYear()} Devsora. All rights reserved.</p>
+          <p className="font-normal tracking-body">&copy; {new Date().getFullYear()} Devsora. All rights reserved.</p>
         </div>
       </div>
     </footer>

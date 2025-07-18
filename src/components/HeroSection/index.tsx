@@ -28,18 +28,18 @@ export default function HeroSection() {
       </div>
       
       <div className="relative z-10 flex flex-col items-center px-4">
-        <h1 className="text-7xl md:text-9xl font-extrabold font-headline tracking-tighter mb-4 morpheus-text">
+        <h1 className="text-7xl md:text-9xl font-extrabold font-headline tracking-tighter mb-4 morpheus-text tracking-heading">
           DEVSORA
         </h1>
-        <p className="max-w-2xl text-lg md:text-xl text-muted-foreground mb-8 font-normal">
+        <p className="max-w-2xl text-lg md:text-xl text-muted-foreground mb-8 font-normal tracking-body">
           From strategy to execution, Devsora is your partner in mastering technology and shaping your future.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link href="/learn" passHref>
-            <Button size="lg" className="text-lg px-8 py-6">Start Learning</Button>
+            <Button size="lg" className="text-lg px-8 py-6 tracking-body">Start Learning</Button>
           </Link>
           <Link href="/explore" passHref>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+            <Button variant="outline" size="lg" className="text-lg px-8 py-6 tracking-body">
               Explore Projects
             </Button>
           </Link>
