@@ -22,10 +22,10 @@ export default function NavBar() {
   const isLoggedIn = false;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:py-4 backdrop-blur-2xl sm:backdrop-blur-none">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:py-4">
       <div className="container mx-auto flex h-16 items-center justify-between relative">
         {/* Left: Logo and Brand Name */}
-        <div className="hidden md:flex flex-shrink-0 z-10">
+        <div className="flex-1 flex justify-start z-10">
           <Link href="/" className="flex items-center gap-2">
             <Code2 className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold font-headline tracking-heading">Devsora</span>
@@ -33,12 +33,17 @@ export default function NavBar() {
         </div>
 
         {/* Center: Navigation (Absolutely Centered) */}
-        <div className="hidden md:flex justify-center absolute inset-0 h-16 pointer-events-none">
+        <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
           <div className="group transition-transform duration-300 ease-in-out hover:scale-105 pointer-events-auto">
-            <nav className="flex items-center gap-6 px-6 sm:px-8 lg:px-10 bg-background/80 backdrop-blur-sm border border-border/40 rounded-full shadow-lg group-hover:shadow-primary/20 h-16">
+            <nav className="flex items-center gap-2 px-3 py-2 bg-black/50 backdrop-blur-lg border border-white/10 rounded-full shadow-2xl shadow-black/20 group-hover:shadow-primary/20 transition-shadow duration-300">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary tracking-body">
-                  {link.label}
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="relative px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary tracking-body overflow-hidden rounded-full group/link"
+                >
+                  <span className="relative z-10">{link.label}</span>
+                   <span className="absolute inset-0 bg-primary/20 scale-0 transition-transform duration-300 ease-in-out group-hover/link:scale-100 rounded-full"></span>
                 </Link>
               ))}
             </nav>
@@ -46,7 +51,7 @@ export default function NavBar() {
         </div>
         
         {/* Right: Auth Buttons */}
-        <div className="hidden md:flex items-center gap-4 flex-shrink-0 z-10">
+        <div className="flex-1 flex justify-end items-center gap-4 z-10">
           {isLoggedIn ? (
             <Link href="/dashboard">
               <div className="h-8 w-8 rounded-full bg-primary" />
