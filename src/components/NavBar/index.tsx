@@ -21,7 +21,7 @@ export default function NavBar() {
   const isLoggedIn = false;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 p-4">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:py-4 backdrop-blur-2xl sm:backdrop-blur-none">
       <div className="container mx-auto flex h-16 items-center justify-between gap-8">
         {/* Left: Logo and Brand Name */}
         <div className="hidden md:flex flex-shrink-0">

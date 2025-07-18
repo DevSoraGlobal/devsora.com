@@ -28,7 +28,7 @@ export default function LoadingScreen() {
                 setVisible(false);
             }, 1000);
          }
-    }, 5000);
+    }, 2000);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
