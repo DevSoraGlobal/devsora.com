@@ -37,7 +37,7 @@ export default function CoursesSection() {
         <div className="text-center">
           <h2 className="text-base font-semibold leading-7 text-primary font-headline">Start Your Journey</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Featured Courses</p>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          <p className="mt-6 text-lg leading-8 text-muted-foreground font-normal">
             Handpicked courses to kickstart your career in technology.
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function CoursesSection() {
               </CardHeader>
               <CardContent className="flex-grow p-6">
                 <CardTitle className="font-headline text-xl">{course.title}</CardTitle>
-                <CardDescription className="mt-2 text-muted-foreground">{course.description}</CardDescription>
+                <CardDescription className="mt-2 text-muted-foreground font-normal">{course.description}</CardDescription>
               </CardContent>
               <CardFooter className="flex justify-between items-center p-6 pt-0">
                 <div className="flex gap-2">

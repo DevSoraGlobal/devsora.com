@@ -27,7 +27,7 @@ export default function Footer() {
               <Code2 className="h-8 w-8 text-primary" />
               <span className="text-xl font-bold font-headline">Devsora</span>
             </Link>
-            <p className="text-muted-foreground max-w-xs">
+            <p className="text-muted-foreground max-w-xs font-normal">
               The ultimate platform for developers to learn, build, and innovate.
             </p>
             <div className="mt-6 flex gap-4">
@@ -48,7 +48,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               {quickLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary">{link.label}</Link>
+                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-normal">{link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -59,7 +59,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               {resources.map(link => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary">{link.label}</Link>
+                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-normal">{link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -68,14 +68,14 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">Legal</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary">Privacy Policy</Link></li>
-              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary">Terms of Service</Link></li>
+              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-normal">Privacy Policy</Link></li>
+              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-normal">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-16 border-t pt-8 text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Devsora. All rights reserved.</p>
+          <p className="font-normal">&copy; {new Date().getFullYear()} Devsora. All rights reserved.</p>
         </div>
       </div>
     </footer>

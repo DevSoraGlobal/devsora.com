@@ -31,7 +31,7 @@ export default function HeroSection() {
         <h1 className="text-7xl md:text-9xl font-extrabold font-headline tracking-tighter mb-4 morpheus-text">
           DEVSORA
         </h1>
-        <p className="max-w-2xl text-lg md:text-xl text-muted-foreground mb-8">
+        <p className="max-w-2xl text-lg md:text-xl text-muted-foreground mb-8 font-normal">
           From strategy to execution, Devsora is your partner in mastering technology and shaping your future.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">

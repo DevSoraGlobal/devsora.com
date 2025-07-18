@@ -36,7 +36,7 @@ export default function FeaturesSection() {
         <div className="text-center">
           <h2 className="text-base font-semibold leading-7 text-primary font-headline">Exclusive Features</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Why Choose Devsora?</p>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          <p className="mt-6 text-lg leading-8 text-muted-foreground font-normal">
             We provide unique tools and resources to accelerate your growth.
           </p>
         </div>
@@ -46,11 +46,11 @@ export default function FeaturesSection() {
               <div className="z-10 transition-opacity duration-300 group-hover:opacity-0">
                 {feature.icon}
                 <h3 className="mt-6 text-xl font-bold font-headline">{feature.title}</h3>
-                <p className="mt-2 text-muted-foreground">{feature.description}</p>
+                <p className="mt-2 text-muted-foreground font-normal">{feature.description}</p>
               </div>
               <div className="absolute inset-0 bg-primary/90 p-6 flex flex-col justify-center items-center text-center text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <h3 className="text-xl font-bold font-headline">{feature.title}</h3>
-                <p className="mt-4">{feature.details}</p>
+                <p className="mt-4 font-normal">{feature.details}</p>
               </div>
             </Card>
           ))}

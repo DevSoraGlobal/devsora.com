@@ -16,13 +16,13 @@ export default function AboutUsSection() {
           <div className="lg:col-span-2 space-y-12">
             <div>
               <h3 className="text-2xl font-bold font-headline text-primary">The Challenge</h3>
-              <p className="mt-4 text-lg text-muted-foreground">
+              <p className="mt-4 text-lg text-muted-foreground font-normal">
                 In a rapidly evolving tech landscape, traditional education struggles to keep pace. Aspiring developers face a confusing maze of outdated resources, theoretical knowledge that doesn't translate to real-world skills, and a lack of mentorship. This creates a significant gap between learning and doing.
               </p>
             </div>
             <div>
               <h3 className="text-2xl font-bold font-headline text-primary">The Approach</h3>
-              <p className="mt-4 text-lg text-muted-foreground">
+              <p className="mt-4 text-lg text-muted-foreground font-normal">
                 Devsora was born from a simple idea: learning should be practical, collaborative, and continuous. We combine curated, up-to-date content with hands-on projects and direct access to industry experts. Our platform is a living ecosystem where you don't just learn to code—you learn to think, build, and lead like a top-tier engineer.
               </p>
             </div>
@@ -36,7 +36,7 @@ export default function AboutUsSection() {
                 data-ai-hint="portrait person"
               />
               <div>
-                <blockquote className="text-lg italic text-foreground">
+                <blockquote className="text-lg italic text-foreground font-normal">
                   "We're not just building a platform; we're building the next generation of tech leaders. Our goal is to democratize elite tech knowledge and empower anyone with the drive to succeed."
                 </blockquote>
                 <p className="mt-4 font-semibold text-primary">— Jane Doe, CEO of Devsora</p>
@@ -56,7 +56,7 @@ export default function AboutUsSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">The Idea</h4>
-                      <p className="text-sm text-muted-foreground">Devsora is conceived to bridge the skills gap in the tech industry.</p>
+                      <p className="text-sm text-muted-foreground font-normal">Devsora is conceived to bridge the skills gap in the tech industry.</p>
                     </div>
                   </li>
                   <li className="flex gap-4">
@@ -66,7 +66,7 @@ export default function AboutUsSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Platform Launch</h4>
-                      <p className="text-sm text-muted-foreground">Our first cohort of students joins, and the community begins to grow.</p>
+                      <p className="text-sm text-muted-foreground font-normal">Our first cohort of students joins, and the community begins to grow.</p>
                     </div>
                   </li>
                   <li className="flex gap-4">
@@ -76,7 +76,7 @@ export default function AboutUsSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Current Status</h4>
-                      <p className="text-sm text-muted-foreground">Serving thousands of learners globally with an expanding course library.</p>
+                      <p className="text-sm text-muted-foreground font-normal">Serving thousands of learners globally with an expanding course library.</p>
                     </div>
                   </li>
                    <li className="flex gap-4">
@@ -85,7 +85,7 @@ export default function AboutUsSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Next Steps</h4>
-                      <p className="text-sm text-muted-foreground">Launching enterprise solutions and expanding our AI-driven mentorship program.</p>
+                      <p className="text-sm text-muted-foreground font-normal">Launching enterprise solutions and expanding our AI-driven mentorship program.</p>
                     </div>
                   </li>
                 </ul>

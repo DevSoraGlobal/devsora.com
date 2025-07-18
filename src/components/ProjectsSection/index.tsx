@@ -47,7 +47,7 @@ export default function ProjectsSection() {
         <div className="text-center">
           <h2 className="text-base font-semibold leading-7 text-primary font-headline">See What We Build</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Our Projects</p>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          <p className="mt-6 text-lg leading-8 text-muted-foreground font-normal">
             Explore innovative projects built by our community and team.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function ProjectsSection() {
                       <CardContent className="p-6 flex-grow flex flex-col justify-between">
                         <div>
                           <h3 className="text-xl font-bold font-headline">{project.title}</h3>
-                          <p className="mt-2 text-muted-foreground">{project.description}</p>
+                          <p className="mt-2 text-muted-foreground font-normal">{project.description}</p>
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
@@ -75,7 +75,7 @@ export default function ProjectsSection() {
                               <div className="flex gap-2 py-2">
                                 {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
                               </div>
-                              <DialogDescription className="text-base text-muted-foreground pt-2">
+                              <DialogDescription className="text-base text-muted-foreground pt-2 font-normal">
                                 {project.description} This is where more detailed information about the project would go. It could include technical specifications, challenges, and links to the live project or source code.
                               </DialogDescription>
                             </DialogHeader>
