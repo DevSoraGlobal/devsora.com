@@ -11,7 +11,7 @@ const courses = [
     title: 'Advanced JavaScript & ESNext',
     description: 'Dive deep into modern JavaScript, including asynchronous patterns, modules, and the latest ESNext features.',
     image: 'https://placehold.co/600x400.png',
-    tags: [{ name: 'JavaScript', color: 'bg-red-900/30 text-red-300 border-red-700/50' }],
+    tags: [{ name: 'JavaScript', color: 'bg-yellow-900/30 text-yellow-300 border-yellow-700/50' }],
     aiHint: 'code abstract',
   },
   {
@@ -25,7 +25,7 @@ const courses = [
     title: 'Full-Stack Web Development',
     description: 'Master front-end and back-end development with cutting-edge frameworks and build real-world applications.',
     image: 'https://placehold.co/600x400.png',
-    tags: [{ name: 'JavaScript', color: 'bg-red-900/30 text-red-300 border-red-700/50' }, { name: 'Full-Stack', color: 'bg-purple-900/30 text-purple-300 border-purple-700/50' }],
+    tags: [{ name: 'JavaScript', color: 'bg-yellow-900/30 text-yellow-300 border-yellow-700/50' }, { name: 'Full-Stack', color: 'bg-purple-900/30 text-purple-300 border-purple-700/50' }],
     aiHint: 'server room',
   },
 ];
