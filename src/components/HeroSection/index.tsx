@@ -28,7 +28,7 @@ export default function HeroSection() {
       </div>
       
       <div className="relative z-10 flex flex-col items-center px-4">
-        <h1 className="text-7xl md:text-9xl font-extrabold font-headline tracking-tighter mb-4 morpheus-text tracking-heading">
+        <h1 className="font-extrabold font-headline mb-4 morpheus-text tracking-heading">
           DEVSORA
         </h1>
         <p className="max-w-2xl text-lg md:text-xl text-muted-foreground mb-8 font-normal tracking-body">
