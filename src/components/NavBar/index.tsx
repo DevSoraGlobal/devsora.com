@@ -47,14 +47,14 @@ export default function NavBar() {
 
         {/* Center: Navigation (Desktop) */}
         <nav className={cn(
-          "hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-2 px-3 py-2 transition-all duration-300",
-           isScrolled ? "bg-black/60 border border-white/10 rounded-full" : ""
+          "hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-2 transition-all duration-300",
+           isScrolled ? "bg-black/60 border border-white/10 rounded-full p-1" : ""
         )}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="px-4 py-2 text-sm font-bold uppercase text-muted-foreground transition-colors hover:text-primary tracking-body"
+              className="px-4 py-2 text-sm font-bold uppercase text-muted-foreground transition-colors duration-300 hover:bg-primary hover:text-primary-foreground tracking-body rounded-full"
             >
               {link.label}
             </Link>
