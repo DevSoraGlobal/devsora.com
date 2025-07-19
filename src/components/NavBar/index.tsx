@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -12,7 +12,7 @@ const navLinks = [
   { href: '/learn', label: 'Learn' },
   { href: '/explore', label: 'Explore' },
   { href: '/global', label: 'Global' },
-  { href: '/insights', label: 'Insights' },
+  { href: '/insights',label: 'Insights' },
   { href: '/team', label: 'Team' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -21,7 +21,7 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
