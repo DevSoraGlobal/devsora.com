@@ -38,7 +38,7 @@ export default function LoadingScreen2({ onExited }: LoadingScreen2Props) {
     window.addEventListener('scroll', handleScroll);
 
     // Auto-exit timer
-    const timer = setTimeout(exit, 2000);
+    const timer = setTimeout(exit, 750);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
