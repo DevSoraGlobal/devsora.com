@@ -9,12 +9,12 @@ import { Menu, Code2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
+  { href: '/learn', label: 'Learn' },
   { href: '/explore', label: 'Explore' },
+  { href: '/global', label: 'Global' },
   { href: '/insights', label: 'Insights' },
   { href: '/team', label: 'Team' },
   { href: '/contact', label: 'Contact' },
-  { href: '/learn', label: 'Learn' },
-  { href: '/global', label: 'Global' },
 ];
 
 export default function NavBar() {
