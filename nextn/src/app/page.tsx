@@ -46,6 +46,7 @@ export default function Home() {
             <CoursesSection />
             <ProjectsSection />
             <FeaturesSection />
+            <ChallengeApproachSection />
             <AboutUsSection />
             <InsightsSection />
           </main>
