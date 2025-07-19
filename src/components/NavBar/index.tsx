@@ -38,7 +38,7 @@ export default function NavBar() {
     )}>
       <div className={cn(
         "container mx-auto flex items-center justify-between relative transition-all duration-300",
-        isScrolled ? "bg-black/80 backdrop-blur-lg border border-white/10 rounded-full" : ""
+        isScrolled ? "bg-black/50 backdrop-blur-lg border border-white/10 rounded-full" : ""
       )}>
         {/* Left: Logo and Brand Name */}
         <div className="flex items-center pl-4">
