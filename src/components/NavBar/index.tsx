@@ -36,9 +36,12 @@ export default function NavBar() {
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
       isScrolled ? "py-2" : "py-4"
     )}>
-      <div className="container mx-auto flex items-center justify-between relative">
+      <div className={cn(
+        "container mx-auto flex items-center justify-between relative transition-all duration-300",
+        isScrolled ? "bg-black/50 border border-white/10 rounded-full backdrop-blur-lg" : ""
+      )}>
         {/* Left: Logo and Brand Name */}
-        <div className="flex items-center">
+        <div className="flex items-center pl-4">
           <Link href="/" className="flex items-center gap-2">
             <Code2 className="h-8 w-8 text-primary" />
             <span className="hidden sm:inline text-xl font-bold font-headline tracking-heading">Devsora</span>
@@ -46,10 +49,7 @@ export default function NavBar() {
         </div>
 
         {/* Center: Navigation (Desktop) */}
-        <nav className={cn(
-          "hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-2 transition-all duration-300",
-           isScrolled ? "bg-black/80 border border-white/10 rounded-full p-1" : ""
-        )}>
+        <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -62,7 +62,7 @@ export default function NavBar() {
         </nav>
         
         {/* Right: Auth Buttons (Desktop) */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-2 pr-4">
           {isLoggedIn ? (
             <Link href="/dashboard">
               <div className="h-8 w-8 rounded-full bg-primary" />
