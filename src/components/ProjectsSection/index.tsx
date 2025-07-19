@@ -75,7 +75,7 @@ export default function ProjectsSection() {
                               <div className="flex gap-2 py-2">
                                 {project.tags.map(tag => <Badge key={tag} variant="secondary" className="tracking-body">{tag}</Badge>)}
                               </div>
-                              <DialogDescription className="text-base text-muted-foreground pt-2 font-medium tracking-body">
+                              <DialogDescription className="pt-2 font-medium tracking-body">
                                 {project.description} This is where more detailed information about the project would go. It could include technical specifications, challenges, and links to the live project or source code.
                               </DialogDescription>
                             </DialogHeader>

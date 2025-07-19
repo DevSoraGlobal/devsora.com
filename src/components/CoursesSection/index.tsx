@@ -49,7 +49,7 @@ export default function CoursesSection() {
               </CardHeader>
               <CardContent className="flex-grow p-6">
                 <CardTitle className="font-headline text-xl tracking-wider">{course.title}</CardTitle>
-                <CardDescription className="mt-2 text-muted-foreground font-normal">{course.description}</CardDescription>
+                <CardDescription className="mt-2 text-muted-foreground font-medium">{course.description}</CardDescription>
               </CardContent>
               <CardFooter className="flex justify-between items-center p-6 pt-0">
                 <div className="flex gap-2">
