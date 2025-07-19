@@ -69,7 +69,7 @@ export default function NavBar() {
             </Link>
           ) : (
             <>
-              <Button variant="outline" className="tracking-body rounded-full border-primary hover:bg-primary/10 hover:text-primary-foreground">Sign In</Button>
+              <Button variant="outline" className="tracking-body rounded-full border-primary hover:bg-primary/10 hover:text-primary-foreground border-2">Sign In</Button>
               <Button className="tracking-body rounded-full">Sign Up</Button>
             </>
           )}
