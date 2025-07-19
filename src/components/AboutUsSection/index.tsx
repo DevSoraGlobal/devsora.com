@@ -9,32 +9,32 @@ const timeline = [
   {
     id: "1",
     title: "The Spark",
-    content: "The initial idea for Devsora was born from a desire to bridge the gap between theoretical knowledge and practical application in the tech industry."
+    content: "OCTOBER 2024 —  The idea for DEVSORA was born from a shared passion for accessible, hands-on tech education. Our founding team began collaborating, outlining our vision, and building the foundation for an inclusive learning community."
   },
   {
     id: "2",
     title: "Building the platform",
-    content: "Our team began constructing the core infrastructure, focusing on a scalable and user-friendly platform for learning and collaboration."
+    content: "MAY 2025 — We launched our open-source initiative, inviting contributors from around the globe. Early adopters helped shape our core features: interactive courses, real-world projects, and a vibrant community space."
   },
   {
     id: "3",
     title: "Alpha platform Launch",
-    content: "The first version of Devsora was released to a small group of users for initial feedback and testing, helping us refine our features."
+    content: "AUGUST 2025 — We are releasing the alpha version of DEVSORA for early testing, gathering feedback and identifying bugs to refine the user experience."
   },
   {
     id: "4",
     title: "Beta platform launch",
-    content: "We expanded our user base for beta testing, gathering valuable insights to improve course content and platform stability."
+    content: "OCTOBER 2025 — The beta version of DEVSORA will launch globally, opening the platform to a wider audience and enabling more users to participate, collaborate, and help us further enhance the platform."
   },
   {
     id: "5",
     title: "final platform launch",
-    content: "With a growing community, we added more courses, projects, and features, establishing Devsora as a key player in tech education."
+    content: "OCTOBER 2026 — The final version of DEVSORA will launch globally, delivering a polished, feature-rich platform dedicated to empowering learners and innovators worldwide."
   },
   {
     id: "6",
     title: "growth and innovation",
-    content: "We are continuously innovating, with plans to introduce AI-powered learning paths and more advanced collaborative tools."
+    content: "2026 & BEYOND — We will continue to expand our course offerings, introduce new technologies, and foster partnerships with industry leaders. Our mission is to stay at the forefront of tech education, helping learners and creators turn ideas into impactful projects."
   }
 ];
 
