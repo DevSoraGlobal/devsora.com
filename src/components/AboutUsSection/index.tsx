@@ -47,17 +47,17 @@ export default function AboutUsSection() {
           {/* Left Column: CEO Profile */}
           <div className="flex flex-col items-center text-center lg:sticky lg:top-24">
             <Image
-              src="https://placehold.co/200x200.png"
+              src="https://placehold.co/400x600.png"
               alt="CEO of Devsora"
-              width={200}
-              height={200}
-              className="rounded-full"
+              width={400}
+              height={600}
+              className="rounded-lg"
               data-ai-hint="ceo portrait"
             />
-            <h2 className="font-headline uppercase font-bold text-4xl mt-6">John Doe</h2>
-            <p className="font-body text-xl mt-1 text-muted-foreground">CEO & Founder</p>
+            <h2 className="font-headline uppercase font-bold text-4xl mt-6">HITEN BALARA</h2>
+            <p className="font-body text-xl mt-1 text-muted-foreground font-medium">CEO & Founder</p>
             <p className="font-headline uppercase text-primary font-bold mt-8 text-2xl tracking-wider max-w-md">
-              From strategy to execution, Devsora is your partner in mastering technology and shaping your future.
+            “At DEVSORA, we’re more than a platform—we’re a catalyst for growth. Our mission is to empower learners to transform ambition into real-world skills. Through innovation and collaboration, we’re shaping the next generation of creators and tech leaders.”
             </p>
           </div>
 
@@ -82,7 +82,7 @@ export default function AboutUsSection() {
                           {item.title}
                         </AccordionTrigger>
                         <AccordionContent className="pt-2">
-                          <p className="font-body text-lg text-muted-foreground">{item.content}</p>
+                          <p className="font-body text-lg text-muted-foreground font-medium">{item.content}</p>
                         </AccordionContent>
                       </div>
                     </div>
@@ -94,7 +94,7 @@ export default function AboutUsSection() {
         </div>
         <div className="text-center mt-24">
             <p className="font-bold text-3xl md:text-4xl uppercase font-headline tracking-heading text-primary/90 max-w-5xl mx-auto leading-tight">
-                Join us on this journey—learn, build, and lead with us.
+                FROM STRATEGY TO EXECUTION, DEVSORA IS YOUR PARTNER IN MASTERING TECHNOLOGY AND SHAPING YOUR FUTURE. JOIN US ON THIS JOURNEY—LEARN, BUILD, AND LEAD WITH US.
             </p>
         </div>
       </div>
