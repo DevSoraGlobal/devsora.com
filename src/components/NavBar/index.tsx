@@ -69,7 +69,7 @@ export default function NavBar() {
             </Link>
           ) : (
             <>
-              <Button variant="ghost" className="tracking-body rounded-full">Sign In</Button>
+              <Button variant="outline" className="tracking-body rounded-full border-primary hover:bg-primary/10 hover:text-primary-foreground">Sign In</Button>
               <Button className="tracking-body rounded-full">Sign Up</Button>
             </>
           )}
@@ -104,7 +104,7 @@ export default function NavBar() {
                     </Link>
                   ) : (
                     <>
-                      <Button variant="ghost" className="w-full tracking-body rounded-full">Sign In</Button>
+                      <Button variant="outline" className="w-full tracking-body rounded-full border-primary hover:bg-primary/10 hover:text-primary-foreground">Sign In</Button>
                       <Button className="w-full tracking-body rounded-full">Sign Up</Button>
                     </>
                   )}
