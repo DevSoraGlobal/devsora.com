@@ -1,143 +1,86 @@
 
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
+import { UserCircle2 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import { cn } from '@/lib/utils';
-import { Rocket, Target, Users, Building, Globe } from 'lucide-react';
 
 const journeySteps = [
-  {
-    icon: <Rocket className="h-6 w-6" />,
-    year: '2021',
-    title: 'The Spark',
-    description: 'Devsora was conceived to bridge the widening skills gap in the tech industry, with a mission to make elite tech knowledge accessible to everyone, everywhere.',
-    image: 'https://placehold.co/600x400.png',
-    aiHint: 'idea lightbulb',
-  },
-  {
-    icon: <Target className="h-6 w-6" />,
-    year: '2022',
-    title: 'Platform Launch',
-    description: 'We officially launched our platform, welcoming our first cohort of beta students. The core of the Devsora community began to form, built on collaboration and shared goals.',
-    image: 'https://placehold.co/600x400.png',
-    aiHint: 'product launch',
-  },
-  {
-    icon: <Users className="h-6 w-6" />,
-    year: '2023',
-    title: 'Community Growth',
-    description: 'Serving thousands of learners globally, we expanded our course library and introduced live mentorship, solidifying our project-based learning model.',
-    image: 'https://placehold.co/600x400.png',
-    aiHint: 'community growth',
-  },
-  {
-    icon: <Building className="h-6 w-6" />,
-    year: '2024',
-    title: 'Enterprise Solutions',
-    description: 'Launched our B2B offerings, partnering with companies to upskill their tech teams and foster a culture of continuous innovation and learning.',
-    image: 'https://placehold.co/600x400.png',
-    aiHint: 'office building',
-  },
-  {
-    icon: <Globe className="h-6 w-6" />,
-    year: 'Future',
-    title: 'Global Expansion',
-    description: 'Our next steps involve expanding our AI-driven mentorship program, launching in new languages, and establishing a larger global footprint to empower the next generation of developers.',
-    image: 'https://placehold.co/600x400.png',
-    aiHint: 'future globe',
-  },
+    { year: '2021', title: 'The Spark', description: 'Devsora was conceived to bridge the skills gap.' },
+    { year: '2022', title: 'Building the Platform', description: 'The core infrastructure and curriculum were developed.' },
+    { year: '2023', title: 'Alpha Launch', description: 'First users were onboarded for initial feedback.' },
+    { year: '2024', title: 'Public Beta', description: 'The platform opened to a wider audience.' },
+    { year: 'Future', title: 'Global Scale', description: 'Expanding our reach and course offerings worldwide.' },
 ];
 
 export default function AboutUsSection() {
-  const [activeStep, setActiveStep] = useState(0);
-  const currentStep = journeySteps[activeStep];
-
   return (
-    <section className="py-24 sm:py-32">
+    <section className="bg-black text-white py-24 sm:py-32">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-heading">Who We Are</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline tracking-heading">Pioneering the Future of Tech Education</p>
-          <p className="mt-6 max-w-3xl mx-auto text-muted-foreground font-medium tracking-body">
-            Devsora was born from a simple idea: learning should be practical, collaborative, and continuous. We combine curated, up-to-date content with hands-on projects and direct access to industry experts.
-          </p>
+
+        {/* Top Block: Challenge & Approach */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
+          <div>
+            <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-heading">Our Mission</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline tracking-heading">The Challenge</p>
+            <p className="mt-6 text-muted-foreground font-medium tracking-body">
+              In a rapidly evolving tech landscape, aspiring developers face a fragmented learning journey. They struggle to find up-to-date, practical knowledge that bridges the gap between academic theory and real-world application.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-base font-semibold leading-7 text-transparent font-headline tracking-heading">Our Mission</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline tracking-heading">The Approach</p>
+            <p className="mt-6 text-muted-foreground font-medium tracking-body">
+              Devsora provides a unified, project-based ecosystem. We combine curated, expert-led courses with collaborative projects and AI-driven mentorship to build job-ready skills and foster a culture of continuous innovation.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
-          {/* Left Column: Interactive Journey Content */}
-          <div className="lg:col-span-2">
-            <Card className="bg-secondary/50 sticky top-24">
-              <CardContent className="p-0">
-                <Image
-                  key={activeStep} // Force re-render for animation
-                  src={currentStep.image}
-                  alt={currentStep.title}
-                  width={800}
-                  height={500}
-                  className="w-full h-80 object-cover rounded-t-lg transition-all duration-500 ease-in-out"
-                  data-ai-hint={currentStep.aiHint}
-                />
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold font-headline text-primary tracking-heading">{currentStep.title} ({currentStep.year})</h3>
-                  <p className="mt-4 text-muted-foreground font-medium tracking-body h-24">{currentStep.description}</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+        <Separator className="bg-border/20" />
 
-          {/* Right Column: Journey Timeline Selector */}
-          <div className="lg:col-span-1">
-            <h3 className="text-xl font-bold font-headline mb-6 tracking-heading">Our Journey</h3>
-            <div className="relative">
-              {/* The connecting line */}
-              <div className="absolute left-3 top-3 bottom-3 w-0.5 bg-border -z-10"></div>
-              
-              <ul className="space-y-4">
-                {journeySteps.map((step, index) => (
-                  <li key={index} onClick={() => setActiveStep(index)} className="cursor-pointer group">
-                    <div className="flex items-start gap-4">
-                      <div className={cn(
-                        "flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1 transition-colors duration-300",
-                        activeStep === index ? 'bg-primary text-primary-foreground' : 'bg-secondary group-hover:bg-primary/50'
-                      )}>
-                        {step.icon}
-                      </div>
-                      <div className="flex-grow">
-                        <h4 className={cn(
-                          "font-bold transition-colors duration-300 tracking-heading",
-                          activeStep === index ? 'text-primary' : 'text-foreground'
-                        )}>{step.title}</h4>
-                        <p className="text-sm text-muted-foreground font-medium tracking-body">{step.year}</p>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+        {/* Middle Block: CEO & Journey */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 my-24">
+          <div className="lg:col-span-2">
+            <div className="flex flex-col sm:flex-row items-center gap-8">
+              <UserCircle2 className="w-32 h-32 text-primary flex-shrink-0" strokeWidth={1}/>
+              <div>
+                <blockquote className="text-xl italic text-foreground font-medium tracking-body">
+                  "We're not just teaching code; we're building the next generation of tech leaders. Our vision is to democratize elite tech knowledge and empower anyone with the drive to succeed."
+                </blockquote>
+                <p className="mt-4 font-semibold text-primary tracking-body">— Jane Doe, CEO of Devsora</p>
+              </div>
             </div>
           </div>
+          
+          <div className="lg:col-span-1">
+             <h3 className="text-2xl font-bold tracking-tight text-foreground font-headline tracking-heading mb-6">Our Journey</h3>
+             <div className="relative">
+                <div className="absolute left-2.5 top-2.5 h-full w-0.5 bg-border/30" />
+                <ul className="space-y-8">
+                    {journeySteps.map((step, index) => (
+                        <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/50 border-2 border-primary z-10" />
+                            <div className="ml-4">
+                                <h4 className="font-bold text-foreground font-headline tracking-heading">{step.title} <span className="text-sm text-muted-foreground font-medium">({step.year})</span></h4>
+                                <p className="text-sm text-muted-foreground font-medium tracking-body">{step.description}</p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+             </div>
+          </div>
+        </div>
+        
+        <Separator className="bg-border/20" />
+
+        {/* Bottom Block: Final Statement */}
+        <div className="mt-24 text-center">
+            <p className="font-bold text-3xl md:text-4xl uppercase font-headline tracking-heading text-primary/90 max-w-5xl mx-auto leading-tight">
+                From strategy to execution, Devsora is your partner in mastering technology and shaping your future. Join us on this journey—learn, build, and lead with us.
+            </p>
         </div>
 
-        <Separator className="my-24" />
-
-        <Card className="bg-secondary p-8 flex flex-col md:flex-row items-center gap-8">
-          <Image 
-            src="https://placehold.co/150x150.png"
-            alt="CEO Photo" 
-            width={150} 
-            height={150} 
-            className="rounded-full flex-shrink-0"
-            data-ai-hint="portrait person"
-          />
-          <div>
-            <blockquote className="text-lg italic text-foreground font-medium tracking-body">
-              "We're not just building a platform; we're building the next generation of tech leaders. Our goal is to democratize elite tech knowledge and empower anyone with the drive to succeed."
-            </blockquote>
-            <p className="mt-4 font-semibold text-primary tracking-body">— Jane Doe, CEO of Devsora</p>
-          </div>
-        </Card>
       </div>
     </section>
   );
