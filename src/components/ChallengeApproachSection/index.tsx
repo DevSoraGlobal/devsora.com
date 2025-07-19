@@ -42,16 +42,6 @@ export default function ChallengeApproachSection() {
             </iframe>
           </div>
         </div>
-        
-        <Separator className="bg-border/20 my-24" />
-
-        {/* Bottom Block: Final Statement */}
-        <div className="text-center">
-            <p className="font-bold text-3xl md:text-4xl uppercase font-headline tracking-heading text-primary/90 max-w-5xl mx-auto leading-tight">
-                From strategy to execution, Devsora is your partner in mastering technology and shaping your future. Join us on this journey—learn, build, and lead with us.
-            </p>
-        </div>
-
       </div>
     </section>
   );

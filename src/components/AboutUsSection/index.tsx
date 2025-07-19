@@ -13,27 +13,27 @@ const timeline = [
   },
   {
     id: "2",
-    title: "Platform Build",
+    title: "Building the platform",
     content: "Our team began constructing the core infrastructure, focusing on a scalable and user-friendly platform for learning and collaboration."
   },
   {
     id: "3",
-    title: "Alpha Launch",
+    title: "Alpha platform Launch",
     content: "The first version of Devsora was released to a small group of users for initial feedback and testing, helping us refine our features."
   },
   {
     id: "4",
-    title: "Beta Testing",
+    title: "Beta platform launch",
     content: "We expanded our user base for beta testing, gathering valuable insights to improve course content and platform stability."
   },
   {
     id: "5",
-    title: "Growth",
+    title: "final platform launch",
     content: "With a growing community, we added more courses, projects, and features, establishing Devsora as a key player in tech education."
   },
   {
     id: "6",
-    title: "Next Steps",
+    title: "growth and innovation",
     content: "We are continuously innovating, with plans to introduce AI-powered learning paths and more advanced collaborative tools."
   }
 ];
@@ -54,9 +54,9 @@ export default function AboutUsSection() {
               className="rounded-lg"
               data-ai-hint="ceo portrait"
             />
-            <h2 className="font-headline uppercase font-bold text-4xl mt-6">HITEN BALARA</h2>
+            <h2 className="font-headline uppercase font-bold text-4xl mt-6 tracking-[0.08em]">HITEN BALARA</h2>
             <p className="font-body text-xl mt-1 text-muted-foreground font-medium">CEO & Founder</p>
-            <p className="font-headline uppercase text-primary font-bold mt-8 text-2xl tracking-wider max-w-md">
+            <p className="uppercase font-semibold mt-8 text-1xl tracking-wider max-w-md">
             “At DEVSORA, we’re more than a platform—we’re a catalyst for growth. Our mission is to empower learners to transform ambition into real-world skills. Through innovation and collaboration, we’re shaping the next generation of creators and tech leaders.”
             </p>
           </div>
@@ -64,6 +64,7 @@ export default function AboutUsSection() {
           {/* Right Column: Interactive Timeline */}
           <div className="mt-12 lg:mt-0">
             <h3 className="font-headline text-5xl font-bold uppercase text-center mb-12">Our Journey</h3>
+            <h2 className="font-headline text-3xl font-bold uppercase text-center mb-12 tracking-[0.08em]">From Vision to Reality, We’re Shaping the Future of Learning</h2>
             <div className="relative">
               {/* Vertical line */}
               <div className="absolute left-4 top-0 h-full w-0.5 bg-primary/30" aria-hidden="true"></div>
