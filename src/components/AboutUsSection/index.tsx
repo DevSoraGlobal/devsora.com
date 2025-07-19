@@ -65,32 +65,18 @@ export default function AboutUsSection() {
           <div className="mt-12 lg:mt-0">
             <h3 className="font-headline text-5xl font-bold uppercase text-center mb-12">Our Journey</h3>
             <h2 className="font-headline text-3xl font-bold uppercase text-center mb-12 tracking-[0.08em]">From Vision to Reality, We’re Shaping the Future of Learning</h2>
-            <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-4 top-0 h-full w-0.5 bg-primary/30" aria-hidden="true"></div>
-              
-              <Accordion type="single" collapsible defaultValue="1" className="w-full">
-                {timeline.map((item, index) => (
-                  <AccordionItem key={item.id} value={item.id} className="border-none mb-2">
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 flex flex-col items-center">
-                        <span className="flex items-center justify-center h-8 w-8 rounded-full bg-primary text-primary-foreground font-bold z-10">
-                          {index + 1}
-                        </span>
-                      </div>
-                      <div className="ml-6 w-full">
-                        <AccordionTrigger className="font-headline uppercase text-2xl text-left hover:no-underline data-[state=open]:text-primary">
-                          {item.title}
-                        </AccordionTrigger>
-                        <AccordionContent className="pt-2 text-muted-foreground">
-                          <p>{item.content}</p>
-                        </AccordionContent>
-                      </div>
-                    </div>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
+            <Accordion type="single" collapsible defaultValue="1" className="w-full">
+              {timeline.map((item) => (
+                <AccordionItem key={item.id} value={item.id} className="border-b border-primary/30">
+                    <AccordionTrigger className="font-headline uppercase text-2xl text-left hover:no-underline data-[state=open]:text-primary py-6">
+                      {item.title}
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-6 pt-2 text-muted-foreground">
+                      <p>{item.content}</p>
+                    </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
         <div className="text-center mt-24">
