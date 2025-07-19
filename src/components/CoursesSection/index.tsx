@@ -36,8 +36,8 @@ export default function CoursesSection() {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-[0.12em]">Start Your Journey</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline tracking-wider">Featured Courses</p>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground font-normal tracking-body">
+          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline tracking-widest">Featured Courses</p>
+          <p className="mt-6 leading-8 text-muted-foreground font-medium tracking-tighter">
             Handpicked courses to kickstart your career in technology.
           </p>
         </div>

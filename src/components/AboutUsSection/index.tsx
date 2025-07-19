@@ -16,13 +16,13 @@ export default function AboutUsSection() {
           <div className="lg:col-span-2 space-y-12">
             <div>
               <h3 className="text-2xl font-bold font-headline text-primary tracking-heading">The Challenge</h3>
-              <p className="mt-4 text-lg text-muted-foreground font-normal tracking-body">
+              <p className="mt-4 text-muted-foreground font-normal tracking-body">
                 In a rapidly evolving tech landscape, traditional education struggles to keep pace. Aspiring developers face a confusing maze of outdated resources, theoretical knowledge that doesn't translate to real-world skills, and a lack of mentorship. This creates a significant gap between learning and doing.
               </p>
             </div>
             <div>
               <h3 className="text-2xl font-bold font-headline text-primary tracking-heading">The Approach</h3>
-              <p className="mt-4 text-lg text-muted-foreground font-normal tracking-body">
+              <p className="mt-4 text-muted-foreground font-normal tracking-body">
                 Devsora was born from a simple idea: learning should be practical, collaborative, and continuous. We combine curated, up-to-date content with hands-on projects and direct access to industry experts. Our platform is a living ecosystem where you don't just learn to code—you learn to think, build, and lead like a top-tier engineer.
               </p>
             </div>

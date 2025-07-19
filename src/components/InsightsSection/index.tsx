@@ -43,7 +43,7 @@ export default function InsightsSection() {
         <div className="text-center">
           <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-heading">Stay Ahead</h2>
           <p className="mt-2 text-3xl font-bold text-foreground sm:text-4xl font-headline tracking-heading">Latest Insights</p>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground font-normal tracking-body">
+          <p className="mt-6 leading-8 text-muted-foreground font-normal tracking-body">
             Read our latest articles and stay up-to-date with industry trends.
           </p>
         </div>

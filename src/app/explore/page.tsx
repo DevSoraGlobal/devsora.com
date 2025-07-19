@@ -7,7 +7,7 @@ export default function ExplorePage() {
       <NavBar />
       <main className="flex-grow container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold font-headline text-center tracking-heading">Explore Projects</h1>
-        <p className="text-xl text-muted-foreground text-center mt-4 tracking-body">
+        <p className="text-muted-foreground text-center mt-4 tracking-body">
           A gallery of community and official projects will be displayed here.
         </p>
       </main>
