@@ -50,7 +50,7 @@ export default function LoadingScreen({ onExited }: LoadingScreenProps) {
         isExiting ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
     )}>
       <h1 className={cn(
-          "font-headline font-bold text-white text-[10vw] md:text-[8vw] transition-all duration-700 ease-out",
+          "font-headline font-bold text-primary text-[10vw] md:text-[8vw] transition-all duration-700 ease-out",
           isExiting ? "scale-150 opacity-0" : "scale-100 opacity-100"
       )}>
         DEVSORA

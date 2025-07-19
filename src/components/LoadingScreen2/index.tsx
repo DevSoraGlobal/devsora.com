@@ -57,7 +57,7 @@ export default function LoadingScreen2({ onExited }: LoadingScreen2Props) {
         isExiting ? "opacity-0" : "opacity-100"
     )}>
       <h2 className={cn(
-          "font-headline font-bold text-white text-center text-[5vw] md:text-[4vw] max-w-4xl px-4 transition-all duration-700 ease-out",
+          "font-headline font-bold text-primary text-center text-[5vw] md:text-[4vw] max-w-4xl px-4 transition-all duration-700 ease-out",
           isAnimating ? "scale-100 opacity-100" : "scale-90 opacity-0"
       )}>
         Code. Create. Collaborate. Shaping Skills Together
