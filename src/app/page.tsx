@@ -8,7 +8,7 @@ import IntroSection from '@/components/IntroSection';
 import CoursesSection from '@/components/CoursesSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import FeaturesSection from '@/components/FeaturesSection';
-import ChallengeApproachSection from '@/components/AboutUsSection';
+import ChallengeApproachSection from '@/components/ChallengeApproachSection';
 import InsightsSection from '@/components/InsightsSection';
 import Footer from '@/components/Footer';
 import LoadingScreen from '@/components/LoadingScreen';
