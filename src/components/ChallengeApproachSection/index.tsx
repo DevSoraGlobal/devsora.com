@@ -10,7 +10,7 @@ export default function ChallengeApproachSection() {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Top Block: Challenge, Approach & Video */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
           {/* Left Column: Text Content */}
           <div className="flex flex-col gap-12">
