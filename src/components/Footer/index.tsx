@@ -27,7 +27,7 @@ export default function Footer() {
               <Code2 className="h-8 w-8 text-primary" />
               <span className="text-xl font-bold font-headline tracking-heading">Devsora</span>
             </Link>
-            <p className="text-muted-foreground max-w-xs font-normal tracking-body">
+            <p className="text-muted-foreground max-w-xs font-medium tracking-body">
               The ultimate platform for developers to learn, build, and innovate.
             </p>
             <div className="mt-6 flex gap-4">
@@ -48,7 +48,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               {quickLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-normal tracking-body">{link.label}</Link>
+                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-medium tracking-body">{link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -59,7 +59,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               {resources.map(link => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-normal tracking-body">{link.label}</Link>
+                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-medium tracking-body">{link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -68,14 +68,14 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase tracking-heading">Legal</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-normal tracking-body">Privacy Policy</Link></li>
-              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-normal tracking-body">Terms of Service</Link></li>
+              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-medium tracking-body">Privacy Policy</Link></li>
+              <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-medium tracking-body">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-16 border-t pt-8 text-center text-muted-foreground">
-          <p className="font-normal tracking-body">&copy; {new Date().getFullYear()} Devsora. All rights reserved.</p>
+          <p className="font-medium tracking-body">&copy; {new Date().getFullYear()} Devsora. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -43,7 +43,7 @@ export default function InsightsSection() {
         <div className="text-center">
           <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-heading">Stay Ahead</h2>
           <p className="mt-2 text-3xl font-bold text-foreground sm:text-4xl font-headline tracking-heading">Latest Insights</p>
-          <p className="mt-6 leading-8 text-muted-foreground font-normal tracking-body">
+          <p className="mt-6 leading-8 text-muted-foreground font-medium tracking-body">
             Read our latest articles and stay up-to-date with industry trends.
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function InsightsSection() {
                 <p className="text-sm font-semibold text-primary tracking-heading">{insight.category}</p>
                 <h3 className="mt-2 text-lg font-bold font-headline text-white tracking-heading">{insight.title}</h3>
                 <div className="mt-4 h-0 opacity-0 transition-all duration-300 group-hover:h-auto group-hover:opacity-100">
-                  <p className="text-sm text-gray-300 font-normal tracking-body">{insight.summary}</p>
+                  <p className="text-sm text-gray-300 font-medium tracking-body">{insight.summary}</p>
                   <Button variant="link" className="text-white p-0 mt-2 h-auto tracking-body">Read More &rarr;</Button>
                 </div>
               </div>

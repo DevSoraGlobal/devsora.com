@@ -45,9 +45,9 @@ export default function ProjectsSection() {
     <section className="py-24 sm:py-32 bg-secondary">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-heading">See What We Build</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline tracking-heading">Our Projects</p>
-          <p className="mt-6 leading-8 text-muted-foreground font-normal tracking-body">
+          <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-[0.12em]">See What We Build</h2>
+          <p className="mt-2 text-3xl font-bold text-foreground sm:text-4xl font-headline tracking-widest">Our Projects</p>
+          <p className="mt-6 leading-8 text-muted-foreground font-medium tracking-tighter">
             Explore innovative projects built by our community and team.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function ProjectsSection() {
                       <CardContent className="p-6 flex-grow flex flex-col justify-between">
                         <div>
                           <h3 className="text-xl font-bold font-headline tracking-heading">{project.title}</h3>
-                          <p className="mt-2 text-muted-foreground font-normal tracking-body">{project.description}</p>
+                          <p className="mt-2 text-muted-foreground font-medium tracking-body">{project.description}</p>
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
@@ -75,7 +75,7 @@ export default function ProjectsSection() {
                               <div className="flex gap-2 py-2">
                                 {project.tags.map(tag => <Badge key={tag} variant="secondary" className="tracking-body">{tag}</Badge>)}
                               </div>
-                              <DialogDescription className="text-base text-muted-foreground pt-2 font-normal tracking-body">
+                              <DialogDescription className="text-base text-muted-foreground pt-2 font-medium tracking-body">
                                 {project.description} This is where more detailed information about the project would go. It could include technical specifications, challenges, and links to the live project or source code.
                               </DialogDescription>
                             </DialogHeader>
