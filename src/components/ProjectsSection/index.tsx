@@ -47,7 +47,7 @@ export default function ProjectsSection() {
         <div className="text-center">
           <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-[0.12em]">See What We Build</h2>
           <p className="mt-2 text-3xl font-bold text-foreground sm:text-4xl font-headline tracking-widest">Our Projects</p>
-          <p className="mt-6 leading-8 text-muted-foreground font-medium tracking-tighter">
+          <p className="mt-6 leading-8 text-muted-foreground font-medium tracking-body">
             Explore innovative projects built by our community and team.
           </p>
         </div>
