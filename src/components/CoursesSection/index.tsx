@@ -36,7 +36,7 @@ export default function CoursesSection() {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base font-semibold leading-7 text-primary font-headline tracking-[0.12em]">Start Your Journey</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline tracking-widest">Featured Courses</p>
+          <p className="mt-2 text-3xl font-bold text-foreground sm:text-4xl font-headline tracking-widest">Featured Courses</p>
           <p className="mt-6 leading-8 text-muted-foreground font-medium tracking-tighter">
             Handpicked courses to kickstart your career in technology.
           </p>
@@ -48,8 +48,8 @@ export default function CoursesSection() {
                 <Image src={course.image} alt={course.title} width={600} height={400} className="w-full object-cover" data-ai-hint={course.aiHint} />
               </CardHeader>
               <CardContent className="flex-grow p-6">
-                <CardTitle className="font-headline text-xl tracking-heading">{course.title}</CardTitle>
-                <CardDescription className="mt-2 text-muted-foreground font-normal tracking-body">{course.description}</CardDescription>
+                <CardTitle className="font-headline text-xl tracking-wider">{course.title}</CardTitle>
+                <CardDescription className="mt-2 text-muted-foreground font-normal">{course.description}</CardDescription>
               </CardContent>
               <CardFooter className="flex justify-between items-center p-6 pt-0">
                 <div className="flex gap-2">
