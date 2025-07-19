@@ -82,8 +82,8 @@ export default function AboutUsSection() {
                         <AccordionTrigger className="font-headline uppercase text-2xl text-left hover:no-underline data-[state=open]:text-primary">
                           {item.title}
                         </AccordionTrigger>
-                        <AccordionContent className="pt-2">
-                          <p className="font-body text-lg text-muted-foreground font-medium">{item.content}</p>
+                        <AccordionContent className="pt-2 text-muted-foreground">
+                          <p>{item.content}</p>
                         </AccordionContent>
                       </div>
                     </div>
