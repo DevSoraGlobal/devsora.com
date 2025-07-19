@@ -8,7 +8,7 @@ import IntroSection from '@/components/IntroSection';
 import CoursesSection from '@/components/CoursesSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import FeaturesSection from '@/components/FeaturesSection';
-import ChallengeApproachSection from '@/components/ChallengeApproachSection';
+import AboutUsSection from '@/components/AboutUsSection';
 import InsightsSection from '@/components/InsightsSection';
 import Footer from '@/components/Footer';
 import LoadingScreen from '@/components/LoadingScreen';
@@ -45,7 +45,7 @@ export default function Home() {
             <CoursesSection />
             <ProjectsSection />
             <FeaturesSection />
-            <ChallengeApproachSection />
+            <AboutUsSection />
             <InsightsSection />
           </main>
           <Footer />
