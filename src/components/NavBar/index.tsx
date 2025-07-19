@@ -33,7 +33,7 @@ export default function NavBar() {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+      "sticky top-0 left-0 right-0 z-50 transition-all duration-300",
       isScrolled ? "py-2" : "py-4"
     )}>
       <div className={cn(
