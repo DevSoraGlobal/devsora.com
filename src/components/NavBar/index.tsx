@@ -62,7 +62,7 @@ export default function NavBar() {
         </nav>
         
         {/* Right: Auth Buttons (Desktop) */}
-        <div className="hidden md:flex items-center gap-2 pr-4">
+        <div className="hidden md:flex items-center gap-2 pr-4 py-2">
           {isLoggedIn ? (
             <Link href="/dashboard">
               <div className="h-8 w-8 rounded-full bg-primary" />
