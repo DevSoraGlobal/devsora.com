@@ -33,12 +33,12 @@ export default function NavBar() {
 
   return (
     <header className={cn(
-      "sticky top-0 left-0 right-0 z-50 transition-all duration-300",
+      "sticky top-0 z-50 transition-all duration-300",
       isScrolled ? "py-2" : "py-4"
     )}>
       <div className={cn(
         "container mx-auto flex items-center justify-between relative transition-all duration-300",
-        isScrolled ? "bg-black/50 border border-white/10 rounded-full backdrop-blur-lg" : ""
+        isScrolled ? "bg-black/80 backdrop-blur-lg border border-white/10 rounded-full" : ""
       )}>
         {/* Left: Logo and Brand Name */}
         <div className="flex items-center pl-4">
@@ -69,8 +69,8 @@ export default function NavBar() {
             </Link>
           ) : (
             <>
-              <Button variant="ghost" className="tracking-body">Sign In</Button>
-              <Button className="tracking-body">Sign Up</Button>
+              <Button variant="ghost" className="tracking-body rounded-full">Sign In</Button>
+              <Button className="tracking-body rounded-full">Sign Up</Button>
             </>
           )}
         </div>
@@ -100,12 +100,12 @@ export default function NavBar() {
                 <div className="mt-auto p-4 border-t border-border flex flex-col gap-4">
                   {isLoggedIn ? (
                      <Link href="/dashboard" passHref>
-                        <Button className="w-full tracking-body">Dashboard</Button>
+                        <Button className="w-full tracking-body rounded-full">Dashboard</Button>
                     </Link>
                   ) : (
                     <>
-                      <Button variant="ghost" className="w-full tracking-body">Sign In</Button>
-                      <Button className="w-full tracking-body">Sign Up</Button>
+                      <Button variant="ghost" className="w-full tracking-body rounded-full">Sign In</Button>
+                      <Button className="w-full tracking-body rounded-full">Sign Up</Button>
                     </>
                   )}
                 </div>
