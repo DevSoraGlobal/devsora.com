@@ -67,7 +67,7 @@ export default function AboutUsSection() {
             <h2 className="font-headline text-3xl font-bold uppercase text-center mb-12 tracking-[0.08em]">From Vision to Reality, We’re Shaping the Future of Learning</h2>
             <Accordion type="single" collapsible defaultValue="1" className="w-full">
               {timeline.map((item) => (
-                <AccordionItem key={item.id} value={item.id} className="border-b border-primary/30">
+                <AccordionItem key={item.id} value={item.id} className="border-b-2 border-primary/30">
                     <AccordionTrigger className="font-headline uppercase text-2xl text-left hover:no-underline data-[state=open]:text-primary py-6">
                       {item.title}
                     </AccordionTrigger>
