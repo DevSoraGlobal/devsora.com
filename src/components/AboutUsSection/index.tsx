@@ -4,7 +4,7 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 
-export default function AboutUsSection() {
+export default function ChallengeApproachSection() {
   return (
     <section className="bg-black text-white py-24 sm:py-32">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
