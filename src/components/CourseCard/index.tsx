@@ -2,9 +2,11 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Course } from '@/lib/courses';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 interface CourseCardProps {
@@ -21,10 +23,9 @@ const difficultyColors: { [key: string]: string } = {
 export default function CourseCard({ course, onClick }: CourseCardProps) {
   return (
     <Card
-      onClick={() => onClick(course)}
-      className="bg-card/80 backdrop-blur-sm border-white/10 text-white rounded-lg overflow-hidden cursor-pointer group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30"
+      className="bg-card/80 backdrop-blur-sm border-white/10 text-white rounded-lg overflow-hidden cursor-pointer group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 flex flex-col"
     >
-      <div className="overflow-hidden">
+      <div className="overflow-hidden" onClick={() => onClick(course)}>
         <Image
           src={course.image}
           alt={course.title}
@@ -34,20 +35,29 @@ export default function CourseCard({ course, onClick }: CourseCardProps) {
           data-ai-hint={course.aiHint}
         />
       </div>
-      <CardContent className="p-6">
-        <Badge
-          variant="outline"
-          className={cn("font-semibold tracking-wider", difficultyColors[course.difficulty])}
-        >
-          {course.difficulty}
-        </Badge>
-        <h3 className="font-headline uppercase text-2xl font-bold mt-4 tracking-heading">
-          {course.title}
-        </h3>
-        <p className="font-body text-lg text-muted-foreground mt-2">
-          {course.description}
-        </p>
+      <CardContent className="p-6 flex-grow flex flex-col" onClick={() => onClick(course)}>
+        <div>
+            <Badge
+            variant="outline"
+            className={cn("font-semibold tracking-wider", difficultyColors[course.difficulty])}
+            >
+            {course.difficulty}
+            </Badge>
+            <h3 className="font-headline uppercase text-2xl font-bold mt-4 tracking-heading">
+            {course.title}
+            </h3>
+            <p className="font-body text-lg text-muted-foreground mt-2">
+            {course.description}
+            </p>
+        </div>
       </CardContent>
+      <div className="p-6 pt-0 mt-auto">
+        <Link href={`/learn/${course.id}`} passHref>
+            <Button className="w-full font-headline uppercase font-bold tracking-widest bg-primary hover:bg-primary/80 text-primary-foreground">
+                Start CTO
+            </Button>
+        </Link>
+      </div>
     </Card>
   );
 }
