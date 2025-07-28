@@ -20,26 +20,33 @@ const navLinks = [
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check scroll position on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const isLoggedIn = false;
+  
+  const headerClasses = cn(
+    "sticky top-0 z-50 transition-all duration-300",
+    hasMounted && isScrolled ? "py-2" : "py-4"
+  );
+
+  const containerClasses = cn(
+      "container mx-auto flex items-center justify-between relative transition-all duration-300",
+      hasMounted && isScrolled ? "bg-black/50 backdrop-blur-lg border border-white/10 rounded-full" : ""
+  );
 
   return (
-    <header className={cn(
-      "sticky top-0 z-50 transition-all duration-300",
-      isScrolled ? "py-2" : "py-4"
-    )}>
-      <div className={cn(
-        "container mx-auto flex items-center justify-between relative transition-all duration-300",
-        isScrolled ? "bg-black/50 backdrop-blur-lg border border-white/10 rounded-full" : ""
-      )}>
+    <header className={headerClasses}>
+      <div className={containerClasses}>
         {/* Left: Logo and Brand Name */}
         <div className="flex items-center pl-4">
           <Link href="/" className="flex items-center gap-2">
