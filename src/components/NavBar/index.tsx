@@ -20,26 +20,33 @@ const navLinks = [
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted) return;
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [hasMounted]);
 
   const isLoggedIn = false;
   
   const headerClasses = cn(
     "sticky top-0 z-50 transition-all duration-300",
-    isScrolled ? "py-2" : "py-4"
+    hasMounted && isScrolled ? "py-2" : "py-4"
   );
 
   const containerClasses = cn(
       "container mx-auto flex items-center justify-between relative transition-all duration-300",
-      isScrolled ? "bg-black/50 backdrop-blur-lg border border-white/10 rounded-full" : ""
+      hasMounted && isScrolled ? "bg-black/50 backdrop-blur-lg border border-white/10 rounded-full" : ""
   );
 
   return (
