@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -7,19 +8,31 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.pageYOffset);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    setHasMounted(true);
   }, []);
+
+  const handleScroll = () => {
+    setOffsetY(window.pageYOffset);
+  };
+
+  useEffect(() => {
+    if (hasMounted) {
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+  }, [hasMounted]);
+
+  const parallaxStyle = hasMounted ? { transform: `translateY(${offsetY * 0.5}px)` } : {};
 
   return (
     <section className="relative h-[90vh] min-h-[600px] w-full flex items-center justify-center text-center overflow-hidden">
       <div
         className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0 opacity-65"
         style={{ 
-          transform: `translateY(${offsetY * 0.5}px)`,
+          ...parallaxStyle,
           backgroundImage: "url('/hero-bg-img.png')",
         }}
       >
