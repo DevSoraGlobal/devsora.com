@@ -8,7 +8,7 @@ import * as THREE from 'three';
 
 const GlobeComponent = () => {
     const meshRef = useRef<THREE.Mesh>(null!);
-    const texture = useLoader(THREE.TextureLoader, '//unpkg.com/three-globe/example/img/earth-night.jpg');
+    const texture = useLoader(THREE.TextureLoader, '//unpkg.com/three-globe/example/img/earth-dark.jpg');
 
     useFrame(() => {
         if (meshRef.current) {
@@ -31,19 +31,15 @@ const GlobeComponent = () => {
 };
 
 const InteractiveGlobe: React.FC = () => {
-    if (typeof window === 'undefined') {
-        return null;
-    }
-
     return (
-        <Canvas>
-            <Suspense fallback={null}>
-                <ambientLight intensity={0.2} />
-                <directionalLight color="orange" position={[4, 4, 4]} intensity={1.5} />
-                <GlobeComponent />
-                <OrbitControls autoRotate autoRotateSpeed={0.5} enableZoom={false} enablePan={false} />
-            </Suspense>
-        </Canvas>
+      <Canvas>
+        <Suspense fallback={null}>
+            <ambientLight intensity={0.2} />
+            <directionalLight color="orange" position={[4, 4, 4]} intensity={1.5} />
+            <GlobeComponent />
+            <OrbitControls autoRotate autoRotateSpeed={0.5} enableZoom={false} enablePan={false} />
+        </Suspense>
+      </Canvas>
     );
 };
 
