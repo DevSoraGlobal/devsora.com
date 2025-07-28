@@ -44,7 +44,7 @@ const TeamMemberCard = ({ member }: { member: typeof teamMembers[0] }) => (
 const TeamSection = ({ title, description, members }: { title: string, description: string, members: typeof teamMembers }) => (
     <div className="mb-24">
         <h3 className="font-headline text-4xl uppercase font-bold tracking-heading mb-4">{title}</h3>
-        <p className="font-body text-lg text-muted-foreground max-w-3xl mx-auto mb-12">{description}</p>
+        <p className="font-body text-lg text-muted-foreground max-w-3xl mx-auto mb-12 font-normal">{description}</p>
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {members.map(member => (
                 <TeamMemberCard key={member.name} member={member} />
@@ -62,7 +62,7 @@ export default function TeamPage() {
                 Trailblazers Behind<br />
                 <span className="text-primary">DEVSORA</span>
             </h1>
-            <p className="max-w-3xl mx-auto mt-8 font-body text-lg leading-relaxed text-muted-foreground">
+            <p className="max-w-3xl mx-auto mt-8 font-normal text-lg leading-relaxed text-muted-foreground">
                 Our team is the driving force powering DEVSORA's vision. A dynamic blend of passionate educators, visionary developers, and creative innovators, we thrive on collaboration and bold ideas. Every milestone we reach and every feature we launch is a testament to our team's dedication, expertise, and relentless pursuit of excellence. We're proud to work together—building, inspiring, and shaping the future of tech education for the next generation of creators.
             </p>
         </div>
