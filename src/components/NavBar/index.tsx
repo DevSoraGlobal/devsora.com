@@ -20,15 +20,13 @@ const navLinks = [
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    setHasMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check scroll position on mount
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -36,12 +34,12 @@ export default function NavBar() {
   
   const headerClasses = cn(
     "sticky top-0 z-50 transition-all duration-300",
-    hasMounted && isScrolled ? "py-2" : "py-4"
+    isScrolled ? "py-2" : "py-4"
   );
 
   const containerClasses = cn(
       "container mx-auto flex items-center justify-between relative transition-all duration-300",
-      hasMounted && isScrolled ? "bg-black/50 backdrop-blur-lg border border-white/10 rounded-full" : ""
+      isScrolled ? "bg-black/50 backdrop-blur-lg border border-white/10 rounded-full" : ""
   );
 
   return (
