@@ -1,0 +1,13 @@
+diff --git a/node_modules/three-globe/dist/three-globe.mjs b/node_modules/three-globe/dist/three-globe.mjs
+index 287955c..209e530 100644
+--- a/node_modules/three-globe/dist/three-globe.mjs
++++ b/node_modules/three-globe/dist/three-globe.mjs
+@@ -17,7 +17,7 @@ import { sum, max } from 'd3-array';
+ import { scaleLinear } from 'd3-scale';
+ import { geoInterpolate } from 'd3-geo';
+ import { StorageInstancedBufferAttribute, WebGPURenderer } from 'three/webgpu';
+-import * as tsl from 'three/tsl';
++import * as tsl from 'three/nodes';
+ import { Line2 } from 'three/examples/jsm/lines/Line2.js';
+ import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry.js';
+ import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
