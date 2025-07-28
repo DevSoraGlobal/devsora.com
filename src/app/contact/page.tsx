@@ -1,15 +1,14 @@
+
+import ContactPage from '@/components/ContactPage';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 
-export default function ContactPage() {
+export default function Contact() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-black">
       <NavBar />
-      <main className="flex-grow container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold font-headline text-center tracking-heading">Contact Us</h1>
-        <p className="text-muted-foreground text-center mt-4 tracking-body">
-          Contact information and a contact form will be available here.
-        </p>
+      <main className="flex-grow">
+        <ContactPage />
       </main>
       <Footer />
     </div>

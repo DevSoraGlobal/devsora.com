@@ -38,7 +38,7 @@ export default function Home() {
       {loadingStep === 2 && <LoadingScreen2 onExited={handleSecondScreenExited} />}
       
       {loadingStep === 3 && (
-        <div className={cn("transition-all duration-700 ease-out", isHomePageVisible ? "opacity-100 scale-100" : "opacity-0 scale-97")}>
+        <div className={cn("transition-all duration-500 ease-out", isHomePageVisible ? "opacity-100 scale-100" : "opacity-0 scale-97")}>
           <NavBar />
           <main className="flex-grow pt-0">
             <HeroSection />

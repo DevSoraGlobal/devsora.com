@@ -7,12 +7,13 @@ import Image from 'next/image';
 const teamMembers = [
     { name: 'HITEN BALARA', title: 'Chief Executive Officer', image: 'https://placehold.co/400x400.png', category: 'Leadership' },
     { name: 'PRANJAL', title: 'Chief Technology Officer', image: 'https://placehold.co/400x400.png', category: 'Leadership' },
-    { name: 'DEVGURU PANDEY', title: 'UI/UX Designer', image: 'https://placehold.co/400x400.png', category: 'Leadership' },
-    { name: 'KUNAL MAHARIA', title: 'Chief Marketing Officer', image: 'https://placehold.co/400x400.png', category: 'Marketing' },
+    { name: 'DEVGURU PANDEY', title: 'UI/UX Designer', image: 'https://placehold.co/400x400.png', category: 'Development' },
+    { name: 'KUNAL MAHARIA', title: 'Chief Marketing Officer', image: 'https://placehold.co/400x400.png', category: 'Leadership' },
     { name: 'MRIDUL SHARMA', title: 'Social Media Designer', image: 'https://placehold.co/400x400.png', category: 'Marketing' },
     { name: 'Akshat Shrivatava', title: 'Marketing Executive', image: 'https://placehold.co/400x400.png', category: 'Marketing' },
     { name: 'satakshi sinha', title: 'Curriculum Writer', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
     { name: 'aadhya govil', title: 'Curriculum Writer', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
+    { name: 'sakshi verma', title: 'Curriculum Writer', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
     { name: 'Ashira Chitkara', title: 'Community Manager', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
     { name: 'gargi jain', title: 'Community Manager', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
     { name: 'Drishti Garg', title: 'Community Manager', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
@@ -37,14 +38,14 @@ const TeamMemberCard = ({ member }: { member: typeof teamMembers[0] }) => (
             />
         </div>
         <h3 className="font-headline text-2xl uppercase font-bold tracking-heading">{member.name}</h3>
-        <p className="font-body text-lg text-muted-foreground">{member.title}</p>
+        <p className="font-normal text-lg text-muted-foreground">{member.title}</p>
     </div>
 );
 
 const TeamSection = ({ title, description, members }: { title: string, description: string, members: typeof teamMembers }) => (
     <div className="mb-24">
-        <h3 className="font-headline text-4xl uppercase font-bold tracking-heading mb-4">{title}</h3>
-        <p className="font-body text-lg text-muted-foreground max-w-3xl mx-auto mb-12 font-normal">{description}</p>
+        <h3 className="font-headline text-4xl uppercase font-bold tracking-heading mb-4 text-primary">{title}</h3>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12 font-normal">{description}</p>
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {members.map(member => (
                 <TeamMemberCard key={member.name} member={member} />
