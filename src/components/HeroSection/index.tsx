@@ -15,7 +15,9 @@ export default function HeroSection() {
   }, []);
 
   const handleScroll = () => {
-    setOffsetY(window.pageYOffset);
+    if (hasMounted) {
+      setOffsetY(window.pageYOffset);
+    }
   };
 
   useEffect(() => {
