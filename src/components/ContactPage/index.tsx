@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -12,7 +11,12 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import InteractiveGlobe from '@/components/Globe';
+import dynamic from 'next/dynamic';
+
+const InteractiveGlobe = dynamic(() => import('@/components/Globe'), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-black" />,
+});
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
