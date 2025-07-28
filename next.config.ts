@@ -19,11 +19,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  webpack: (config, { isServer }) => {
-    // Add a custom alias for the problematic import
-    config.resolve.alias['three/tsl'] = 'three/examples/jsm/nodes/TSL.js';
-    return config;
-  },
 };
 
 export default nextConfig;

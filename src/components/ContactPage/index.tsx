@@ -12,7 +12,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Globe from '@/components/Globe';
+import InteractiveGlobe from '@/components/Globe';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
@@ -167,7 +167,7 @@ export default function ContactPage() {
              className="flex flex-col gap-12"
           >
             <div className="relative w-full h-96 rounded-lg bg-card border border-primary/20 flex items-center justify-center overflow-hidden">
-                <Globe />
+                <InteractiveGlobe />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                 <h2 className="absolute bottom-8 font-headline text-4xl text-white font-bold tracking-wider z-10">
                     Connecting Globally

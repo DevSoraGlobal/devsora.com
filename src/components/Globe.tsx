@@ -1,35 +1,50 @@
 
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, useRef } from 'react';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { OrbitControls, Sphere } from '@react-three/drei';
+import * as THREE from 'three';
 
-let Globe: React.FC = () => null;
-if (typeof window !== 'undefined') {
-  const ReactGlobe = require('react-globe.gl').default;
-  Globe = () => {
-    const globeEl = useRef<any>();
-    const [globeReady, setGlobeReady] = useState(false);
+const GlobeComponent = () => {
+    const meshRef = useRef<THREE.Mesh>(null!);
+    const texture = useLoader(THREE.TextureLoader, '//unpkg.com/three-globe/example/img/earth-night.jpg');
 
-    useEffect(() => {
-      if (globeEl.current) {
-        globeEl.current.controls().autoRotate = true;
-        globeEl.current.controls().autoRotateSpeed = 0.5;
-        globeEl.current.pointOfView({ lat: 27.61, lng: 75.14, altitude: 2.5 });
-      }
-    }, [globeReady]);
+    useFrame(() => {
+        if (meshRef.current) {
+            meshRef.current.rotation.y += 0.001;
+        }
+    });
 
     return (
-        <ReactGlobe
-            ref={globeEl}
-            onGlobeReady={() => setGlobeReady(true)}
-            animateIn={true}
-            globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-            backgroundColor="rgba(0,0,0,0)"
-            atmosphereColor="orange"
-            atmosphereAltitude={0.2}
-        />
+        <Sphere args={[2.5, 64, 64]} ref={meshRef}>
+            <meshStandardMaterial 
+              map={texture} 
+              color="orange" 
+              emissive="#FC5000"
+              emissiveIntensity={0.3}
+              metalness={0.2}
+              roughness={0.9}
+            />
+        </Sphere>
     );
-  }
-}
+};
 
-export default Globe;
+const InteractiveGlobe: React.FC = () => {
+    if (typeof window === 'undefined') {
+        return null;
+    }
+
+    return (
+        <Canvas>
+            <Suspense fallback={null}>
+                <ambientLight intensity={0.2} />
+                <directionalLight color="orange" position={[4, 4, 4]} intensity={1.5} />
+                <GlobeComponent />
+                <OrbitControls autoRotate autoRotateSpeed={0.5} enableZoom={false} enablePan={false} />
+            </Suspense>
+        </Canvas>
+    );
+};
+
+export default InteractiveGlobe;
