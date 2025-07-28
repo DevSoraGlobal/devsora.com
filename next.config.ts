@@ -1,3 +1,4 @@
+
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
@@ -17,6 +18,11 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  webpack: (config, { isServer }) => {
+    // Add a custom alias for the problematic import
+    config.resolve.alias['three/tsl'] = 'three/examples/jsm/nodes/TSL.js';
+    return config;
   },
 };
 
