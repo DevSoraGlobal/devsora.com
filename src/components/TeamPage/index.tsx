@@ -12,7 +12,7 @@ const teamMembers = [
     { name: 'MRIDUL SHARMA', title: 'Social Media Designer', image: 'https://placehold.co/400x400.png', category: 'Marketing' },
     { name: 'Akshat Shrivatava', title: 'Marketing Executive', image: 'https://placehold.co/400x400.png', category: 'Marketing' },
     { name: 'satakshi sinha', title: 'Curriculum Writer', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
-    { name: 'aadhya govil', title: 'Curriculum Writer', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
+    { name: 'aadhya govil', title: 'HR & Management', image: 'https://placehold.co/400x400.png', category: 'Leadership' },
     { name: 'sakshi verma', title: 'Curriculum Writer', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
     { name: 'Ashira Chitkara', title: 'Community Manager', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
     { name: 'gargi jain', title: 'Community Manager', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },

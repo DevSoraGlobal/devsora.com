@@ -52,7 +52,7 @@ export default function FeaturesSection() {
                 <h3 className="font-headline uppercase text-2xl font-bold tracking-heading text-primary">
                   {feature.title}
                 </h3>
-                <p className="font-body text-lg font-normal text-muted-foreground mt-4">
+                <p className="text-lg font-normal text-muted-foreground mt-4">
                   {feature.description}
                 </p>
               </CardContent>
