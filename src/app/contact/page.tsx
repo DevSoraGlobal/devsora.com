@@ -87,7 +87,7 @@ export default function Contact() {
                             <AccordionTrigger className="text-left font-headline text-2xl uppercase font-bold text-white hover:no-underline hover:text-primary data-[state=open]:text-primary py-6">
                                 {faq.question}
                             </AccordionTrigger>
-                            <AccordionContent className="font-body text-lg text-muted-foreground pb-6 pt-2">
+                            <AccordionContent className="font-normal text-lg text-muted-foreground pb-6 pt-2">
                                 {faq.answer}
                             </AccordionContent>
                         </AccordionItem>
