@@ -32,7 +32,7 @@ export default function HeroSection() {
   return (
     <section className="relative h-[90vh] min-h-[600px] w-full flex items-center justify-center text-center overflow-hidden">
       <div
-        className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0 opacity-65"
+        className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0 opacity-80"
         style={{ 
           ...parallaxStyle,
           backgroundImage: "url('/hero-bg-img.png')",
