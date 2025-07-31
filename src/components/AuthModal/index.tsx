@@ -1,7 +1,9 @@
-
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -13,6 +15,8 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useToast } from "@/hooks/use-toast";
+import { Loader2 } from 'lucide-react';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -20,42 +24,162 @@ interface AuthModalProps {
   defaultTab?: 'signin' | 'signup';
 }
 
-const SignInForm = () => (
-  <div className="space-y-4">
-    <div className="space-y-2">
-      <Label htmlFor="email-signin" className="font-body text-lg">Email</Label>
-      <Input id="email-signin" type="email" placeholder="you@example.com" />
-    </div>
-    <div className="space-y-2">
-      <Label htmlFor="password-signin" className="font-body text-lg">Password</Label>
-      <Input id="password-signin" type="password" placeholder="••••••••" />
-    </div>
-    <Button type="submit" size="lg" className="w-full font-body text-lg tracking-wider">Sign In</Button>
-  </div>
-);
+const signUpSchema = z.object({
+  fullname: z.string().min(1, 'Full name is required'),
+  username: z.string().min(1, 'Username is required'),
+  email: z.string().email('Invalid email address'),
+  password: z.string().min(8, 'Password must be at least 8 characters'),
+});
 
-const SignUpForm = () => (
-  <div className="space-y-4">
-    <div className="space-y-2">
-      <Label htmlFor="name-signup" className="font-body text-lg">Full Name</Label>
-      <Input id="name-signup" placeholder="John Doe" />
-    </div>
-    <div className="space-y-2">
-      <Label htmlFor="email-signup" className="font-body text-lg">Email</Label>
-      <Input id="email-signup" type="email" placeholder="you@example.com" />
-    </div>
-    <div className="space-y-2">
-      <Label htmlFor="password-signup" className="font-body text-lg">Password</Label>
-      <Input id="password-signup" type="password" placeholder="Create a password" />
-    </div>
-    <Button type="submit" size="lg" className="w-full font-body text-lg tracking-wider">Create Account</Button>
-  </div>
-);
+const signInSchema = z.object({
+  username_email: z.string().min(1, 'Username or email is required'),
+  password: z.string().min(1, 'Password is required'),
+});
+
+const SignInForm = ({ onSuccessfulSignIn }: { onSuccessfulSignIn: () => void }) => {
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(signInSchema),
+  });
+
+  const onSubmit = async (data: z.infer<typeof signInSchema>) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Sign In Successful",
+          description: "Welcome back!",
+        });
+        onSuccessfulSignIn();
+      } else {
+        toast({
+          title: "Sign In Failed",
+          description: result.error || "An unexpected error occurred.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Could not connect to the server.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="username_email-signin" className="font-body text-lg">Username or Email</Label>
+        <Input id="username_email-signin" {...register('username_email')} placeholder="you@example.com" />
+        {errors.username_email && <p className="text-destructive text-sm">{`${errors.username_email.message}`}</p>}
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="password-signin" className="font-body text-lg">Password</Label>
+        <Input id="password-signin" type="password" {...register('password')} placeholder="••••••••" />
+        {errors.password && <p className="text-destructive text-sm">{`${errors.password.message}`}</p>}
+      </div>
+      <Button type="submit" size="lg" className="w-full font-body text-lg tracking-wider" disabled={isLoading}>
+        {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+        Sign In
+      </Button>
+    </form>
+  );
+};
+
+const SignUpForm = ({ onSuccessfulSignUp }: { onSuccessfulSignUp: () => void }) => {
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(signUpSchema),
+  });
+
+  const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Account Created",
+          description: "You have successfully signed up!",
+        });
+        onSuccessfulSignUp();
+      } else {
+        toast({
+          title: "Sign Up Failed",
+          description: result.error || "An unexpected error occurred.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+       toast({
+        title: "Error",
+        description: "Could not connect to the server.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="fullname-signup" className="font-body text-lg">Full Name</Label>
+        <Input id="fullname-signup" {...register('fullname')} placeholder="John Doe" />
+         {errors.fullname && <p className="text-destructive text-sm">{`${errors.fullname.message}`}</p>}
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="username-signup" className="font-body text-lg">Username</Label>
+        <Input id="username-signup" {...register('username')} placeholder="johndoe" />
+        {errors.username && <p className="text-destructive text-sm">{`${errors.username.message}`}</p>}
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="email-signup" className="font-body text-lg">Email</Label>
+        <Input id="email-signup" type="email" {...register('email')} placeholder="you@example.com" />
+        {errors.email && <p className="text-destructive text-sm">{`${errors.email.message}`}</p>}
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="password-signup" className="font-body text-lg">Password</Label>
+        <Input id="password-signup" type="password" {...register('password')} placeholder="Create a password" />
+        {errors.password && <p className="text-destructive text-sm">{`${errors.password.message}`}</p>}
+      </div>
+      <Button type="submit" size="lg" className="w-full font-body text-lg tracking-wider" disabled={isLoading}>
+        {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+        Create Account
+      </Button>
+    </form>
+  );
+};
 
 export default function AuthModal({ isOpen, onOpenChange, defaultTab = 'signin' }: AuthModalProps) {
+  
+  const handleSuccess = () => {
+    onOpenChange(false);
+    window.location.reload();
+  };
+  
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-background text-foreground border-primary/20 w-[600px] h-auto max-h-[98vh] max-w-[95vw] sm:h-[800px] p-0 flex flex-col">
+      <DialogContent className="bg-background text-foreground border-primary/20 w-[600px] h-auto max-h-[98vh] max-w-[95vw] sm:h-auto sm:max-h-[800px] p-0 flex flex-col">
         <DialogHeader className="p-8 pb-0">
           <DialogTitle className="font-headline text-5xl text-center uppercase tracking-widest text-primary">
             Welcome to Devsora
@@ -71,10 +195,10 @@ export default function AuthModal({ isOpen, onOpenChange, defaultTab = 'signin' 
                     <TabsTrigger value="signup" className="font-headline text-xl uppercase tracking-wider">Sign Up</TabsTrigger>
                 </TabsList>
                 <TabsContent value="signin" className="pt-8">
-                    <SignInForm />
+                    <SignInForm onSuccessfulSignIn={handleSuccess} />
                 </TabsContent>
                 <TabsContent value="signup" className="pt-8">
-                    <SignUpForm />
+                    <SignUpForm onSuccessfulSignUp={handleSuccess} />
                 </TabsContent>
             </Tabs>
         </div>

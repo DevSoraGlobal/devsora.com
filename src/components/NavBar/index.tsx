@@ -1,29 +1,39 @@
-
 "use client";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Code2 } from 'lucide-react';
+import { Menu, Code2, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AuthModal from '@/components/AuthModal';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { useToast } from '@/hooks/use-toast';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 const navLinks = [
   { href: '/learn', label: 'Learn' },
-  // { href: '/explore', label: 'Explore' },
-  // { href: '/global', label: 'Global' },
-  // { href: '/insights',label: 'Insights' },
   { href: '/team', label: 'Team' },
   { href: '/contact', label: 'Contact' },
 ];
 
 export default function NavBar() {
+  const { toast } = useToast();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalTab, setAuthModalTab] = useState<'signin' | 'signup'>('signin');
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState<{ fullName?: string; username?: string, email?: string } | null>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -32,13 +42,47 @@ export default function NavBar() {
     handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  useEffect(() => {
+    const verifyUser = async () => {
+      try {
+        const response = await fetch('/api/auth/verify');
+        const data = await response.json();
+        if (response.ok) {
+          setIsLoggedIn(true);
+          setUser(data.user);
+        } else {
+          setIsLoggedIn(false);
+          setUser(null);
+        }
+      } catch (error) {
+        setIsLoggedIn(false);
+        setUser(null);
+      }
+    };
+    verifyUser();
+  }, []);
 
   const openAuthModal = (tab: 'signin' | 'signup') => {
     setAuthModalTab(tab);
     setIsAuthModalOpen(true);
   }
 
-  const isLoggedIn = false;
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('/api/auth/logout', { method: 'POST' });
+      if (response.ok) {
+        toast({ title: 'Logged Out', description: 'You have been successfully logged out.' });
+        setIsLoggedIn(false);
+        setUser(null);
+        window.location.reload();
+      } else {
+        toast({ title: 'Logout Failed', description: 'Something went wrong.', variant: 'destructive' });
+      }
+    } catch (error) {
+       toast({ title: 'Error', description: 'Could not connect to the server.', variant: 'destructive' });
+    }
+  };
   
   const headerClasses = cn(
     "sticky top-0 z-50 transition-all duration-300",
@@ -54,7 +98,6 @@ export default function NavBar() {
     <>
       <header className={headerClasses}>
         <div className={containerClasses}>
-          {/* Left: Logo and Brand Name */}
           <div className="flex items-center pl-4">
             <Link href="/" className="flex items-center gap-2">
               <Code2 className="h-8 w-8 text-primary" />
@@ -62,7 +105,6 @@ export default function NavBar() {
             </Link>
           </div>
 
-          {/* Center: Navigation (Desktop) */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
@@ -75,20 +117,41 @@ export default function NavBar() {
             ))}
           </nav>
           
-          {/* Right: Auth Buttons (Desktop) */}
-          <div className="hidden md:flex items-center gap-2 pr-4 py-2">
-            {isLoggedIn ? (
-              <Link href="/dashboard">
-                <div className="h-8 w-8 rounded-full bg-primary" />
-              </Link>
+          <div className="hidden md:flex items-center gap-4 pr-4 py-2">
+            {isLoggedIn && user ? (
+               <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                   <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+                      <Avatar className="h-10 w-10">
+                        <AvatarImage src={`https://api.dicebear.com/7.x/micah/svg?seed=${user.username}`} alt={user.username} />
+                        <AvatarFallback>{user.username?.[0].toUpperCase()}</AvatarFallback>
+                      </Avatar>
+                   </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56" align="end" forceMount>
+                  <DropdownMenuLabel className="font-normal">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium leading-none">{user.fullName}</p>
+                      <p className="text-xs leading-none text-muted-foreground">
+                        {user.email}
+                      </p>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Log out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <>
                 <Button variant="outline" className="tracking-body rounded-full border-primary hover:bg-primary/10 hover:text-primary-foreground border-2" onClick={() => openAuthModal('signin')}>Sign In</Button>
+                <Button className="tracking-body rounded-full" onClick={() => openAuthModal('signup')}>Sign Up</Button>
               </>
             )}
           </div>
           
-          {/* Mobile Menu Trigger */}
           <div className="md:hidden flex items-center ml-auto">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -112,9 +175,12 @@ export default function NavBar() {
                   </nav>
                   <div className="mt-auto p-4 border-t border-border flex flex-col gap-4">
                     {isLoggedIn ? (
-                       <Link href="/dashboard" passHref>
-                          <Button className="w-full tracking-body rounded-full">Dashboard</Button>
-                      </Link>
+                       <>
+                         <Link href="/dashboard" passHref>
+                            <Button className="w-full tracking-body rounded-full">Dashboard</Button>
+                        </Link>
+                        <Button variant="outline" className="w-full tracking-body rounded-full" onClick={handleLogout}>Logout</Button>
+                       </>
                     ) : (
                       <>
                         <Button variant="outline" className="w-full tracking-body rounded-full border-primary hover:bg-primary/10 hover:text-primary-foreground" onClick={() => {openAuthModal('signin'); setIsMobileMenuOpen(false);}}>Sign In</Button>
@@ -128,7 +194,7 @@ export default function NavBar() {
           </div>
         </div>
       </header>
-      <AuthModal isOpen={isAuthModalOpen} onOpenChange={setIsAuthModalOpen} defaultTab={authModalTab} />
+      {!isLoggedIn && <AuthModal isOpen={isAuthModalOpen} onOpenChange={setIsAuthModalOpen} defaultTab={authModalTab} />}
     </>
   );
 }
