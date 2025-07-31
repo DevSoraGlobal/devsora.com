@@ -14,7 +14,8 @@ async function getCourses() {
             return [];
         }
         const data = await res.json();
-        return data.courses;
+        // The API returns { success, courses, count }, so we need to access the courses property
+        return data.courses || [];
     } catch (error) {
         console.error('Error fetching courses:', error);
         return [];
@@ -33,7 +34,8 @@ async function getUser() {
         const res = await fetch('https://webserver.devsora.com/api/auth/verify', {
             headers: {
                 Cookie: `userLoggedIn=${token?.value}`
-            }
+            },
+            credentials: 'include',
         });
         
         if (!res.ok) {

@@ -5,19 +5,21 @@ import React, { useState } from 'react';
 import CourseCard from '@/components/CourseCard';
 import CourseModal from '@/components/CourseModal';
 
-// Define a simplified Course type for this component
+// This is now the primary Course interface for the client-side components
 export interface Course {
   _id: string;
   slug: string;
-  title: string;
+  courseName: string;
+  title: string; // Keep for card compatibility if needed, or unify
   description: string;
-  detailedDescription: string;
-  image: string;
-  aiHint: string;
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
-  duration: string;
-  badges: { name: string; description: string }[];
-  toc: any[]; // Keep toc flexible as modal might use it
+  detailedDescription?: string;
+  image?: string;
+  aiHint?: string;
+  difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
+  duration?: string;
+  badges?: { name: string; description: string }[];
+  format?: any[];
+  toc?: any[]; // Keep for legacy compatibility if needed
 }
 
 interface LearnPageProps {
@@ -35,6 +37,12 @@ export default function LearnPage({ courses, enrolledCourses }: LearnPageProps) 
   const handleCloseModal = () => {
     setSelectedCourse(null);
   };
+  
+  // Normalize course data to fit the CourseCard's expected props
+  const normalizedCourses = courses.map(course => ({
+    ...course,
+    title: course.courseName, // Use courseName for the title
+  }));
 
   return (
     <div className="container mx-auto px-4 py-16 sm:py-24">
@@ -47,7 +55,7 @@ export default function LearnPage({ courses, enrolledCourses }: LearnPageProps) 
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {courses.map((course) => (
+        {normalizedCourses.map((course) => (
           <CourseCard 
             key={course._id} 
             course={course} 

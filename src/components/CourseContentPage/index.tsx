@@ -23,6 +23,7 @@ export interface CourseFormat {
 export interface Course {
   _id: string;
   courseName: string;
+  slug: string;
   description?: string;
   detailedDescription?: string;
   difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';

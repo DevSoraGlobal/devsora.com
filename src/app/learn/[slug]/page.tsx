@@ -18,6 +18,7 @@ export interface CourseFormat {
 
 export interface Course {
   _id: string;
+  slug: string;
   courseName: string;
   image?: string;
   description?: string;
@@ -29,7 +30,9 @@ export interface Course {
 
 async function getCourse(slug: string): Promise<Course | null> {
     try {
-        const res = await fetch('https://webserver.devsora.com/api/courses/coursesDetails');
+        const res = await fetch('https://webserver.devsora.com/api/courses/coursesDetails', {
+            cache: 'no-store'
+        });
         if (!res.ok) {
             return null;
         }
@@ -67,8 +70,3 @@ export default async function CoursePage({ params }: { params: { slug: string } 
     </div>
   );
 }
-
-// This function is no longer needed as we are fetching data dynamically
-// export async function generateStaticParams() {
-//   // Fetch all courses and generate slugs
-// }
