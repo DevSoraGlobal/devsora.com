@@ -26,6 +26,10 @@ async function getUser() {
         const cookieStore = cookies();
         const token = cookieStore.get('userLoggedIn');
 
+        if (!token) {
+            return null;
+        }
+
         const res = await fetch('https://webserver.devsora.com/api/auth/verify', {
             headers: {
                 Cookie: `userLoggedIn=${token?.value}`

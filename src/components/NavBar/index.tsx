@@ -74,7 +74,7 @@ export default function NavBar() {
   const handleLogout = async () => {
     try {
       const response = await fetch('https://webserver.devsora.com/api/auth/logout', { 
-        method: 'POST',
+        method: 'GET',
         credentials: 'include',
       });
       if (response.ok) {
