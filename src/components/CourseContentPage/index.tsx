@@ -71,19 +71,19 @@ export default function CourseContentPage({ course }: CourseContentPageProps) {
             <h1 className="font-headline uppercase text-6xl font-bold tracking-heading text-primary">
                 {course.title}
             </h1>
-            <p className="font-body text-lg text-muted-foreground mt-6 leading-relaxed">
+            <p className="font-normal text-lg text-muted-foreground mt-6 leading-relaxed">
                 {course.detailedDescription}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <div className="flex items-center gap-3">
                     <BarChart className="h-6 w-6 text-primary" />
-                    <Badge variant="outline" className={`${difficultyColors[course.difficulty]} text-base font-body`}>
+                    <Badge variant="outline" className={`${difficultyColors[course.difficulty]} text-base font-normal`}>
                         {course.difficulty}
                     </Badge>
                 </div>
                 <div className="flex items-center gap-3">
                 <Clock className="h-6 w-6 text-primary" />
-                <span className="font-body text-base text-muted-foreground">{course.duration}</span>
+                <span className="font-normal text-base text-muted-foreground">{course.duration}</span>
                 </div>
             </div>
 
@@ -92,12 +92,12 @@ export default function CourseContentPage({ course }: CourseContentPageProps) {
                     <div className="text-center">
                         <h2 className="font-headline text-4xl font-bold tracking-wider">{selectedTopic.title}</h2>
                         {selectedTopic.description && (
-                            <p className="text-muted-foreground font-body text-lg mt-4 max-w-lg">{selectedTopic.description}</p>
+                            <p className="text-muted-foreground font-normal text-lg mt-4 max-w-lg">{selectedTopic.description}</p>
                         )}
-                         <p className="font-body text-primary mt-4 text-sm font-semibold tracking-wider">Content for this topic will appear here.</p>
+                         <p className="text-primary mt-4 text-sm font-semibold tracking-wider">Content for this topic will appear here.</p>
                     </div>
                  ) : (
-                    <p className="text-muted-foreground font-body text-lg">Select a topic to begin.</p>
+                    <p className="text-muted-foreground font-normal text-lg">Select a topic to begin.</p>
                  )}
             </div>
         </div>
