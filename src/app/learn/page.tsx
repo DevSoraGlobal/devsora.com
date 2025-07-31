@@ -1,50 +1,49 @@
 
+"use client";
+
+import React, { useState, useEffect } from 'react';
 import LearnPage from '@/components/LearnPage';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import { cookies } from 'next/headers';
 
-async function getCourses() {
-    try {
-        const res = await fetch('https://webserver.devsora.com/api/courses/coursesDetails', {
-            cache: 'no-store'
+export default function Learn() {
+  const [courses, setCourses] = useState([]);
+  const [enrolledCourses, setEnrolledCourses] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      // Fetch courses
+      try {
+        const coursesRes = await fetch('https://webserver.devsora.com/api/courses/coursesDetails', {
+          cache: 'no-store'
         });
-        if (!res.ok) {
-            console.error('Failed to fetch courses:', res.statusText);
-            return [];
+        if (coursesRes.ok) {
+          const coursesData = await coursesRes.json();
+          setCourses(coursesData.courses || []);
+        } else {
+          console.error('Failed to fetch courses:', coursesRes.statusText);
         }
-        const data = await res.json();
-        // The API returns { success, courses, count }, so we need to access the courses property
-        return data.courses || [];
-    } catch (error) {
+      } catch (error) {
         console.error('Error fetching courses:', error);
-        return [];
-    }
-}
+      }
 
-async function getUser() {
-    try {
-        const res = await fetch('https://webserver.devsora.com/api/auth/verify', {
-            method: "GET",
-            credentials: 'include',
+      // Fetch user data to get enrolled courses
+      try {
+        const userRes = await fetch('https://webserver.devsora.com/api/auth/verify', {
+          method: "GET",
+          credentials: 'include',
         });
-        
-        if (!res.ok) {
-            return null;
+        if (userRes.ok) {
+          const userData = await userRes.json();
+          setEnrolledCourses(userData.user?.enrolled || []);
         }
-        const data = await res.json();
-        return data.user;
-    } catch (error) {
+      } catch (error) {
         console.error('Error verifying user:', error);
-        return null;
+      }
     }
-}
 
-
-export default async function Learn() {
-  const courses = await getCourses();
-  const user = await getUser();
-  const enrolledCourses = user?.enrolled || [];
+    fetchData();
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-black">
