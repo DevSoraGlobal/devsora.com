@@ -47,7 +47,7 @@ export default function AboutUsSection() {
           {/* Left Column: CEO Profile */}
           <div className="flex flex-col items-center text-center lg:sticky lg:top-24">
             <Image
-              src="https://placehold.co/400x600.png"
+              src="/hiten.png"
               alt="CEO of Devsora"
               width={400}
               height={600}

@@ -5,18 +5,18 @@ import React from 'react';
 import Image from 'next/image';
 
 const teamMembers = [
-    { name: 'HITEN BALARA', title: 'Chief Executive Officer', image: '/hitenbalara.png', category: 'Leadership' },
-    { name: 'PRANJAL', title: 'Chief Technology Officer', image: '/pranjal.png', category: 'Leadership' },
-    { name: 'DEVGURU PANDEY', title: 'UI/UX Designer', image: '/devgurupandey.png', category: 'Development' },
-    { name: 'KUNAL MAHARIA', title: 'Chief Marketing Officer', image: '/kunalmaharia.png', category: 'Leadership' },
-    { name: 'MRIDUL SHARMA', title: 'Social Media Designer', image: '/mridulsharma.png', category: 'Marketing' },
+    { name: 'HITEN BALARA', title: 'Chief Executive Officer', image: '/hiten.png', category: 'Leadership' },
+    { name: 'ISHANK', title: 'Chief Technology Officer', image: '/pranjal.png', category: 'Leadership' },
+    { name: 'DEVGURU PANDEY', title: 'UI/UX Designer', image: '/dev.png', category: 'Development' },
+    { name: 'KUNAL MAHARIA', title: 'Chief Marketing Officer', image: '/kunal.png', category: 'Leadership' },
+    { name: 'MRIDUL SHARMA', title: 'Social Media Designer', image: '/mridul.png', category: 'Marketing' },
     { name: 'Akshat Shrivatava', title: 'Marketing Executive', image: '/akshatshrivatava.png', category: 'Marketing' },
-    { name: 'satakshi sinha', title: 'Curriculum Writer', image: '/satakshisinha.png', category: 'Content & Community' },
-    { name: 'aadhya govil', title: 'HR & Management', image: '/aadhyagovil.png', category: 'Leadership' },
-    { name: 'sakshi verma', title: 'Curriculum Writer', image: '/sakshiverma.png', category: 'Content & Community' },
-    { name: 'Ashira Chitkara', title: 'Community Manager', image: '/ashirachitkara.png', category: 'Content & Community' },
-    { name: 'gargi jain', title: 'Community Manager', image: '/gargijain.png', category: 'Content & Community' },
-    { name: 'Drishti Garg', title: 'Community Manager', image: '/drishtigarg.png', category: 'Content & Community' },
+    { name: 'satakshi sinha', title: 'Curriculum Writer', image: '/satakshi.png', category: 'Content & Community' },
+    { name: 'aadhya govil', title: 'HR & Management', image: '/aadhya.png', category: 'Leadership' },
+    { name: 'sakshi verma', title: 'Curriculum Writer', image: '/sakshi.png', category: 'Content & Community' },
+    { name: 'Ashira Chitkara', title: 'Community Manager', image: '/ashira.png', category: 'Content & Community' },
+    { name: 'gargi jain', title: 'Community Manager', image: '/gargi.png', category: 'Content & Community' },
+    { name: 'Drishti Garg', title: 'Community Manager', image: '/drishti.png', category: 'Content & Community' },
     { name: 'ankit kumar', title: 'Backend Developer', image: '/ankitkumar.png', category: 'Development' },
 ];
 
@@ -81,6 +81,11 @@ export default function TeamPage() {
                 members={leadership} 
             />
             <TeamSection 
+                title="Development"
+                description="Our developers are the architects and builders of the DEVSORA platform, ensuring a seamless, powerful, and engaging learning experience."
+                members={development} 
+            />
+            <TeamSection 
                 title="Marketing"
                 description="Our marketing experts are the storytellers who share the DEVSORA vision with the world, building a community of learners and innovators."
                 members={marketing} 
@@ -90,11 +95,11 @@ export default function TeamPage() {
                 description="Our curriculum writers and community managers are dedicated to creating high-quality educational content and fostering a supportive, collaborative environment."
                 members={contentCommunity} 
             />
-            <TeamSection 
-                title="Development"
-                description="Our developers are the architects and builders of the DEVSORA platform, ensuring a seamless, powerful, and engaging learning experience."
-                members={development} 
-            />
+        </div>
+        <div className="text-center mt-24">
+            <p className="font-bold text-3xl md:text-4xl uppercase font-headline tracking-heading text-primary/90 max-w-5xl mx-auto leading-tight">
+                "THANK YOU TEAM FOR THE SUPPORT AND HELP - CEO"
+            </p>
         </div>
     </div>
   );
