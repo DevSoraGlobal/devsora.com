@@ -1,3 +1,4 @@
+
 import mongoose, { Document, Schema, Model } from "mongoose";
 
 export interface IUserData extends Document {
@@ -5,6 +6,7 @@ export interface IUserData extends Document {
   username: string;
   email: string;
   password?: string; // Password is optional as we might not always send it back
+  enrolled: string[];
 }
 
 const UserDataSchema: Schema<IUserData> = new Schema(
@@ -35,6 +37,10 @@ const UserDataSchema: Schema<IUserData> = new Schema(
       required: true,
       select: false, // By default, do not return the password
     },
+    enrolled: {
+        type: [String],
+        default: []
+    }
   },
   { timestamps: true }
 );
@@ -49,4 +55,3 @@ UserDataSchema.statics.findUserWithPassword = function (condition: object) {
 const UserData: Model<IUserData> = mongoose.models.UserData || mongoose.model<IUserData>("UserData", UserDataSchema);
 
 export default UserData;
-

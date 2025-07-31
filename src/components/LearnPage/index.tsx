@@ -2,11 +2,30 @@
 "use client";
 
 import React, { useState } from 'react';
-import { courses, Course } from '@/lib/courses';
 import CourseCard from '@/components/CourseCard';
 import CourseModal from '@/components/CourseModal';
 
-export default function LearnPage() {
+// Define a simplified Course type for this component
+export interface Course {
+  _id: string;
+  slug: string;
+  title: string;
+  description: string;
+  detailedDescription: string;
+  image: string;
+  aiHint: string;
+  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
+  duration: string;
+  badges: { name: string; description: string }[];
+  toc: any[]; // Keep toc flexible as modal might use it
+}
+
+interface LearnPageProps {
+  courses: Course[];
+  enrolledCourses: string[];
+}
+
+export default function LearnPage({ courses, enrolledCourses }: LearnPageProps) {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   const handleCardClick = (course: Course) => {
@@ -29,7 +48,12 @@ export default function LearnPage() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {courses.map((course) => (
-          <CourseCard key={course.id} course={course} onClick={handleCardClick} />
+          <CourseCard 
+            key={course._id} 
+            course={course} 
+            onClick={handleCardClick}
+            isEnrolled={enrolledCourses.includes(course._id)}
+          />
         ))}
       </div>
       {selectedCourse && (

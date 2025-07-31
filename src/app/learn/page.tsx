@@ -1,13 +1,59 @@
+
 import LearnPage from '@/components/LearnPage';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import { cookies } from 'next/headers';
 
-export default function Learn() {
+async function getCourses() {
+    try {
+        const res = await fetch('https://webserver.devsora.com/api/courses/coursesDetails', {
+            cache: 'no-store'
+        });
+        if (!res.ok) {
+            console.error('Failed to fetch courses:', res.statusText);
+            return [];
+        }
+        const data = await res.json();
+        return data.courses;
+    } catch (error) {
+        console.error('Error fetching courses:', error);
+        return [];
+    }
+}
+
+async function getUser() {
+    try {
+        const cookieStore = cookies();
+        const token = cookieStore.get('userLoggedIn');
+
+        const res = await fetch('https://webserver.devsora.com/api/auth/verify', {
+            headers: {
+                Cookie: `userLoggedIn=${token?.value}`
+            }
+        });
+        
+        if (!res.ok) {
+            return null;
+        }
+        const data = await res.json();
+        return data.user;
+    } catch (error) {
+        console.error('Error verifying user:', error);
+        return null;
+    }
+}
+
+
+export default async function Learn() {
+  const courses = await getCourses();
+  const user = await getUser();
+  const enrolledCourses = user?.enrolled || [];
+
   return (
     <div className="flex flex-col min-h-screen bg-black">
       <NavBar />
       <main className="flex-grow">
-        <LearnPage />
+        <LearnPage courses={courses} enrolledCourses={enrolledCourses} />
       </main>
       <Footer />
     </div>

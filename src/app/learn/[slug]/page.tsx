@@ -1,11 +1,49 @@
 
-import { courses } from '@/lib/courses';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import CourseContentPage from '@/components/CourseContentPage';
 
-export default function CoursePage({ params }: { params: { slug: string } }) {
-  const course = courses.find((c) => c.slug === params.slug);
+// Define the new course data structure based on the API response
+export interface CourseTopic {
+    [key: string]: string;
+}
+
+export interface CourseChapter {
+    [key: string]: CourseTopic;
+}
+
+export interface CourseFormat {
+    [key: string]: CourseChapter;
+}
+
+export interface Course {
+  _id: string;
+  courseName: string;
+  image?: string;
+  description?: string;
+  detailedDescription?: string;
+  difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
+  duration?: string;
+  format: CourseFormat[];
+}
+
+async function getCourse(slug: string): Promise<Course | null> {
+    try {
+        const res = await fetch('https://webserver.devsora.com/api/courses/coursesDetails');
+        if (!res.ok) {
+            return null;
+        }
+        const data = await res.json();
+        const course = data.courses.find((c: any) => c.slug === slug);
+        return course || null;
+    } catch (error) {
+        console.error('Failed to fetch course:', error);
+        return null;
+    }
+}
+
+export default async function CoursePage({ params }: { params: { slug: string } }) {
+  const course = await getCourse(params.slug);
 
   if (!course) {
     return (
@@ -30,8 +68,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
   );
 }
 
-export async function generateStaticParams() {
-  return courses.map((course) => ({
-    slug: course.slug,
-  }));
-}
+// This function is no longer needed as we are fetching data dynamically
+// export async function generateStaticParams() {
+//   // Fetch all courses and generate slugs
+// }
