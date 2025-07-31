@@ -32,8 +32,9 @@ async function getUser() {
         }
 
         const res = await fetch('https://webserver.devsora.com/api/auth/verify', {
+            method: "GET",
             headers: {
-                Cookie: `userLoggedIn=${token?.value}`
+                'Cookie': `userLoggedIn=${token.value}`
             },
             credentials: 'include',
         });

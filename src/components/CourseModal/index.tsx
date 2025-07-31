@@ -32,18 +32,24 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
     if (!Array.isArray(format)) return items;
   
     format.forEach(chapterObj => {
+      // chapterObj is like: { "JavaScript Basics": { "Topic Group": { "Topic 1": "..." } } }
       const chapterName = Object.keys(chapterObj)[0];
-      items.push({ isChapter: true, title: chapterName });
-  
-      const chapterContent = chapterObj[chapterName];
-      // The chapterContent is the object with topic groups
-      Object.keys(chapterContent).forEach(topicGroupKey => {
-        const topicGroup = chapterContent[topicGroupKey];
-        // topicGroup is the object with the actual topics
-        Object.keys(topicGroup).forEach(topicName => {
-            items.push({ title: topicName });
-        });
-      });
+      if (chapterName) {
+        items.push({ isChapter: true, title: chapterName });
+        
+        const topicGroups = chapterObj[chapterName];
+        if (typeof topicGroups === 'object' && topicGroups !== null) {
+          // topicGroups is like: { "Topic Group": { "Topic 1": "..." } }
+          Object.values(topicGroups).forEach((topicGroup: any) => {
+            if (typeof topicGroup === 'object' && topicGroup !== null) {
+              // topicGroup is like: { "Topic 1": "...", "Topic 2": "..." }
+              Object.keys(topicGroup).forEach(topicName => {
+                items.push({ title: topicName });
+              });
+            }
+          });
+        }
+      }
     });
     return items;
   };
