@@ -42,6 +42,7 @@ export default function LearnPage({ courses, enrolledCourses }: LearnPageProps) 
   const normalizedCourses = courses.map(course => ({
     ...course,
     title: course.courseName, // Use courseName for the title
+    description: course.description || `An amazing course about ${course.courseName}.`, // Provide a fallback description
   }));
 
   return (

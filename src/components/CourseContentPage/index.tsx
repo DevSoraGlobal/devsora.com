@@ -48,8 +48,10 @@ const difficultyColors: { [key: string]: string } = {
 
 export default function CourseContentPage({ course }: CourseContentPageProps) {
     // Flatten the complex format into a simple array of topics
-    const flattenTOC = (format: CourseFormat[]): TocItem[] => {
+    const flattenTOC = (format: CourseFormat[] = []): TocItem[] => {
         const items: TocItem[] = [];
+        if (!Array.isArray(format)) return items;
+
         format.forEach(chapterObj => {
             const chapterName = Object.keys(chapterObj)[0];
             const chapterContent = chapterObj[chapterName];
