@@ -24,18 +24,9 @@ async function getCourses() {
 
 async function getUser() {
     try {
-        const cookieStore = cookies();
-        const token = cookieStore.get('userLoggedIn');
-
-        if (!token) {
-            return null;
-        }
-
         const res = await fetch('https://webserver.devsora.com/api/auth/verify', {
             method: "GET",
-            headers: {
-                'Cookie': `userLoggedIn=${token.value}`
-            }
+            credentials: 'include',
         });
         
         if (!res.ok) {
