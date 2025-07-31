@@ -35,8 +35,7 @@ async function getUser() {
             method: "GET",
             headers: {
                 'Cookie': `userLoggedIn=${token.value}`
-            },
-            credentials: 'include',
+            }
         });
         
         if (!res.ok) {
