@@ -1,6 +1,7 @@
 
 export interface Course {
     id: number;
+    slug: string;
     title: string;
     description: string;
     detailedDescription: string;
@@ -15,6 +16,7 @@ export interface Course {
 export const courses: Course[] = [
     {
       id: 1,
+      slug: 'python-for-data-science',
       title: 'Python for Data Science',
       description: 'Master Python for data analysis and visualization with hands-on projects.',
       detailedDescription: 'This course provides a comprehensive introduction to using Python for data science. You will learn key libraries like Pandas, NumPy, and Matplotlib to manipulate, analyze, and visualize complex datasets. By the end, you will have built several real-world projects to showcase your skills.',
@@ -35,6 +37,7 @@ export const courses: Course[] = [
     },
     {
       id: 2,
+      slug: 'advanced-react-patterns',
       title: 'Advanced React Patterns',
       description: 'Deep dive into advanced React concepts like Hooks, Context, and performance.',
       detailedDescription: 'Elevate your React skills by learning advanced patterns for building scalable and maintainable applications. This course covers state management with Context and Reducers, performance optimization with memoization, and creating custom Hooks to build a flexible and powerful component architecture.',
@@ -55,6 +58,7 @@ export const courses: Course[] = [
     },
     {
       id: 3,
+      slug: 'web3-and-solidity',
       title: 'Web3 & Solidity',
       description: 'Build and deploy your own smart contracts on the Ethereum blockchain.',
       detailedDescription: 'Enter the world of decentralized applications (DApps) by learning Solidity, the primary language for Ethereum smart contracts. This course will guide you through blockchain fundamentals, writing secure and efficient smart contracts, and interacting with them from a web interface using Ethers.js.',
@@ -75,6 +79,7 @@ export const courses: Course[] = [
     },
     {
         id: 4,
+        slug: 'ui-ux-design-fundamentals',
         title: 'UI/UX Design Fundamentals',
         description: 'Learn the principles of user-centric design to create beautiful interfaces.',
         detailedDescription: 'This course covers the core principles of UI/UX design, from user research and wireframing to prototyping and visual design. You will learn to use industry-standard tools like Figma to create intuitive and aesthetically pleasing user experiences that solve real-world problems.',

@@ -31,7 +31,7 @@ export default function ChallengeApproachSection() {
           </div>
 
           {/* Right Column: YouTube Video */}
-          <div className="min-h-[480px]">
+          <div className="min-h-[480px] hidden">
             <iframe 
               className="w-full h-full rounded-lg shadow-2xl shadow-primary/20"
               src="https://www.youtube.com/embed/dQw4w9WgXcQ" 

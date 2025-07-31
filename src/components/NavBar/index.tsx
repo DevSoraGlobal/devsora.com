@@ -11,9 +11,9 @@ import AuthModal from '@/components/AuthModal';
 
 const navLinks = [
   { href: '/learn', label: 'Learn' },
-  { href: '/explore', label: 'Explore' },
-  { href: '/global', label: 'Global' },
-  { href: '/insights',label: 'Insights' },
+  // { href: '/explore', label: 'Explore' },
+  // { href: '/global', label: 'Global' },
+  // { href: '/insights',label: 'Insights' },
   { href: '/team', label: 'Team' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -84,7 +84,6 @@ export default function NavBar() {
             ) : (
               <>
                 <Button variant="outline" className="tracking-body rounded-full border-primary hover:bg-primary/10 hover:text-primary-foreground border-2" onClick={() => openAuthModal('signin')}>Sign In</Button>
-                <Button className="tracking-body rounded-full" onClick={() => openAuthModal('signup')}>Sign Up</Button>
               </>
             )}
           </div>

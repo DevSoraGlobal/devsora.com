@@ -43,12 +43,12 @@ export default function Home() {
           <main className="flex-grow pt-0">
             <HeroSection />
             <IntroSection />
-            <CoursesSection />
-            <ProjectsSection />
+            {/* <CoursesSection /> */}
+            {/* <ProjectsSection /> */}
             <FeaturesSection />
             <ChallengeApproachSection />
             <AboutUsSection />
-            <InsightsSection />
+            {/* <InsightsSection /> */}
           </main>
           <Footer />
         </div>

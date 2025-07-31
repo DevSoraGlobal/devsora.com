@@ -4,10 +4,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Course } from '@/lib/courses';
-import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 
 interface CourseCardProps {
   course: Course;
@@ -37,12 +35,6 @@ export default function CourseCard({ course, onClick }: CourseCardProps) {
       </div>
       <CardContent className="p-6 flex-grow flex flex-col" onClick={() => onClick(course)}>
         <div>
-            <Badge
-            variant="outline"
-            className={cn("font-semibold tracking-wider", difficultyColors[course.difficulty])}
-            >
-            {course.difficulty}
-            </Badge>
             <h3 className="font-headline uppercase text-2xl font-bold mt-4 tracking-heading">
             {course.title}
             </h3>
@@ -52,9 +44,9 @@ export default function CourseCard({ course, onClick }: CourseCardProps) {
         </div>
       </CardContent>
       <div className="p-6 pt-0 mt-auto">
-        <Link href={`/learn/${course.id}`} passHref>
+        <Link href={`/learn/${course.slug}`} passHref>
             <Button className="w-full font-headline uppercase font-bold tracking-widest bg-primary hover:bg-primary/80 text-primary-foreground">
-                Start CTO
+                Enroll Now
             </Button>
         </Link>
       </div>

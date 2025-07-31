@@ -1,0 +1,97 @@
+[33m0e6e69a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m # Authentication Overlay Modal — DEVSORA Frontend (Firebase Studio)
+[33mbca8ede[m # Contact Page Enhancement — Add FAQs Section Below Contact Us Mail (Fir
+[33m5eb6ce2[m i want discription written in card in features section on home page to u
+[33m365165b[m # Features Section — DEVSORA Homepage (Firebase Studio)
+[33mb7cb4bc[m GET BACK BOTH THE LOADING SCREEN 1 AND LOADING SCREEN 2 WITH SAME ANIMAT
+[33m2d2d288[m REMOVE CONTACT PAGE, AND MAKE A NEW CONTACT PAGE, IN WHICH ONLY SHOW THE
+[33m1e73789[m ERROR 1 Console Error
+[33m820a519[m Console Error
+[33mc01b2b9[m Console Error
+[33m54f75fe[m I see this error with the app, reported by NextJS, please fix it. The er
+[33mc0170e6[m I see this error with the app, reported by NextJS, please fix it. The er
+[33m095b2e7[m I see this error with the app, reported by NextJS, please fix it. The er
+[33meee3a45[m I see this error with the app, reported by NextJS, please fix it. The er
+[33md744113[m I see this error with the app, reported by NextJS, please fix it. The er
+[33m74c2d35[m I see this error with the app, reported by NextJS, please fix it. The er
+[33m3d837c0[m I see this error with the app, reported by NextJS, please fix it. The er
+[33m527f0e4[m The `npm install` command failed in my project. Analyze the following er
+[33mfe5a5d0[m I see this error with the app, reported by NextJS, please fix it. The er
+[33mb8e5b0f[m I see this error with the app, reported by NextJS, please fix it. The er
+[33m5764c69[m redesign the contact page, make it interactive and unique
+[33mad13f41[m # Contact Page Development Request — DEVSORA Frontend (Firebase Studio)
+[33m7000910[m use font-normal in <TeamSection                 title="Leadership"
+[33m8ec452a[m # Team Page Development Request — DEVSORA Frontend (Firebase Studio)
+[33m4b8dacd[m # Learn Page Enhancement — Course Card & Content Navigation (Firebase St
+[33m51c1dbc[m # Learn Page Development Request — DEVSORA Frontend (Firebase Studio)
+[33m23104ae[m in accordian.tsx use the theme font in body 18px same as whole page usas
+[33mda96db9[m give padding in the outer border from top and bottom with respect to nav
+[33m137ff24[m no insight page you have made
+[33m9aa8cd0[m redesign insights section fully
+[33m05a7684[m increase the thickness of the horizontal lines more
+[33m6947efa[m in place of number with circular background and 1 vertical line connecti
+[33m869267c[m still same
+[33m73b2946[m still small height
+[33m377048a[m the video on challengeapproach section height is so short, increase the
+[33m69f797d[m edit the accordian.tsx to use the font fanustis medium and same font siz
+[33ma8249ee[m decrease the loading screen 1 time to 0.75 sec
+[33m16d690e[m in about us section use font: medium and same font size as other section
+[33m894406b[m where is it ?
+[33m47d646d[m 'ChallengeApproachSection' is declared but its value is never read.ts(61
+[33m88c7874[m # DEVSORA AboutUsSection — Component Specification
+[33ma028095[m im renaming the section as ChallengeApproachSection
+[33m2fa44eb[m rename this section as challenge-approach section
+[33meabef67[m the challenge above and the approach just below it and on side a video w
+[33mf25bd67[m # Change Request — DEVSORA About Section (Firebase Studio)
+[33m4d40778[m generate new design for the aboutus section while keeping the theme, fon
+[33m0d994a6[m decrease the navbar opacity to 50%
+[33m1a84e0e[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33m800f048[m generate new design for the features section while keeping the theme and
+[33m56cc5a3[m increase the outline width by 20%
+[33m4d9d498[m background border color FC5000 for sign in button in header
+[33m699f229[m i need sing in and sign up button in header to have same circular backgr
+[33m79497c9[m header is still not coming down as i scroll down sections, it is fixed o
+[33m1f41f10[m navbar is still fixed on top, not moving down when i scroll
+[33m291c3e2[m their is some issue with navbar, it is not coming down as i scroll down
+[33m2f134ee[m description in cards and carousels should have same font size and same f
+[33mf8fd151[m use font medium in all para text in all sections, all cards and all caro
+[33maaffdef[m increase the letter spacing in "Advanced JavaScript & ESNext" , "High-Pe
+[33mfbd66d8[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33me421af1[m decrease letter spacing in "Handpicked courses to kickstart your career
+[33m2ad7c9f[m decrease the letter spacing by 10%
+[33maebe50e[m increase letter spacing in "FEATURED COURSES" para in courses section
+[33mc75a587[m increase letter spacing in "START YOUR JOURNEY" h2 in course section
+[33m05b6594[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33m093335d[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33mf54fad7[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33mae607aa[m increase font size of hero section para "From strategy to execution, Dev
+[33m650ead0[m The NextJS app server is having trouble starting. Please identify what c
+[33m8757290[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33me77c363[m back to 110%
+[33m7922e81[m increase font size of DEVSORA CTA in hero section by 125%
+[33m5309479[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33m066ba49[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33m5b8833c[m make navbar opacity from 50% to 80%
+[33m27f28e9[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33me762925[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33m1b327e4[m center navbar in respect to screen rather than in respect to equal spaci
+[33mb2e418e[m # Change Request — DEVSORA Frontend (Firebase Studio)
+[33m57249a4[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33mf30c2bc[m still not working, make navbar work, i want the text to be clicked and a
+[33m382a231[m # Fix Request — DEVSORA Frontend (Firebase Studio)
+[33m6080e20[m # Change Request — DEVSORA Frontend (Firebase Studio)
+[33m24c8bea[m # Change Request — DEVSORA Frontend (Firebase Studio)
+[33mc063ac4[m # Change Request — DEVSORA Frontend (Firebase Studio)
+[33m7021c60[m add bg img in hero section, i will upload the image with name "hero-bg-i
+[33mf0ebb4e[m # Change Request — DEVSORA Frontend (Firebase Studio)
+[33meec7679[m # Update Request — DEVSORA Frontend (Firebase Studio)
+[33m9de5cfd[m # Change Request — DEVSORA Frontend (Firebase Studio)
+[33m72b5d7e[m remove opacity, blur, glow animation, breathing animation in the DEVSORA
+[33mdf2ed57[m # Change Request — DEVSORA Frontend (Firebase Studio)
+[33m4008221[m # Change Request — DEVSORA Frontend (Firebase Studio)
+[33m823b467[m font: roboto flex regular 400 use this in content like "From strategy to
+[33m893ba3f[m # Change Request — DEVSORA Frontend (Firebase Studio)
+[33mfa7ad46[m # Change Request — DEVSORA Frontend (Firebase Studio)
+[33m298f4f7[m remove the blank area above hero image
+[33m10a2989[m # Changes Prompt for Firebase Studio — DEVSORA Frontend
+[33m22500cc[m Updated app
+[33meb61068[m initial scaffold
