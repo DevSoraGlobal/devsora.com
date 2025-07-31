@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -46,7 +47,7 @@ export default function NavBar() {
   useEffect(() => {
     const verifyUser = async () => {
       try {
-        const response = await fetch('/api/auth/verify');
+        const response = await fetch('https://webserver.devsora.com/api/auth/verify');
         const data = await response.json();
         if (response.ok) {
           setIsLoggedIn(true);
@@ -70,7 +71,7 @@ export default function NavBar() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('/api/auth/logout', { method: 'POST' });
+      const response = await fetch('https://webserver.devsora.com/api/auth/logout', { method: 'POST' });
       if (response.ok) {
         toast({ title: 'Logged Out', description: 'You have been successfully logged out.' });
         setIsLoggedIn(false);

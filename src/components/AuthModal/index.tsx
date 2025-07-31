@@ -46,7 +46,7 @@ const SignInForm = ({ onSuccessfulSignIn, onLoadingChange }: { onSuccessfulSignI
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
     onLoadingChange(true);
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch('https://webserver.devsora.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -106,7 +106,7 @@ const SignUpForm = ({ onSuccessfulSignUp, onLoadingChange }: { onSuccessfulSignU
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
     onLoadingChange(true);
     try {
-      const response = await fetch('/api/auth/signup', {
+      const response = await fetch('https://webserver.devsora.com/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -216,5 +216,3 @@ export default function AuthModal({ isOpen, onOpenChange, defaultTab = 'signin' 
     </Dialog>
   );
 }
-
-    
