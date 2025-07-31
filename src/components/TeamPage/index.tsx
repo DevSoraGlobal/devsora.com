@@ -5,19 +5,19 @@ import React from 'react';
 import Image from 'next/image';
 
 const teamMembers = [
-    { name: 'HITEN BALARA', title: 'Chief Executive Officer', image: 'https://placehold.co/400x400.png', category: 'Leadership' },
-    { name: 'PRANJAL', title: 'Chief Technology Officer', image: 'https://placehold.co/400x400.png', category: 'Leadership' },
-    { name: 'DEVGURU PANDEY', title: 'UI/UX Designer', image: 'https://placehold.co/400x400.png', category: 'Development' },
-    { name: 'KUNAL MAHARIA', title: 'Chief Marketing Officer', image: 'https://placehold.co/400x400.png', category: 'Leadership' },
-    { name: 'MRIDUL SHARMA', title: 'Social Media Designer', image: 'https://placehold.co/400x400.png', category: 'Marketing' },
-    { name: 'Akshat Shrivatava', title: 'Marketing Executive', image: 'https://placehold.co/400x400.png', category: 'Marketing' },
-    { name: 'satakshi sinha', title: 'Curriculum Writer', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
-    { name: 'aadhya govil', title: 'HR & Management', image: 'https://placehold.co/400x400.png', category: 'Leadership' },
-    { name: 'sakshi verma', title: 'Curriculum Writer', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
-    { name: 'Ashira Chitkara', title: 'Community Manager', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
-    { name: 'gargi jain', title: 'Community Manager', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
-    { name: 'Drishti Garg', title: 'Community Manager', image: 'https://placehold.co/400x400.png', category: 'Content & Community' },
-    { name: 'ankit kumar', title: 'Backend Developer', image: 'https://placehold.co/400x400.png', category: 'Development' },
+    { name: 'HITEN BALARA', title: 'Chief Executive Officer', image: '/hitenbalara.png', category: 'Leadership' },
+    { name: 'PRANJAL', title: 'Chief Technology Officer', image: '/pranjal.png', category: 'Leadership' },
+    { name: 'DEVGURU PANDEY', title: 'UI/UX Designer', image: '/devgurupandey.png', category: 'Development' },
+    { name: 'KUNAL MAHARIA', title: 'Chief Marketing Officer', image: '/kunalmaharia.png', category: 'Leadership' },
+    { name: 'MRIDUL SHARMA', title: 'Social Media Designer', image: '/mridulsharma.png', category: 'Marketing' },
+    { name: 'Akshat Shrivatava', title: 'Marketing Executive', image: '/akshatshrivatava.png', category: 'Marketing' },
+    { name: 'satakshi sinha', title: 'Curriculum Writer', image: '/satakshisinha.png', category: 'Content & Community' },
+    { name: 'aadhya govil', title: 'HR & Management', image: '/aadhyagovil.png', category: 'Leadership' },
+    { name: 'sakshi verma', title: 'Curriculum Writer', image: '/sakshiverma.png', category: 'Content & Community' },
+    { name: 'Ashira Chitkara', title: 'Community Manager', image: '/ashirachitkara.png', category: 'Content & Community' },
+    { name: 'gargi jain', title: 'Community Manager', image: '/gargijain.png', category: 'Content & Community' },
+    { name: 'Drishti Garg', title: 'Community Manager', image: '/drishtigarg.png', category: 'Content & Community' },
+    { name: 'ankit kumar', title: 'Backend Developer', image: '/ankitkumar.png', category: 'Development' },
 ];
 
 const leadership = teamMembers.filter(m => m.category === 'Leadership');
