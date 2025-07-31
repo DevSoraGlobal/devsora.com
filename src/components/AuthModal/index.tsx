@@ -50,6 +50,7 @@ const SignInForm = ({ onSuccessfulSignIn, onLoadingChange }: { onSuccessfulSignI
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
+        credentials: 'include',
       });
 
       const result = await response.json();
@@ -110,6 +111,7 @@ const SignUpForm = ({ onSuccessfulSignUp, onLoadingChange }: { onSuccessfulSignU
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
+        credentials: 'include',
       });
 
       const result = await response.json();
