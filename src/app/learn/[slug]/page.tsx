@@ -18,7 +18,6 @@ export interface CourseFormat {
 
 export interface Course {
   _id: string;
-  slug: string;
   courseName: string;
   image?: string;
   description?: string;
@@ -28,7 +27,7 @@ export interface Course {
   format: CourseFormat[];
 }
 
-async function getCourse(slug: string): Promise<Course | null> {
+async function getCourse(id: string): Promise<Course | null> {
     try {
         const res = await fetch('https://webserver.devsora.com/api/courses/coursesDetails', {
             cache: 'no-store'
@@ -37,7 +36,7 @@ async function getCourse(slug: string): Promise<Course | null> {
             return null;
         }
         const data = await res.json();
-        const course = data.courses.find((c: any) => c.slug === slug);
+        const course = data.courses.find((c: any) => c._id === id);
         return course || null;
     } catch (error) {
         console.error('Failed to fetch course:', error);

@@ -78,7 +78,7 @@ export default function CourseCard({ course, isEnrolled, onClick }: CourseCardPr
       </CardContent>
       <div className="p-6 pt-0 mt-auto">
         {isEnrolled ? (
-            <Link href={`/learn/${course.slug}`} passHref>
+            <Link href={`/learn/${course._id}`} passHref>
                 <Button className="w-full font-headline uppercase font-bold tracking-widest bg-green-600 hover:bg-green-700 text-primary-foreground">
                     Start Learning
                 </Button>
