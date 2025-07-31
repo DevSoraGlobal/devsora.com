@@ -1,7 +1,6 @@
 
 "use client";
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -12,8 +11,8 @@ export interface Course {
   slug: string;
   title: string;
   description: string;
-  image: string;
-  aiHint: string;
+  image?: string;
+  aiHint?: string;
 }
 
 interface CourseCardProps {
@@ -64,21 +63,12 @@ export default function CourseCard({ course, isEnrolled, onClick }: CourseCardPr
 
   return (
     <Card
+      onClick={() => onClick(course)}
       className="bg-card/80 backdrop-blur-sm border-white/10 text-white rounded-lg overflow-hidden cursor-pointer group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 flex flex-col"
     >
-      <div className="overflow-hidden" onClick={() => onClick(course)}>
-        <Image
-          src={course.image || 'https://placehold.co/600x400.png'}
-          alt={course.title}
-          width={600}
-          height={400}
-          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-          data-ai-hint={course.aiHint}
-        />
-      </div>
-      <CardContent className="p-6 flex-grow flex flex-col" onClick={() => onClick(course)}>
+      <CardContent className="p-6 flex-grow flex flex-col">
         <div>
-            <h3 className="font-headline uppercase text-2xl font-bold mt-4 tracking-heading">
+            <h3 className="font-headline uppercase text-2xl font-bold tracking-heading">
             {course.title}
             </h3>
             <p className="font-body text-lg text-muted-foreground mt-2">
