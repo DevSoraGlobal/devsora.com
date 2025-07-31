@@ -2,30 +2,7 @@
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import CourseContentPage from '@/components/CourseContentPage';
-
-// Define the new course data structure based on the API response
-export interface CourseTopic {
-    [key: string]: string;
-}
-
-export interface CourseChapter {
-    [key: string]: CourseTopic;
-}
-
-export interface CourseFormat {
-    [key: string]: CourseChapter;
-}
-
-export interface Course {
-  _id: string;
-  courseName: string;
-  image?: string;
-  description?: string;
-  detailedDescription?: string;
-  difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
-  duration?: string;
-  format: CourseFormat[];
-}
+import type { Course } from '@/components/CourseContentPage';
 
 async function getCourse(id: string): Promise<Course | null> {
     try {
