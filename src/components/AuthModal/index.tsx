@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -36,15 +37,14 @@ const signInSchema = z.object({
   password: z.string().min(1, 'Password is required'),
 });
 
-const SignInForm = ({ onSuccessfulSignIn }: { onSuccessfulSignIn: () => void }) => {
+const SignInForm = ({ onSuccessfulSignIn, onLoadingChange }: { onSuccessfulSignIn: () => void, onLoadingChange: (loading: boolean) => void }) => {
   const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(signInSchema),
   });
 
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
-    setIsLoading(true);
+    onLoadingChange(true);
     try {
       const response = await fetch('/api/auth/login', {
         method: 'POST',
@@ -74,7 +74,7 @@ const SignInForm = ({ onSuccessfulSignIn }: { onSuccessfulSignIn: () => void }) 
         variant: "destructive",
       });
     } finally {
-      setIsLoading(false);
+      onLoadingChange(false);
     }
   };
 
@@ -82,7 +82,7 @@ const SignInForm = ({ onSuccessfulSignIn }: { onSuccessfulSignIn: () => void }) 
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="space-y-2">
         <Label htmlFor="username_email-signin" className="font-body text-lg">Username or Email</Label>
-        <Input id="username_email-signin" {...register('username_email')} placeholder="you@example.com" />
+        <Input id="username_email-signin" {...register('username_email')} placeholder="username or email" />
         {errors.username_email && <p className="text-destructive text-sm">{`${errors.username_email.message}`}</p>}
       </div>
       <div className="space-y-2">
@@ -90,23 +90,21 @@ const SignInForm = ({ onSuccessfulSignIn }: { onSuccessfulSignIn: () => void }) 
         <Input id="password-signin" type="password" {...register('password')} placeholder="••••••••" />
         {errors.password && <p className="text-destructive text-sm">{`${errors.password.message}`}</p>}
       </div>
-      <Button type="submit" size="lg" className="w-full font-body text-lg tracking-wider" disabled={isLoading}>
-        {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+      <Button type="submit" size="lg" className="w-full font-body text-lg tracking-wider">
         Sign In
       </Button>
     </form>
   );
 };
 
-const SignUpForm = ({ onSuccessfulSignUp }: { onSuccessfulSignUp: () => void }) => {
+const SignUpForm = ({ onSuccessfulSignUp, onLoadingChange }: { onSuccessfulSignUp: () => void, onLoadingChange: (loading: boolean) => void }) => {
   const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(signUpSchema),
   });
 
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
-    setIsLoading(true);
+    onLoadingChange(true);
     try {
       const response = await fetch('/api/auth/signup', {
         method: 'POST',
@@ -136,7 +134,7 @@ const SignUpForm = ({ onSuccessfulSignUp }: { onSuccessfulSignUp: () => void }) 
         variant: "destructive",
       });
     } finally {
-      setIsLoading(false);
+      onLoadingChange(false);
     }
   };
 
@@ -162,8 +160,7 @@ const SignUpForm = ({ onSuccessfulSignUp }: { onSuccessfulSignUp: () => void }) 
         <Input id="password-signup" type="password" {...register('password')} placeholder="Create a password" />
         {errors.password && <p className="text-destructive text-sm">{`${errors.password.message}`}</p>}
       </div>
-      <Button type="submit" size="lg" className="w-full font-body text-lg tracking-wider" disabled={isLoading}>
-        {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+      <Button type="submit" size="lg" className="w-full font-body text-lg tracking-wider">
         Create Account
       </Button>
     </form>
@@ -171,15 +168,23 @@ const SignUpForm = ({ onSuccessfulSignUp }: { onSuccessfulSignUp: () => void }) 
 };
 
 export default function AuthModal({ isOpen, onOpenChange, defaultTab = 'signin' }: AuthModalProps) {
-  
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSuccess = () => {
     onOpenChange(false);
     window.location.reload();
   };
   
   return (
-    <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-background text-foreground border-primary/20 w-[600px] h-auto max-h-[98vh] max-w-[95vw] sm:h-auto sm:max-h-[800px] p-0 flex flex-col">
+    <Dialog open={isOpen} onOpenChange={isLoading ? () => {} : onOpenChange}>
+      <DialogContent 
+        className="bg-background text-foreground border-primary/20 w-[600px] h-auto max-h-[98vh] max-w-[95vw] sm:h-auto sm:max-h-[800px] p-0 flex flex-col"
+        onInteractOutside={(e) => {
+          if (isLoading) {
+            e.preventDefault();
+          }
+        }}
+      >
         <DialogHeader className="p-8 pb-0">
           <DialogTitle className="font-headline text-5xl text-center uppercase tracking-widest text-primary">
             Welcome to Devsora
@@ -195,14 +200,21 @@ export default function AuthModal({ isOpen, onOpenChange, defaultTab = 'signin' 
                     <TabsTrigger value="signup" className="font-headline text-xl uppercase tracking-wider">Sign Up</TabsTrigger>
                 </TabsList>
                 <TabsContent value="signin" className="pt-8">
-                    <SignInForm onSuccessfulSignIn={handleSuccess} />
+                    <SignInForm onSuccessfulSignIn={handleSuccess} onLoadingChange={setIsLoading} />
                 </TabsContent>
                 <TabsContent value="signup" className="pt-8">
-                    <SignUpForm onSuccessfulSignUp={handleSuccess} />
+                    <SignUpForm onSuccessfulSignUp={handleSuccess} onLoadingChange={setIsLoading}/>
                 </TabsContent>
             </Tabs>
         </div>
+        {isLoading && (
+          <div className="absolute inset-0 bg-background/80 flex items-center justify-center">
+            <Loader2 className="h-12 w-12 animate-spin text-primary" />
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   );
 }
+
+    
