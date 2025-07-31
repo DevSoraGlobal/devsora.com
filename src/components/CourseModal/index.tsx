@@ -29,15 +29,17 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
 
   const flattenTOC = (format: any[] = []): any[] => {
     const items: any[] = [];
+    if (!Array.isArray(format)) return items;
+
     format.forEach(chapterObj => {
         const chapterName = Object.keys(chapterObj)[0];
         items.push({ isChapter: true, title: chapterName });
-        const chapterContent = chapterObj[chapterName];
+        const topics = chapterObj[chapterName];
         
-        Object.keys(chapterContent).forEach(topicGroupKey => {
-             const topicGroup = chapterContent[topicGroupKey as keyof typeof chapterContent];
+        Object.keys(topics).forEach(topicGroupKey => {
+             const topicGroup = topics[topicGroupKey as keyof typeof topics];
              Object.keys(topicGroup).forEach(topicKey => {
-                 items.push({ title: topicKey, content: topicGroup[topicKey] });
+                 items.push({ title: topicKey });
              });
         });
     });
