@@ -9,7 +9,6 @@ import { Menu, Code2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AuthModal from '@/components/AuthModal';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { useToast } from '@/hooks/use-toast';
 
 const navLinks = [
   { href: '/learn', label: 'Learn' },
@@ -18,7 +17,6 @@ const navLinks = [
 ];
 
 export default function NavBar() {
-  const { toast } = useToast();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -72,7 +70,7 @@ export default function NavBar() {
           </nav>
           
           <div className="hidden md:flex items-center gap-4 pr-4 py-2">
-              <button onClick={() => openAuthModal('signin')} className="h-10 w-10 rounded-full">
+              <button className="h-10 w-10 rounded-full cursor-default">
                   <Avatar className="h-10 w-10">
                     <AvatarImage src="https://api.dicebear.com/7.x/micah/svg?seed=guest" alt="Guest" />
                     <AvatarFallback>G</AvatarFallback>
