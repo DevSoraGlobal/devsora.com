@@ -54,7 +54,7 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
             <h2 className="font-headline uppercase text-5xl lg:text-6xl font-bold tracking-heading text-primary">
                 {course.title}
             </h2>
-            <p className="font-body text-lg text-muted-foreground mt-6 leading-relaxed">
+            <p className="font-normal text-lg text-muted-foreground mt-6 leading-relaxed">
                 {course.detailedDescription}
             </p>
             {course.duration && (
@@ -72,7 +72,7 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
                                 <Award className="h-8 w-8 text-primary" />
                                 <div>
                                     <p className="font-headline font-semibold text-white tracking-wider">{badge.name}</p>
-                                    <p className="text-sm text-muted-foreground font-body">{badge.description}</p>
+                                    <p className="text-sm text-muted-foreground font-normal">{badge.description}</p>
                                 </div>
                             </div>
                         ))}

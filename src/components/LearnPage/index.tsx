@@ -31,7 +31,7 @@ export default function LearnPage({ courses, enrolledCourses, onEnroll }: LearnP
         <h1 className="font-headline uppercase text-5xl sm:text-6xl font-bold tracking-heading text-white">
           Our Courses
         </h1>
-        <p className="font-body text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
+        <p className="font-normal text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
           Explore our catalog of courses and find the perfect path to level up your skills.
         </p>
       </div>
@@ -51,7 +51,7 @@ export default function LearnPage({ courses, enrolledCourses, onEnroll }: LearnP
                 <h3 className="font-headline uppercase text-2xl font-bold tracking-heading text-white/80">
                     More Courses Coming Soon!
                 </h3>
-                <p className="font-body text-lg text-muted-foreground mt-2">
+                <p className="font-normal text-lg text-muted-foreground mt-2">
                     Stay tuned for weekly updates.
                 </p>
             </CardContent>

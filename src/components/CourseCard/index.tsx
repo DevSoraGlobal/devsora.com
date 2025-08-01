@@ -55,7 +55,7 @@ export default function CourseCard({ course, isEnrolled, onClick, onEnroll }: Co
                 </Badge>
               )}
             </div>
-            <p className="font-body text-lg text-muted-foreground mt-2">
+            <p className="font-normal text-lg text-muted-foreground mt-2">
             {course.description}
             </p>
         </div>

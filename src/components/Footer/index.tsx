@@ -1,20 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Code2, Github, Twitter, Linkedin } from 'lucide-react';
+import { Code2, Github, Instagram, Linkedin } from 'lucide-react';
 
 const quickLinks = [
   { href: '/learn', label: 'Courses' },
-  { href: '/explore', label: 'Projects' },
   { href: '/team', label: 'Team' },
   { href: '/contact', label: 'Contact' },
-];
-
-const resources = [
-  { href: '/insights', label: 'Blog' },
-  { href: '#', label: 'Documentation' },
-  { href: '#', label: 'Support' },
-  { href: '#', label: 'Community' },
 ];
 
 export default function Footer() {
@@ -32,13 +24,13 @@ export default function Footer() {
             </p>
             <div className="mt-6 flex gap-4">
               <Button variant="outline" size="icon" asChild>
-                <Link href="#"><Github className="h-5 w-5" /></Link>
+                <Link href="https://github.com/DevSoraGlobal" target="_blank" rel="noopener noreferrer"><Github className="h-5 w-5" /></Link>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <Link href="#"><Twitter className="h-5 w-5" /></Link>
+                <Link href="https://www.instagram.com/devsora_global/" target="_blank" rel="noopener noreferrer"><Instagram className="h-5 w-5" /></Link>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <Link href="#"><Linkedin className="h-5 w-5" /></Link>
+                <Link href="https://www.linkedin.com/company/devsora/" target="_blank" rel="noopener noreferrer"><Linkedin className="h-5 w-5" /></Link>
               </Button>
             </div>
           </div>
@@ -48,17 +40,6 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               {quickLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-medium tracking-body">{link.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase tracking-heading">Resources</h3>
-            <ul className="mt-4 space-y-2">
-              {resources.map(link => (
-                <li key={link.label}>
                   <Link href={link.href} className="text-base text-muted-foreground hover:text-primary font-medium tracking-body">{link.label}</Link>
                 </li>
               ))}
