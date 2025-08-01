@@ -44,50 +44,15 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  useEffect(() => {
-    const verifyUser = async () => {
-      try {
-        const response = await fetch('https://webserver.devsora.com/api/auth/verify', {
-            credentials: 'include',
-        });
-        const data = await response.json();
-        if (response.ok) {
-          setIsLoggedIn(true);
-          setUser(data.user);
-        } else {
-          setIsLoggedIn(false);
-          setUser(null);
-        }
-      } catch (error) {
-        setIsLoggedIn(false);
-        setUser(null);
-      }
-    };
-    verifyUser();
-  }, []);
-
   const openAuthModal = (tab: 'signin' | 'signup') => {
     setAuthModalTab(tab);
     setIsAuthModalOpen(true);
   }
 
   const handleLogout = async () => {
-    try {
-      const response = await fetch('https://webserver.devsora.com/api/auth/logout', { 
-        method: 'GET',
-        credentials: 'include',
-      });
-      if (response.ok) {
-        toast({ title: 'Logged Out', description: 'You have been successfully logged out.' });
-        setIsLoggedIn(false);
-        setUser(null);
-        window.location.reload();
-      } else {
-        toast({ title: 'Logout Failed', description: 'Something went wrong.', variant: 'destructive' });
-      }
-    } catch (error) {
-       toast({ title: 'Error', description: 'Could not connect to the server.', variant: 'destructive' });
-    }
+    toast({ title: 'Logged Out', description: 'You have been successfully logged out.' });
+    setIsLoggedIn(false);
+    setUser(null);
   };
   
   const headerClasses = cn(

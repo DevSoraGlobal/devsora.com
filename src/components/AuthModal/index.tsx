@@ -45,38 +45,15 @@ const SignInForm = ({ onSuccessfulSignIn, onLoadingChange }: { onSuccessfulSignI
 
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
     onLoadingChange(true);
-    try {
-      const response = await fetch('https://webserver.devsora.com/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-        credentials: 'include',
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
+    // Simulate API call
+    setTimeout(() => {
         toast({
           title: "Sign In Successful",
-          description: "Welcome back!",
+          description: "Welcome back! (This is a demo)",
         });
         onSuccessfulSignIn();
-      } else {
-        toast({
-          title: "Sign In Failed",
-          description: result.error || "An unexpected error occurred.",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Could not connect to the server.",
-        variant: "destructive",
-      });
-    } finally {
-      onLoadingChange(false);
-    }
+        onLoadingChange(false);
+    }, 1000);
   };
 
   return (
@@ -106,38 +83,15 @@ const SignUpForm = ({ onSuccessfulSignUp, onLoadingChange }: { onSuccessfulSignU
 
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
     onLoadingChange(true);
-    try {
-      const response = await fetch('https://webserver.devsora.com/api/auth/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-        credentials: 'include',
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "Account Created",
+        description: "You have successfully signed up! (This is a demo)",
       });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        toast({
-          title: "Account Created",
-          description: "You have successfully signed up!",
-        });
-        onSuccessfulSignUp();
-      } else {
-        toast({
-          title: "Sign Up Failed",
-          description: result.error || "An unexpected error occurred.",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-       toast({
-        title: "Error",
-        description: "Could not connect to the server.",
-        variant: "destructive",
-      });
-    } finally {
+      onSuccessfulSignUp();
       onLoadingChange(false);
-    }
+    }, 1000);
   };
 
   return (
@@ -174,7 +128,7 @@ export default function AuthModal({ isOpen, onOpenChange, defaultTab = 'signin' 
 
   const handleSuccess = () => {
     onOpenChange(false);
-    window.location.reload();
+    // We don't reload anymore as there's no server-side session to update
   };
   
   return (
