@@ -31,8 +31,10 @@ const CodeBlock = ({ node, className, children, ...props }: any) => {
     const match = /language-(\w+)/.exec(className || '');
     
     // The 'children' prop is a React node. We need to extract the raw text content.
-    // The actual code string is nested within the props of the children.
-    const codeText = children?.[0]?.props?.children?.[0] || '';
+    const codeText = React.Children.toArray(children)
+    .map((child: any) => (typeof child === 'string' ? child : child.props.children))
+    .join('');
+
 
     const handleCopy = () => {
         if (codeText) {
