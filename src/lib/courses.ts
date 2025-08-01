@@ -6,7 +6,7 @@ export interface Topic {
 
 export interface Toc {
     title: string;
-    topics: Topic[];
+    content: string; // Changed from topics: Topic[] to a single string for markdown
 }
 
 export interface Course {
@@ -23,6 +23,129 @@ export interface Course {
   toc: Toc[];
 }
 
+const jsFundamentalsToc = `
+# 📘 JavaScript Fundamentals – Table of Contents
+
+## 1. Introduction to JavaScript
+- What is JavaScript?
+- History and Evolution
+- JavaScript in Web Development
+- How JavaScript Runs in Browsers
+- Setting Up Environment (Browser Console, VS Code)
+
+## 2. Basics of JavaScript
+- Syntax and Code Structure
+- Variables (\`var\`, \`let\`, \`const\`)
+- Data Types (String, Number, Boolean, Null, Undefined, Symbol, BigInt)
+- Type Conversion and Coercion
+
+## 3. Operators
+- Arithmetic Operators
+- Assignment Operators
+- Comparison Operators
+- Logical Operators
+- Ternary Operator
+- Bitwise Operators
+
+## 4. Control Structures
+- \`if\`, \`else if\`, \`else\`
+- \`switch\` Statement
+- Loops:
+  - \`for\`, \`while\`, \`do...while\`
+  - \`for...in\`, \`for...of\`
+- \`break\` and \`continue\`
+
+## 5. Functions
+- Function Declaration and Expression
+- Parameters and Return Values
+- Arrow Functions
+- Callback Functions
+- Scope and Closures
+- IIFE (Immediately Invoked Function Expression)
+
+## 6. Objects
+- Object Literals
+- Property Access (\`dot\` and \`bracket\`)
+- Nested Objects
+- Object Methods
+- \`this\` Keyword
+- Object Destructuring
+
+## 7. Arrays
+- Creating and Accessing Arrays
+- Array Methods:
+  - \`push\`, \`pop\`, \`shift\`, \`unshift\`
+  - \`splice\`, \`slice\`
+  - \`map\`, \`filter\`, \`reduce\`, \`forEach\`
+- Searching: \`indexOf\`, \`find\`, \`includes\`
+- Spread Operator
+
+## 8. Strings
+- String Methods: \`slice\`, \`substring\`, \`replace\`, \`includes\`, etc.
+- Template Literals
+- Escape Characters
+
+## 9. DOM Manipulation
+- What is DOM?
+- Selecting Elements (\`getElementById\`, \`querySelector\`)
+- Changing Content and Styles
+- Event Listeners and Handlers
+- Creating and Removing Elements
+- Traversing the DOM
+
+## 10. Events in JavaScript
+- Types of Events (Click, Submit, etc.)
+- Event Propagation (Bubbling and Capturing)
+- \`addEventListener\` vs Inline Events
+- \`event\` Object
+
+## 11. Error Handling
+- \`try\`, \`catch\`, \`finally\`
+- \`throw\` Statement
+- Debugging with \`console.log()\` and DevTools
+
+## 12. ES6+ Features (Modern JavaScript)
+- \`let\` and \`const\` (Revisited)
+- Arrow Functions (Revisited)
+- Template Literals
+- Default Parameters
+- Destructuring
+- Spread and Rest Operators
+- Promises and \`async/await\`
+- Modules (\`import\` / \`export\`)
+
+## 13. JSON and Data Handling
+- What is JSON?
+- Parsing and Stringifying JSON
+- Fetching JSON Data
+
+## 14. Asynchronous JavaScript
+- Callbacks
+- Promises
+- \`async\` / \`await\`
+- \`fetch()\` API
+- Error Handling in Async Code
+
+## 15. Local Storage and Session Storage
+- \`localStorage\` vs \`sessionStorage\`
+- Setting, Getting, and Removing Items
+- Practical Examples
+
+## 16. Best Practices and Coding Standards
+- Naming Conventions
+- Code Readability
+- Avoiding Common Pitfalls
+- Writing Modular Code
+
+## 17. Mini Projects for Practice
+- Calculator
+- To-Do List
+- Form Validation
+- Weather App (using API)
+- Image Slider
+`;
+
+
 export const courses: Course[] = [
   {
     id: '1',
@@ -38,27 +161,16 @@ export const courses: Course[] = [
     ],
     toc: [
       {
-        title: 'Module 1: Introduction to JavaScript',
-        topics: [
-          { title: 'What is JavaScript?', content: '## What is JavaScript?\n\nJavaScript is a programming language that enables you to create dynamically updating content, control multimedia, animate images, and much more.' },
-          { title: 'Setting up your environment', content: '## Setting up your environment\n\nAll you need is a web browser and a text editor...' },
-          { title: 'Variables and Data Types', content: '## Variables and Data Types\n\nLearn about variables (`let`, `const`, `var`) and different data types in JS.' },
-          { title: 'Operators', content: '## Operators\n\nExplore arithmetic, assignment, comparison, and logical operators.' },
-        ]
+        title: 'JavaScript Fundamentals TOC',
+        content: jsFundamentalsToc,
       },
       {
-        title: 'Module 2: Control Flow',
-        topics: [
-          { title: 'Conditional Statements', content: '## Conditional Statements\n\nLearn to use `if`, `else if`, and `else` to control the flow of your code.' },
-          { title: 'Loops', content: '## Loops\n\nUnderstand `for` and `while` loops for repetitive tasks.' },
-        ]
+        title: 'Introduction to JavaScript',
+        content: `## What is JavaScript?\n\nJavaScript is a programming language that enables you to create dynamically updating content, control multimedia, animate images, and much more. It's one of the core technologies of the World Wide Web, alongside HTML and CSS.`,
       },
       {
-        title: 'Module 3: Functions',
-        topics: [
-          { title: 'Defining Functions', content: '## Defining Functions\n\nLearn how to define and call functions.' },
-          { title: 'Arrow Functions', content: '## Arrow Functions\n\nDiscover the modern syntax for writing functions.' },
-        ]
+        title: 'Variables and Data Types',
+        content: `## Variables and Data Types\n\nIn JavaScript, variables are used to store data values. You can declare variables using \`var\`, \`let\`, or \`const\`. JavaScript has various data types, including \`String\`, \`Number\`, \`Boolean\`, \`Null\`, \`Undefined\`, \`Symbol\`, and \`BigInt\`. Understanding these is crucial for writing effective code.`
       }
     ]
   },
@@ -76,21 +188,39 @@ export const courses: Course[] = [
     ],
     toc: [
         {
-            title: 'Module 1: Deep Dive into Hooks',
-            topics: [
-                { title: 'Custom Hooks', content: '## Custom Hooks\n\nLearn to build your own reusable hooks to encapsulate logic.'},
-                { title: 'useReducer', content: '## useReducer\n\nManage complex state logic with the `useReducer` hook.'},
-                { title: 'useContext for State Management', content: '## useContext\n\nLeverage the Context API for state management without prop drilling.'},
-            ]
+            title: 'Advanced React Patterns TOC',
+            content: `
+# 📘 Advanced React Patterns – Table of Contents
+
+## 1. Deep Dive into Hooks
+- Building Custom Hooks
+- \`useReducer\` for Complex State
+- \`useContext\` for Global State
+- \`useImperativeHandle\`
+- \`useLayoutEffect\`
+
+## 2. Advanced Component Patterns
+- Higher-Order Components (HOCs)
+- Render Props
+- Compound Components
+- Controlled vs. Uncontrolled Components
+- Prop Collections and Getters
+
+## 3. Performance Optimization
+- Memoization with \`React.memo\`, \`useMemo\`, \`useCallback\`
+- Code Splitting with \`React.lazy\` and \`Suspense\`
+- Windowing large lists with \`react-window\`
+- Analyzing Performance with the React DevTools Profiler
+`
         },
-        {
-            title: 'Module 2: Performance Optimization',
-            topics: [
-                { title: 'Memoization with useMemo and useCallback', content: '## Memoization\n\nPrevent unnecessary re-renders using `useMemo` and `useCallback`.'},
-                { title: 'Code Splitting', content: '## Code Splitting\n\nLazy load components to improve initial load time.'},
-                { title: 'Analyzing Performance with Profiler', content: '## React DevTools Profiler\n\nUse the Profiler to identify performance bottlenecks.'},
-            ]
-        }
+        { 
+            title: 'Custom Hooks', 
+            content: '## Custom Hooks\n\nLearn to build your own reusable hooks to encapsulate logic. This allows you to share stateful logic between components without repeating code.'
+        },
+        { 
+            title: 'Memoization', 
+            content: '## Memoization\n\nPrevent unnecessary re-renders using `useMemo` and `useCallback`. This is key to optimizing the performance of complex applications.'
+        },
     ]
   }
 ];

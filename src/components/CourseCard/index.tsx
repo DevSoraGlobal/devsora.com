@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import type { Course } from '@/lib/courses';
+import { Badge } from '@/components/ui/badge';
 
 interface CourseCardProps {
   course: Course;
@@ -13,6 +14,12 @@ interface CourseCardProps {
   onClick: (course: Course) => void;
   onEnroll: (courseId: string) => void;
 }
+
+const difficultyColors: { [key: string]: string } = {
+    Beginner: 'border-green-700/50 text-green-300',
+    Intermediate: 'border-orange-600/50 text-orange-400',
+    Advanced: 'border-red-700/50 text-red-300',
+};
 
 export default function CourseCard({ course, isEnrolled, onClick, onEnroll }: CourseCardProps) {
   const { toast } = useToast();
@@ -34,9 +41,16 @@ export default function CourseCard({ course, isEnrolled, onClick, onEnroll }: Co
     >
       <CardContent className="p-6 flex-grow flex flex-col">
         <div>
-            <h3 className="font-headline uppercase text-2xl font-bold tracking-heading">
-            {course.title}
-            </h3>
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="font-headline uppercase text-2xl font-bold tracking-heading">
+              {course.title}
+              </h3>
+              {course.difficulty && (
+                <Badge variant="outline" className={`${difficultyColors[course.difficulty]} text-xs`}>
+                    {course.difficulty}
+                </Badge>
+              )}
+            </div>
             <p className="font-body text-lg text-muted-foreground mt-2">
             {course.description}
             </p>

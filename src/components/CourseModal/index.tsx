@@ -2,11 +2,14 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import { X, Clock, Award, BookOpen } from 'lucide-react';
+import { X, Clock, Award, BookOpen, ArrowRight } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import type { Course } from '@/lib/courses';
+import ReactMarkdown from 'react-markdown';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 interface CourseModalProps {
   course: Course;
@@ -33,7 +36,7 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
       onClick={onClose}
     >
       <div
-        className="bg-black border border-primary/20 rounded-2xl w-full max-w-[1200px] h-full max-h-[800px] flex flex-col sm:flex-row shadow-2xl shadow-primary/20 animate-in zoom-in-95"
+        className="bg-black border border-primary/20 rounded-2xl w-full max-w-[1200px] h-full max-h-[90vh] flex flex-col sm:flex-row shadow-2xl shadow-primary/20 animate-in zoom-in-95"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -80,21 +83,17 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
                 Course Outline
             </h3>
             <ScrollArea className="flex-grow mt-6 pr-4 -mr-4">
-                <ul className="space-y-2">
-                    {course.toc.map((chapter, index) => (
-                        <li key={index} className={cn("transition-all mt-4")}>
-                           <h4 className="font-headline text-xl font-semibold text-primary tracking-wider">{chapter.title}</h4>
-                           <ul className="space-y-1 mt-2">
-                               {chapter.topics.map((topic, topicIndex) => (
-                                    <li key={topicIndex} className="ml-4">
-                                        <p className="font-body text-base text-muted-foreground">{topic.title}</p>
-                                    </li>
-                               ))}
-                           </ul>
-                        </li>
-                    ))}
-                </ul>
+                <article className="prose prose-invert max-w-none">
+                    <ReactMarkdown>{course.toc.map(c => c.content).join('\n\n')}</ReactMarkdown>
+                </article>
             </ScrollArea>
+             <div className="mt-6">
+                <Link href={`/learn/${course.slug}`} passHref>
+                    <Button size="lg" className="w-full font-headline tracking-widest text-lg">
+                        Start Learning <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                </Link>
+            </div>
         </div>
       </div>
     </div>
