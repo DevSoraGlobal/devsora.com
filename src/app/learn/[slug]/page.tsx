@@ -14,6 +14,7 @@ async function getCourse(id: string): Promise<Course | null> {
             return null;
         }
         const data = await res.json();
+        console.log(data)
         const course = data.courses.find((c: any) => c._id === id);
         return course || null;
     } catch (error) {
