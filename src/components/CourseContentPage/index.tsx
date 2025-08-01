@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { BookOpen, CheckCircle, Clock, BarChart } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -45,6 +45,10 @@ const difficultyColors: { [key: string]: string } = {
 };
 
 export default function CourseContentPage({ course }: CourseContentPageProps) {
+    useEffect(() => (
+        console.log(course)
+    ), [])
+    
     // A function to parse the raw format from the API into our structured Chapter/Topic interfaces
     const parseCourseFormat = (format: any[]): Chapter[] => {
         if (!Array.isArray(format)) return [];
