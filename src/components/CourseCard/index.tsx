@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import type { Course } from '@/lib/courses';
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 interface CourseCardProps {
   course: Course;
@@ -37,7 +38,10 @@ export default function CourseCard({ course, isEnrolled, onClick, onEnroll }: Co
   return (
     <Card
       onClick={() => onClick(course)}
-      className="bg-card/80 backdrop-blur-sm border-white/10 text-white rounded-lg overflow-hidden cursor-pointer group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 flex flex-col"
+      className={cn(
+        "bg-card/80 backdrop-blur-sm border-white/10 text-white rounded-lg overflow-hidden cursor-pointer group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 flex flex-col",
+        isEnrolled && "border-2 border-green-600/50"
+      )}
     >
       <CardContent className="p-6 flex-grow flex flex-col">
         <div>
