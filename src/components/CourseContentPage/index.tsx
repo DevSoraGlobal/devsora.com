@@ -29,13 +29,18 @@ const difficultyColors: { [key: string]: string } = {
 const CodeBlock = ({ node, className, children, ...props }: any) => {
     const [isCopied, setIsCopied] = useState(false);
     const match = /language-(\w+)/.exec(className || '');
-    const codeText = String(children).replace(/\n$/, '');
+    
+    // The 'children' prop is a React node. We need to extract the raw text content.
+    // The actual code string is nested within the props of the children.
+    const codeText = children?.[0]?.props?.children?.[0] || '';
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(codeText).then(() => {
-            setIsCopied(true);
-            setTimeout(() => setIsCopied(false), 2000);
-        });
+        if (codeText) {
+            navigator.clipboard.writeText(codeText).then(() => {
+                setIsCopied(true);
+                setTimeout(() => setIsCopied(false), 2000);
+            });
+        }
     };
 
     return (
