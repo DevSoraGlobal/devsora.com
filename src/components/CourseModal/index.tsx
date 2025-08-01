@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import { X, Clock, Award, BookOpen, ArrowRight } from 'lucide-react';
+import { X, Clock, Award, BookOpen, ArrowRight, CheckCircle } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
@@ -87,9 +87,21 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
                 Course Outline
             </h3>
             <ScrollArea className="flex-grow mt-6 pr-4 -mr-4">
-                <article className="prose prose-invert max-w-none">
-                    <ReactMarkdown>{fullToc}</ReactMarkdown>
-                </article>
+                 <div className="space-y-6">
+                    {course.modules.map((module, moduleIndex) => (
+                        <div key={moduleIndex}>
+                            <h4 className="font-headline text-2xl font-bold tracking-wider text-primary mb-3">{module.title}</h4>
+                            <ul className="space-y-2">
+                                {module.topics.map((topic, topicIndex) => (
+                                    <li key={topicIndex} className="flex items-start gap-3">
+                                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 shrink-0" />
+                                        <span className="text-muted-foreground font-medium">{topic.title}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
             </ScrollArea>
              <div className="mt-6">
                 <Link href={`/learn/${course.slug}`} passHref>
