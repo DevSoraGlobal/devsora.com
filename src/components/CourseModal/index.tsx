@@ -30,6 +30,10 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
 
   if (!isOpen) return null;
 
+  const fullToc = course.modules.map(module => 
+    `## ${module.title}\n\n${module.topics.map(topic => `- ${topic.title}`).join('\n')}`
+  ).join('\n\n');
+
   return (
     <div
       className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-in fade-in-0"
@@ -84,7 +88,7 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
             </h3>
             <ScrollArea className="flex-grow mt-6 pr-4 -mr-4">
                 <article className="prose prose-invert max-w-none">
-                    <ReactMarkdown>{course.toc.map(c => c.content).join('\n\n')}</ReactMarkdown>
+                    <ReactMarkdown>{fullToc}</ReactMarkdown>
                 </article>
             </ScrollArea>
              <div className="mt-6">
