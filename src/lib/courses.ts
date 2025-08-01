@@ -1,7 +1,7 @@
 
 export interface Topic {
     title: string;
-    content: string;
+    content: string; 
 }
 
 export interface Chapter {
@@ -164,14 +164,6 @@ export const courses: Course[] = [
         title: 'JavaScript Fundamentals TOC',
         content: jsFundamentalsToc,
       },
-      {
-        title: 'Introduction to JavaScript',
-        content: `## What is JavaScript?\n\nJavaScript is a programming language that enables you to create dynamically updating content, control multimedia, animate images, and much more. It's one of the core technologies of the World Wide Web, alongside HTML and CSS.`,
-      },
-      {
-        title: 'Variables and Data Types',
-        content: `## Variables and Data Types\n\nIn JavaScript, variables are used to store data values. You can declare variables using \`var\`, \`let\`, or \`const\`. JavaScript has various data types, including \`String\`, \`Number\`, \`Boolean\`, \`Null\`, \`Undefined\`, \`Symbol\`, and \`BigInt\`. Understanding these is crucial for writing effective code.`
-      }
     ]
   },
   {
@@ -212,14 +204,6 @@ export const courses: Course[] = [
 - Windowing large lists with \`react-window\`
 - Analyzing Performance with the React DevTools Profiler
 `
-        },
-        { 
-            title: 'Custom Hooks', 
-            content: '## Custom Hooks\n\nLearn to build your own reusable hooks to encapsulate logic. This allows you to share stateful logic between components without repeating code.'
-        },
-        { 
-            title: 'Memoization', 
-            content: '## Memoization\n\nPrevent unnecessary re-renders using `useMemo` and `useCallback`. This is key to optimizing the performance of complex applications.'
         },
     ]
   }
