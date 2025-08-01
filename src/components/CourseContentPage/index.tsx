@@ -7,7 +7,7 @@ import { BookOpen, CheckCircle, Clock, BarChart } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
 import ReactMarkdown from 'react-markdown';
-import type { Course, Toc, Topic } from '@/lib/courses';
+import type { Course, Chapter } from '@/lib/courses';
 
 interface CourseContentPageProps {
   course: Course;
@@ -21,7 +21,7 @@ const difficultyColors: { [key: string]: string } = {
 
 export default function CourseContentPage({ course }: CourseContentPageProps) {
     
-    const [selectedTopic, setSelectedTopic] = useState<Topic | null>(course.toc[0]?.topics[0] || null);
+    const [selectedChapter, setSelectedChapter] = useState<Chapter | null>(course.toc[0] || null);
 
   return (
     <div className="container mx-auto px-4 py-16 text-white min-h-screen">
@@ -53,10 +53,9 @@ export default function CourseContentPage({ course }: CourseContentPageProps) {
                 </div>
 
                 <div className="mt-12 bg-secondary/30 rounded-lg p-8 min-h-[300px]">
-                    {selectedTopic ? (
+                    {selectedChapter ? (
                         <article className="prose prose-invert prose-lg max-w-none">
-                            <h2 className="font-headline text-4xl font-bold tracking-wider">{selectedTopic.title}</h2>
-                            <ReactMarkdown>{selectedTopic.content}</ReactMarkdown>
+                            <ReactMarkdown>{selectedChapter.content}</ReactMarkdown>
                         </article>
                     ) : (
                         <p className="text-muted-foreground font-normal text-lg">Select a topic from the sidebar to begin.</p>
@@ -72,30 +71,21 @@ export default function CourseContentPage({ course }: CourseContentPageProps) {
               Course Content
             </h3>
             <ScrollArea className="mt-4 h-[calc(100vh-250px)] pr-4 -mr-4">
-              <div className="space-y-4">
+              <div className="space-y-1">
                 {course.toc.map((chapter, chapterIndex) => (
-                    <div key={chapterIndex}>
-                        <h4 className="font-headline text-xl font-bold tracking-wider text-white mb-2">
-                           {chapter.title}
-                        </h4>
-                        <div className="space-y-1">
-                            {chapter.topics.map((topic, topicIndex) => (
-                                <button
-                                    key={topicIndex}
-                                    onClick={() => setSelectedTopic(topic)}
-                                    className={cn(
-                                    "w-full text-left p-2 rounded-md text-base transition-colors flex items-start gap-2.5",
-                                    selectedTopic?.title === topic.title
-                                        ? "bg-primary/20 text-primary font-semibold"
-                                        : "text-muted-foreground hover:bg-secondary/50 hover:text-white"
-                                    )}
-                                >
-                                    <CheckCircle className="h-4 w-4 mt-1 shrink-0" />
-                                    <span>{topic.title}</span>
-                                </button>
-                            ))}
-                        </div>
-                    </div>
+                    <button
+                        key={chapterIndex}
+                        onClick={() => setSelectedChapter(chapter)}
+                        className={cn(
+                        "w-full text-left p-3 rounded-md text-base transition-colors flex items-start gap-2.5",
+                        selectedChapter?.title === chapter.title
+                            ? "bg-primary/20 text-primary font-semibold"
+                            : "text-muted-foreground hover:bg-secondary/50 hover:text-white"
+                        )}
+                    >
+                        <CheckCircle className="h-4 w-4 mt-1 shrink-0" />
+                        <span>{chapter.title}</span>
+                    </button>
                 ))}
               </div>
             </ScrollArea>

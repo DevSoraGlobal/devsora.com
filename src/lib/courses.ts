@@ -4,9 +4,9 @@ export interface Topic {
     content: string;
 }
 
-export interface Toc {
+export interface Chapter {
     title: string;
-    content: string; // Changed from topics: Topic[] to a single string for markdown
+    content: string; 
 }
 
 export interface Course {
@@ -20,7 +20,7 @@ export interface Course {
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   duration: string;
   badges: { name: string; description: string }[];
-  toc: Toc[];
+  toc: Chapter[];
 }
 
 const jsFundamentalsToc = `
