@@ -53,6 +53,13 @@ export default function Footer() {
               <li><Link href="#" className="text-base text-muted-foreground hover:text-primary font-medium tracking-body">Terms of Service</Link></li>
             </ul>
           </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase tracking-heading">Updates</h3>
+            <p className="mt-4 text-base text-muted-foreground font-medium tracking-body">
+              New features to be rolled out weekly.
+            </p>
+          </div>
         </div>
 
         <div className="mt-16 border-t pt-8 text-center text-muted-foreground">
