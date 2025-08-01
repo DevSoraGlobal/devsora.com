@@ -40,7 +40,7 @@ const CodeBlock = ({ node, className, children, ...props }: any) => {
 
     return (
         <div className="relative group">
-            <pre {...props} className={cn(className, "p-4 rounded-lg bg-black/50 my-4 overflow-x-auto")}>
+            <pre {...props} className={cn(className, "p-4 rounded-lg bg-secondary/30 my-4 overflow-x-auto")}>
                 <code>{children}</code>
             </pre>
             <Button
