@@ -10,7 +10,7 @@ const teamMembers = [
     { name: 'DEVGURU PANDEY', title: 'UI/UX Designer', image: '/dev.png', category: 'Development' },
     { name: 'KUNAL MAHARIA', title: 'Chief Marketing Officer', image: '/kunal.png', category: 'Leadership' },
     { name: 'MRIDUL SHARMA', title: 'Social Media Designer', image: '/mridul.png', category: 'Marketing' },
-    { name: 'Akshat Shrivatava', title: 'Marketing Executive', image: '/akshatshrivatava.png', category: 'Marketing' },
+    { name: 'Akshat Shrivatava', title: 'Marketing Executive', image: '/akshat.png', category: 'Marketing' },
     { name: 'satakshi sinha', title: 'Curriculum Writer', image: '/satakshi.png', category: 'Content & Community' },
     { name: 'aadhya govil', title: 'HR & Management', image: '/aadhya.png', category: 'Leadership' },
     { name: 'sakshi verma', title: 'Curriculum Writer', image: '/sakshi.png', category: 'Content & Community' },
