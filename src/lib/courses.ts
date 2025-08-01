@@ -4,9 +4,9 @@ export interface Topic {
     content: string; 
 }
 
-export interface Chapter {
+export interface Module {
     title: string;
-    content: string; 
+    topics: Topic[];
 }
 
 export interface Course {
@@ -20,7 +20,7 @@ export interface Course {
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   duration: string;
   badges: { name: string; description: string }[];
-  toc: Chapter[];
+  modules: Module[];
 }
 
 const jsFundamentalsToc = `
@@ -145,6 +145,33 @@ const jsFundamentalsToc = `
 - Image Slider
 `;
 
+const parseTocToTopics = (tocContent: string): Topic[] => {
+    if (!tocContent) return [];
+
+    const lines = tocContent.split('\n');
+    const topics: Topic[] = [];
+    let currentContent: string[] = [];
+    let currentTitle = '';
+
+    for (const line of lines) {
+        if (line.startsWith('## ')) {
+            if (currentTitle) {
+                topics.push({ title: currentTitle, content: currentContent.join('\n').trim() });
+            }
+            currentTitle = line.substring(3).trim();
+            currentContent = [];
+        } else {
+            currentContent.push(line);
+        }
+    }
+    if (currentTitle) {
+        topics.push({ title: currentTitle, content: currentContent.join('\n').trim() });
+    }
+
+    return topics;
+};
+
+const allTopics = parseTocToTopics(jsFundamentalsToc);
 
 export const courses: Course[] = [
   {
@@ -159,11 +186,19 @@ export const courses: Course[] = [
       { name: 'JS Basics', description: 'Completed introduction' },
       { name: 'DOM Master', description: 'Manipulated the DOM' }
     ],
-    toc: [
-      {
-        title: 'JavaScript Fundamentals TOC',
-        content: jsFundamentalsToc,
-      },
+    modules: [
+        {
+            title: 'Module 1: Core Concepts',
+            topics: allTopics.slice(0, 5)
+        },
+        {
+            title: 'Module 2: Data Structures & DOM',
+            topics: allTopics.slice(5, 11)
+        },
+        {
+            title: 'Module 3: Advanced & Modern JS',
+            topics: allTopics.slice(11)
+        }
     ]
   },
   {
@@ -178,33 +213,39 @@ export const courses: Course[] = [
         { name: 'React Hooks Pro', description: 'Mastered advanced hooks' },
         { name: 'Performance Ninja', description: 'Optimized a React app' }
     ],
-    toc: [
+    modules: [
         {
-            title: 'Advanced React Patterns TOC',
-            content: `
-# 📘 Advanced React Patterns – Table of Contents
-
+            title: 'Module 1: Deep Dive into Hooks',
+            topics: parseTocToTopics(`
 ## 1. Deep Dive into Hooks
 - Building Custom Hooks
 - \`useReducer\` for Complex State
 - \`useContext\` for Global State
 - \`useImperativeHandle\`
 - \`useLayoutEffect\`
-
+            `)
+        },
+        {
+            title: 'Module 2: Advanced Component Patterns',
+            topics: parseTocToTopics(`
 ## 2. Advanced Component Patterns
 - Higher-Order Components (HOCs)
 - Render Props
 - Compound Components
 - Controlled vs. Uncontrolled Components
 - Prop Collections and Getters
-
+            `)
+        },
+        {
+            title: 'Module 3: Performance Optimization',
+            topics: parseTocToTopics(`
 ## 3. Performance Optimization
 - Memoization with \`React.memo\`, \`useMemo\`, \`useCallback\`
 - Code Splitting with \`React.lazy\` and \`Suspense\`
 - Windowing large lists with \`react-window\`
 - Analyzing Performance with the React DevTools Profiler
-`
-        },
+            `)
+        }
     ]
   }
 ];
