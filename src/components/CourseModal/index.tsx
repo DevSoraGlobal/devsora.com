@@ -6,7 +6,7 @@ import { X, Clock, Award, BookOpen } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { Course } from '@/components/LearnPage'; // Reuse the interface from LearnPage
+import type { Course } from '@/lib/courses';
 
 interface CourseModalProps {
   course: Course;
@@ -27,35 +27,6 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
 
   if (!isOpen) return null;
 
-  const flattenTOC = (format: any[] = []): any[] => {
-    const items: any[] = [];
-    if (!Array.isArray(format)) return items;
-  
-    format.forEach(chapterObj => {
-      // chapterObj is like: { "JavaScript Basics": { "Topic Group": { "Topic 1": "..." } } }
-      const chapterName = Object.keys(chapterObj)[0];
-      if (chapterName) {
-        items.push({ isChapter: true, title: chapterName });
-        
-        const topicGroups = chapterObj[chapterName];
-        if (typeof topicGroups === 'object' && topicGroups !== null) {
-          // topicGroups is like: { "Topic Group": { "Topic 1": "..." } }
-          Object.values(topicGroups).forEach((topicGroup: any) => {
-            if (typeof topicGroup === 'object' && topicGroup !== null) {
-              // topicGroup is like: { "Topic 1": "...", "Topic 2": "..." }
-              Object.keys(topicGroup).forEach(topicName => {
-                items.push({ title: topicName });
-              });
-            }
-          });
-        }
-      }
-    });
-    return items;
-  };
-
-  const tocItems = flattenTOC(course.format);
-
   return (
     <div
       className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-in fade-in-0"
@@ -72,10 +43,9 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
           <X className="h-6 w-6" />
         </button>
         
-        {/* Left Section */}
         <div className="w-full sm:w-1/2 p-8 sm:p-12 flex flex-col justify-center text-white border-r-0 sm:border-r border-primary/20">
             <h2 className="font-headline uppercase text-5xl lg:text-6xl font-bold tracking-heading text-primary">
-                {course.courseName}
+                {course.title}
             </h2>
             <p className="font-body text-lg text-muted-foreground mt-6 leading-relaxed">
                 {course.detailedDescription}
@@ -104,7 +74,6 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
             )}
         </div>
 
-        {/* Right Section */}
         <div className="w-full sm:w-1/2 p-8 sm:p-12 flex flex-col">
             <h3 className="font-headline uppercase text-3xl font-bold tracking-wider text-white flex items-center gap-3">
                 <BookOpen className="h-8 w-8 text-primary"/>
@@ -112,13 +81,16 @@ export default function CourseModal({ course, isOpen, onClose }: CourseModalProp
             </h3>
             <ScrollArea className="flex-grow mt-6 pr-4 -mr-4">
                 <ul className="space-y-2">
-                    {tocItems.map((item, index) => (
-                        <li key={index} className={cn("transition-all", item.isChapter ? 'mt-4' : 'ml-4')}>
-                           {item.isChapter ? (
-                                <h4 className="font-headline text-xl font-semibold text-primary tracking-wider">{item.title}</h4>
-                           ) : (
-                             <p className="font-body text-base text-muted-foreground">{item.title}</p>
-                           )}
+                    {course.toc.map((chapter, index) => (
+                        <li key={index} className={cn("transition-all mt-4")}>
+                           <h4 className="font-headline text-xl font-semibold text-primary tracking-wider">{chapter.title}</h4>
+                           <ul className="space-y-1 mt-2">
+                               {chapter.topics.map((topic, topicIndex) => (
+                                    <li key={topicIndex} className="ml-4">
+                                        <p className="font-body text-base text-muted-foreground">{topic.title}</p>
+                                    </li>
+                               ))}
+                           </ul>
                         </li>
                     ))}
                 </ul>

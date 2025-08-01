@@ -1,30 +1,35 @@
+
 "use client"
 
+import { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import CourseContentPage from '@/components/CourseContentPage';
-import type { Course } from '@/components/CourseContentPage';
+import { courses, Course } from '@/lib/courses';
 
-async function getCourse(id: string): Promise<Course | null> {
-    try {
-        const res = await fetch('https://webserver.devsora.com/api/courses/coursesDetails', {
-            cache: 'no-store'
-        });
-        if (!res.ok) {
-            return null;
-        }
-        const data = await res.json();
-        console.log(data)
-        const course = data.courses.find((c: any) => c._id === id);
-        return course || null;
-    } catch (error) {
-        console.error('Failed to fetch course:', error);
-        return null;
+export default function CoursePage({ params }: { params: { slug: string } }) {
+  const [course, setCourse] = useState<Course | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const foundCourse = courses.find(c => c.slug === params.slug);
+    if (foundCourse) {
+      setCourse(foundCourse);
     }
-}
+    setLoading(false);
+  }, [params.slug]);
 
-export default async function CoursePage({ params }: { params: { slug: string } }) {
-  const course = await getCourse(params.slug);
+  if (loading) {
+     return (
+      <div className="flex flex-col min-h-screen bg-black">
+        <NavBar />
+        <main className="flex-grow flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-white">Loading...</h1>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!course) {
     return (

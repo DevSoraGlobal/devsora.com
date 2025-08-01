@@ -4,30 +4,15 @@
 import React, { useState } from 'react';
 import CourseCard from '@/components/CourseCard';
 import CourseModal from '@/components/CourseModal';
-
-// This is now the primary Course interface for the client-side components
-export interface Course {
-  _id: string;
-  slug: string;
-  courseName: string;
-  title: string; // Keep for card compatibility if needed, or unify
-  description: string;
-  detailedDescription?: string;
-  image?: string;
-  aiHint?: string;
-  difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
-  duration?: string;
-  badges?: { name: string; description: string }[];
-  format?: any[];
-  toc?: any[]; // Keep for legacy compatibility if needed
-}
+import type { Course } from '@/lib/courses';
 
 interface LearnPageProps {
   courses: Course[];
   enrolledCourses: string[];
+  onEnroll: (courseId: string) => void;
 }
 
-export default function LearnPage({ courses, enrolledCourses }: LearnPageProps) {
+export default function LearnPage({ courses, enrolledCourses, onEnroll }: LearnPageProps) {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   const handleCardClick = (course: Course) => {
@@ -37,13 +22,6 @@ export default function LearnPage({ courses, enrolledCourses }: LearnPageProps) 
   const handleCloseModal = () => {
     setSelectedCourse(null);
   };
-  
-  // Normalize course data to fit the CourseCard's expected props
-  const normalizedCourses = courses.map(course => ({
-    ...course,
-    title: course.courseName, // Use courseName for the title
-    description: course.description || `An amazing course about ${course.courseName}.`, // Provide a fallback description
-  }));
 
   return (
     <div className="container mx-auto px-4 py-16 sm:py-24">
@@ -56,12 +34,13 @@ export default function LearnPage({ courses, enrolledCourses }: LearnPageProps) 
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {normalizedCourses.map((course) => (
+        {courses.map((course) => (
           <CourseCard 
-            key={course._id} 
+            key={course.id} 
             course={course} 
             onClick={handleCardClick}
-            isEnrolled={enrolledCourses.includes(course._id)}
+            isEnrolled={enrolledCourses.includes(course.id)}
+            onEnroll={onEnroll}
           />
         ))}
       </div>
