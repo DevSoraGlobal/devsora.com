@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
-import { BookOpen, CheckCircle, Clock, BarChart } from 'lucide-react';
+import { BookOpen, CheckCircle, Clock, BarChart, Copy, Check } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
   Accordion,
@@ -14,6 +14,7 @@ import {
 import { cn } from '@/lib/utils';
 import ReactMarkdown from 'react-markdown';
 import type { Course, Topic, Module } from '@/lib/courses';
+import { Button } from '@/components/ui/button';
 
 interface CourseContentPageProps {
   course: Course;
@@ -25,6 +26,36 @@ const difficultyColors: { [key: string]: string } = {
     Advanced: 'border-red-700/50 text-red-300',
 };
 
+const CodeBlock = ({ node, className, children, ...props }: any) => {
+    const [isCopied, setIsCopied] = useState(false);
+    const match = /language-(\w+)/.exec(className || '');
+    const codeText = String(children).replace(/\n$/, '');
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(codeText).then(() => {
+            setIsCopied(true);
+            setTimeout(() => setIsCopied(false), 2000);
+        });
+    };
+
+    return (
+        <div className="relative group">
+            <pre {...props} className={cn(className, "p-4 rounded-lg bg-black/50 my-4 overflow-x-auto")}>
+                <code>{children}</code>
+            </pre>
+            <Button
+                size="icon"
+                variant="ghost"
+                className="absolute top-2 right-2 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
+                onClick={handleCopy}
+            >
+                {isCopied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+            </Button>
+        </div>
+    );
+};
+
+
 const ModuleContent = ({ module }: { module: Module }) => {
     const [selectedTopic, setSelectedTopic] = useState<Topic | null>(module.topics[0] || null);
 
@@ -34,7 +65,9 @@ const ModuleContent = ({ module }: { module: Module }) => {
                 <div className="bg-secondary/30 rounded-lg p-8 min-h-[400px]">
                     {selectedTopic ? (
                         <article className="prose prose-invert prose-lg max-w-none">
-                            <ReactMarkdown>{selectedTopic.content}</ReactMarkdown>
+                            <ReactMarkdown components={{ pre: CodeBlock }}>
+                                {selectedTopic.content}
+                            </ReactMarkdown>
                         </article>
                     ) : (
                         <p className="text-muted-foreground font-normal text-lg">Select a topic to begin.</p>
