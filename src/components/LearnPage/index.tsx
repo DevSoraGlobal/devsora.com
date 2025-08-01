@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import CourseCard from '@/components/CourseCard';
 import CourseModal from '@/components/CourseModal';
 import type { Course } from '@/lib/courses';
+import { Card, CardContent } from '@/components/ui/card';
+import { Clock } from 'lucide-react';
 
 interface LearnPageProps {
   courses: Course[];
@@ -43,6 +45,17 @@ export default function LearnPage({ courses, enrolledCourses, onEnroll }: LearnP
             onEnroll={onEnroll}
           />
         ))}
+        <Card className="border-2 border-dashed border-primary/30 bg-secondary/20 flex flex-col items-center justify-center text-center p-8">
+            <CardContent className="p-0 flex flex-col items-center justify-center">
+                <Clock className="h-12 w-12 text-primary/50 mb-4" />
+                <h3 className="font-headline uppercase text-2xl font-bold tracking-heading text-white/80">
+                    More Courses Coming Soon!
+                </h3>
+                <p className="font-body text-lg text-muted-foreground mt-2">
+                    Stay tuned for weekly updates.
+                </p>
+            </CardContent>
+        </Card>
       </div>
       {selectedCourse && (
         <CourseModal
