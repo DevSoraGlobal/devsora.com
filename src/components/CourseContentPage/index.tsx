@@ -45,9 +45,6 @@ const difficultyColors: { [key: string]: string } = {
 };
 
 export default function CourseContentPage({ course }: CourseContentPageProps) {
-    useEffect(() => (
-        console.log(course)
-    ), [])
     
     // A function to parse the raw format from the API into our structured Chapter/Topic interfaces
     const parseCourseFormat = (format: any[]): Chapter[] => {
@@ -74,8 +71,14 @@ export default function CourseContentPage({ course }: CourseContentPageProps) {
     const chapters = useMemo(() => parseCourseFormat(course.format), [course]);
     
     // Set the initial selected topic to the first topic of the first group of the first chapter
-    const firstTopic = chapters[0]?.topicGroups[0]?.topics[0] || null;
-    const [selectedTopic, setSelectedTopic] = useState<Topic | null>(firstTopic);
+    const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
+
+    useEffect(() => {
+        if (chapters.length > 0 && chapters[0].topicGroups.length > 0 && chapters[0].topicGroups[0].topics.length > 0) {
+            setSelectedTopic(chapters[0].topicGroups[0].topics[0]);
+        }
+    }, [chapters]);
+
 
   return (
     <div className="container mx-auto px-4 py-16 text-white min-h-screen">
