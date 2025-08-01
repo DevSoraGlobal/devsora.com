@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase tracking-heading">Updates</h3>
+            <h3 className="text-sm font-semibold text-primary tracking-wider uppercase tracking-heading">Updates</h3>
             <p className="mt-4 text-base text-muted-foreground font-medium tracking-body">
               New features to be rolled out weekly.
             </p>
