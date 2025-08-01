@@ -55,6 +55,10 @@ const CodeBlock = ({ node, className, children, ...props }: any) => {
     );
 };
 
+const MarkdownH2 = ({ node, ...props }: any) => {
+    return <h2 className="text-primary" {...props} />;
+};
+
 
 const ModuleContent = ({ module }: { module: Module }) => {
     const [selectedTopic, setSelectedTopic] = useState<Topic | null>(module.topics[0] || null);
@@ -65,7 +69,7 @@ const ModuleContent = ({ module }: { module: Module }) => {
                 <div className="bg-secondary/30 rounded-lg p-8 min-h-[400px]">
                     {selectedTopic ? (
                         <article className="prose prose-invert prose-lg max-w-none">
-                            <ReactMarkdown components={{ pre: CodeBlock }}>
+                            <ReactMarkdown components={{ pre: CodeBlock, h2: MarkdownH2 }}>
                                 {selectedTopic.content}
                             </ReactMarkdown>
                         </article>
