@@ -46,7 +46,7 @@ export default function HeroSection() {
           DEVSORA
         </h1>
           <p className="max-w-2xl text-muted-foreground mb-8 font-semibold tracking-body">
-          "THE AI POWERED ED-EDTECH PLATFORM."
+          "THE AI POWERED ED-TECH PLATFORM."
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link href="/learn" passHref>
