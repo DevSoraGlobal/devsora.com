@@ -53,9 +53,9 @@ export default function HeroSection() {
             <Button size="lg" className="text-lg px-8 py-6 tracking-body">Start Learning</Button>
           </Link>
           <Link href="/explore" passHref>
-            {/* <Button variant="outline" size="lg" className="text-lg px-8 py-6 tracking-body">
-              Explore Projects
-            </Button> */}
+            {<Button variant="outline" size="lg" className="text-lg px-8 py-6 tracking-body">
+              Alpha Platform
+            </Button>}
           </Link>
         </div>
       </div>
