@@ -1,33 +1,37 @@
 # DevSora
 
-DevSora is a deep-tech robotics and AI company.
+> DevSora is a deep-tech robotics and AI company focused on building accessible robotics platforms, intelligent machines, and autonomous systems.
 
-Tagline:
-Engineering The Impossible.
+DevSora is currently pre-incubated at AIC MUJ and is developing technologies across robotics hardware, artificial intelligence, autonomy, and modular robotics ecosystems.
 
-Status:
-Pre-incubated at AIC MUJ.
+## Mission
 
-Vision:
-To make advanced robotics accessible to every builder, creator, and innovator.
+* Build the hardware, software, and ecosystems powering the next generation of intelligent machines.
+* Make advanced robotics accessible to builders, creators, researchers, and startups.
+* Accelerate innovation through open and modular robotics platforms.
 
-Mission:
-Building the hardware, software, and ecosystems that power the next generation of intelligent machines.
+## Vision
 
-Current Projects:
+* Make advanced robotics as accessible and customizable as personal computers.
 
-* RIO
-* Modular Robotics Platform
-* AI & Autonomy Stack
+## Company
 
-Website:
-https://www.devsora.com
+* [Website](https://www.devsora.com): Official website and company information.
+* [GitHub](https://github.com/DevSoraGlobal): Open-source projects and development repositories.
+* [LinkedIn](https://www.linkedin.com/company/devsora): Company updates and announcements.
+* [Instagram](https://www.instagram.com/devsora_global): Community and product updates.
 
-GitHub:
-https://github.com/DevSoraGlobal
+## Products & Projects
 
-Instagram:
-https://instagram.com/devsora_global
+* [RIO](https://www.devsora.com): Open-source AI robotic assistant designed to remember, find, and retrieve objects.
+* [Modular Robotics Platform](https://www.devsora.com): Robotics ecosystem for rapidly building robotic products using reusable hardware and software components.
+* [AI & Autonomy Stack](https://www.devsora.com): Software infrastructure for perception, planning, control, and human-machine interaction.
 
-LinkedIn:
-https://linkedin.com/company/devsora
+## Status
+
+* Pre-incubated at AIC MUJ.
+* Currently rebuilding the public website and preparing future product announcements.
+
+## Optional
+
+* [Landing Page](https://www.devsora.com): Current public website.
