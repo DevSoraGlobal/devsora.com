@@ -60,8 +60,12 @@ export default function App() {
 
           <div id="logo_placeholder" className="w-32 h-8 flex items-center" aria-label="Logo Space Placeholder">
             <img
-              src="/logo.png"
+              src="/logo.webp"
               alt="DevSora Logo"
+              width="240"
+              height="80"
+              loading="eager"
+              decoding="async"
               className="h-12 w-auto object-contain"
             />
           </div>
