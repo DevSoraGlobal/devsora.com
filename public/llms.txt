@@ -1,0 +1,33 @@
+# DevSora
+
+DevSora is a deep-tech robotics and AI company.
+
+Tagline:
+Engineering The Impossible.
+
+Status:
+Pre-incubated at AIC MUJ.
+
+Vision:
+To make advanced robotics accessible to every builder, creator, and innovator.
+
+Mission:
+Building the hardware, software, and ecosystems that power the next generation of intelligent machines.
+
+Current Projects:
+
+* RIO
+* Modular Robotics Platform
+* AI & Autonomy Stack
+
+Website:
+https://www.devsora.com
+
+GitHub:
+https://github.com/DevSoraGlobal
+
+Instagram:
+https://instagram.com/devsora_global
+
+LinkedIn:
+https://linkedin.com/company/devsora
